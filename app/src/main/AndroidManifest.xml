@@ -11,17 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPT">
-        <activity
-            android:name=".Calender"
-            android:exported="true" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".LoginActivity">
+        </activity>
 
     </application>
 
