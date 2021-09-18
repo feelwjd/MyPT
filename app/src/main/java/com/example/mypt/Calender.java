@@ -1,24 +1,21 @@
-
-
 package com.example.mypt;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import androidx.annotation.NonNull;
-        import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.EditText;
+import android.widget.TextView;
 
-        import android.annotation.SuppressLint;
-        import android.content.ContentValues;
-        import android.content.Intent;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.CalendarView;
-        import android.widget.EditText;
-        import android.widget.TextView;
-
-        import java.io.FileInputStream;
-        import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class Calender extends AppCompatActivity {
 
@@ -43,9 +40,11 @@ public class Calender extends AppCompatActivity {
         contextEditText=findViewById(R.id.contextEditText);
         //로그인 및 회원가입 엑티비티에서 이름을 받아옴
         Intent intent=getIntent();
-        String name=intent.getStringExtra("userName");
-        final String userID=intent.getStringExtra("userID");
-        textView3.setText(name+"님의 운동일지");
+       // String name=intent.getStringExtra("userName");
+       // final String userID=intent.getStringExtra("userID");
+        String name =  "박상현";
+        String userID = "alexpark96";
+        textView3.setText(name+" 운동일지");
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
