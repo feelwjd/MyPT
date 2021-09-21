@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Calender"></activity>
+        <activity android:name=".BodyPicture"/>
     </application>
 
 </manifest>
