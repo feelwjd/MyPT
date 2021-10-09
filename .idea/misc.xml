@@ -4,11 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22592592592592592" />
+        <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/button_none.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/button_white.xml" value="0.18333333333333332" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22592592592592592" />
+        <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/id_24.xml" value="0.1625" />
+        <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/lock_24.xml" value="0.15185185185185185" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/drawable/lock_24dp.xml" value="0.21481481481481482" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/layout/activity_calender.xml" value="0.15534420289855072" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/layout/activity_first.xml" value="0.15534420289855072" />
+        <entry key="..\:/Android_Project/MyPT/app/src/main/res/layout/activity_join.xml" value="0.25" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/layout/activity_login.xml" value="0.18" />
         <entry key="..\:/Android_Project/MyPT/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/feelw/Desktop/WorkPlace/MyPT/app/src/main/res/layout/login_test.xml" value="0.33" />

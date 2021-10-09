@@ -14,4 +14,12 @@
         <item name="android:textColorHint">#ffffff</item>
     </style>
 
+    <style name="myEditTextstyle2">
+        <item name="colorControlNormal">#000000</item>
+        <item name="colorControlActivated">#000000</item>
+        <item name="colorControlHighlight">#000000</item>
+        <item name="colorAccent">#000000</item>
+        <item name="android:textColorHint">#A8A8A8</item>
+    </style>
+
 </resources>

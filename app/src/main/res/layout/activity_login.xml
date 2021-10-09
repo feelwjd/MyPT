@@ -6,29 +6,29 @@
     android:layout_height="match_parent"
     android:background="@drawable/night"
     tools:context=".LoginActivity"
-    android:id="@+id/container">
+    android:id="@+id/container1">
 
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="8dp"
+        android:text="로그인"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#ffffff"
-        android:text="좋은 아침입니다"
-        android:textStyle="bold"
         android:textSize="40dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout1"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:textColorHint="#ffffff"
@@ -49,9 +49,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
-        android:layout_width="0dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
         android:textColorHint="#ffffff"
@@ -85,7 +85,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_signin"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintBottom_toTopOf="@+id/tv_password"/>
+        app:layout_constraintBottom_toTopOf="@+id/btn_quit"/>
 
     <Button
         android:id="@+id/btn_signin"
@@ -99,24 +99,25 @@
         android:textSize="15dp"
         android:textStyle="bold"
         android:textColor="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/tv_password"
+        app:layout_constraintBottom_toTopOf="@+id/btn_quit"
         app:layout_constraintStart_toStartOf="@+id/btn_signup"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호를 잊어버렸나요?"
-        android:textSize="13dp"
-        android:textColor="#ffffff"
-        android:layout_marginEnd="8dp"
+    <Button
+        android:id="@+id/btn_quit"
+        android:layout_width="62dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/button_none"
+        android:text="회원탈퇴"
+        android:textColor="#ffffff"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
