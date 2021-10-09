@@ -37,7 +37,7 @@ public class BodyPicture extends AppCompatActivity {
     public void onClickNext(View view){
 
         if( ++CURRENT_INDEX > 3) {
-            Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지 입니다.", Toast.LENGTH_SHORT );
+            Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
             CURRENT_INDEX--;
@@ -59,7 +59,7 @@ public class BodyPicture extends AppCompatActivity {
 
 
         if( --CURRENT_INDEX < 0) {
-            Toast toast = Toast.makeText(BodyPicture.this, "처음 이미지 입니다.", Toast.LENGTH_SHORT );
+            Toast toast = Toast.makeText(BodyPicture.this, "처음 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
             CURRENT_INDEX++;

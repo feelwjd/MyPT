@@ -20,6 +20,9 @@
         </activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".BodyPicture"/>
+        <activity android:name=".CheckBody"/>
+        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
+
     </application>
 
 </manifest>

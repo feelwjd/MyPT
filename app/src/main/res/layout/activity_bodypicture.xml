@@ -4,16 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="ExtraText"
-    android:background="@drawable/start1">
+    android:background="@color/black">
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:textColor="#FFFFFF"
-        android:text="여기가 before after"
-        android:textSize="49dp" />
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -44,7 +39,6 @@
 
     </LinearLayout>
 
-
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
@@ -71,6 +65,7 @@
 
 
     </FrameLayout>
+
 
 </LinearLayout>
 
