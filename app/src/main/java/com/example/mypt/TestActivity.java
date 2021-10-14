@@ -22,7 +22,7 @@ public class TestActivity extends AppCompatActivity{
     public static final int LOAD_SUCCESS = 101;
 
 
-    private String REQUEST_URL = Config.APIWORKOUT;
+    private String REQUEST_URL = Config.APIWORKOUT; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
@@ -45,7 +45,7 @@ public class TestActivity extends AppCompatActivity{
                 progressDialog.setMessage("Please wait.....");
                 progressDialog.show();
 
-                getJSON();
+                getJSON(); // 아래의 getJSON() 호출 => 데이터 받아오는 부분
             }
         });
     }
@@ -85,7 +85,7 @@ public class TestActivity extends AppCompatActivity{
 
 
 
-    public void  getJSON() {
+    public void  getJSON() { //Json Parsing 하는 함수
 
         Thread thread = new Thread(new Runnable() {
 
@@ -101,12 +101,12 @@ public class TestActivity extends AppCompatActivity{
 
 
                     httpURLConnection.setReadTimeout(3000);
-                    httpURLConnection.setConnectTimeout(3000);
+                    httpURLConnection.setConnectTimeout(3000); // 연결시간이 지정시간 넘어가면 타임아웃됨
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
-                    httpURLConnection.setRequestMethod("GET");
+                    httpURLConnection.setRequestMethod("GET"); // GET 방식으로 가져오는데 이건 임시라서 POST형식으로 하는걸 추천
                     httpURLConnection.setUseCaches(false);
-                    httpURLConnection.connect();
+                    httpURLConnection.connect();  // 연결
 
 
                     int responseStatusCode = httpURLConnection.getResponseCode();
@@ -143,7 +143,8 @@ public class TestActivity extends AppCompatActivity{
                 }
 
 
-                Message message = mHandler.obtainMessage(LOAD_SUCCESS, result);
+                Message message = mHandler.obtainMessage(LOAD_SUCCESS, result); // 받아온 Json 출력하는 부분인데 솔직히 이건 프론트 분들이 잘아실꺼라 생각함 ㅎㅎ;;;
+                //나는 그냥 받아온거 그냥 쭉 보여준건데 이뿌게 잘 보이게 부탁해용^^7
                 mHandler.sendMessage(message);
             }
 
