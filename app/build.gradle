@@ -43,5 +43,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.3.1'
     //달력
     implementation "com.github.wisnukurniawan:date-time-range-picker-android:${version}"
+    implementation 'com.google.code.gson:gson:2.8.7'
 
 }
