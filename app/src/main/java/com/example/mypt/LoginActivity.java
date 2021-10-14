@@ -14,7 +14,5 @@ public class LoginActivity extends AppCompatActivity {
         //타이틀바 없애는 코드
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
-
     }
 }

@@ -20,7 +20,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 public class Calender extends AppCompatActivity {
 
     public CalendarView calendarView;
