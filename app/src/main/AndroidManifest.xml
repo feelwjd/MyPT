@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyPT">
+        android:theme="@style/Theme.MyPT"
+        android:usesCleartextTraffic="true">
         <activity android:name=".TestActivity"
                     android:exported="true">
             <intent-filter>
