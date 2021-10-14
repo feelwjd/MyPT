@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content">
+
+    <!-- 타이틀바 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="#03a9f4"
+            android:gravity="center"
+            android:text="@string/difficulty"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            tools:ignore="TextContrastCheck" />
+    </LinearLayout>
+    <!-- //end 타이틀바 -->
+
+    <!-- Notice -->
+    <LinearLayout
+        android:padding="24dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#50AF2E"
+            android:onClick="onButton2Clicked"
+            android:text="Youtube"
+            tools:layout_editor_absouluteX="0dp"
+            tools:layout_editor_absouluteY="0dp" />
+        <Button
+            android:id="@+id/btn_url2"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#50AF2E"
+            android:onClick="onButton2Clicked"
+            android:text="Naver"
+            tools:layout_editor_absouluteX="0dp"
+            tools:layout_editor_absouluteY="0dp" />
+        <Button
+            android:id="@+id/btn_url3"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#50AF2E"
+            android:onClick="onButton2Clicked"
+            android:text="Google"
+            tools:layout_editor_absouluteX="0dp"
+            tools:layout_editor_absouluteY="0dp" />
+
+
+    </LinearLayout>
+    <!-- Notice -->
+
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <!-- 닫기 버튼 -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="확인"
+            android:textSize="15sp"
+            android:textColor="#ff7a00"
+            android:padding="8dp"
+            android:gravity="center"
+            android:background="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:onClick="mOnClose"/>
+    </LinearLayout>
+
+</LinearLayout>
+
