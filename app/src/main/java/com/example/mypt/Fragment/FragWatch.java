@@ -1,35 +1,35 @@
-package com.example.mypt;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
+package com.example.mypt.Fragment;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.mypt.R;
+
 import java.util.concurrent.TimeUnit;
 
-public class Watch extends AppCompatActivity implements View.OnClickListener {
+public class FragWatch extends Fragment{
+    private View view;
 
+    private String TAG = "프래그먼트";
+    //
     private long timeCountInMilliSeconds = 1 * 60000;
     public String[] routine ={"상체","하체","기타등등"};
-    public ListView list_view ;
-
     private enum TimerStatus {
         STARTED,
         STOPPED
     }
-
     private TimerStatus timerStatus = TimerStatus.STOPPED;
     private ProgressBar progressBarCircle;
     private EditText editTextMinute;
@@ -38,82 +38,63 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
     private ImageView imageViewStartStop;
     private CountDownTimer countDownTimer;
 
-
+    //
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_watch);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.i(TAG, "onCreateView");
+        view = inflater.inflate(R.layout.frag_watch, container, false);
 
         // 뷰 초기화
         initViews();
-
         // 리스너 초기화
-        initListeners();
-
+       initListeners();
+        return view;
     }
 
+//뷰 초기화
 
-    /**
-     *  뷰 초기화
-     */
     private void initViews() {
-        list_view = findViewById(R.id.list_view);
-        progressBarCircle =  findViewById(R.id.progressBarCircle);
-        editTextMinute = findViewById(R.id.editTextMinute);
-        textViewTime = findViewById(R.id.textViewTime);
-        imageViewReset = findViewById(R.id.imageViewReset);
-        imageViewStartStop = findViewById(R.id.imageViewStartStop);
-        List<String> list = new ArrayList<>();
-        String[] ptlist = {"상체","하체","기타등등"};
-        ArrayAdapter<String>ArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ptlist){
+        progressBarCircle =  view.findViewById(R.id.progressBarCircle);
+        editTextMinute = view.findViewById(R.id.editTextMinute);
+        textViewTime = view.findViewById(R.id.textViewTime);
+        imageViewReset = view.findViewById(R.id.imageViewReset);
+        imageViewStartStop = view.findViewById(R.id.imageViewStartStop);
+
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
-            public View getView(int position, View convertView, ViewGroup parent)
-            {
-
-                View view = super.getView(position, convertView, parent);
-
-                TextView tv = (TextView) view.findViewById(android.R.id.text1);
-
-                tv.setTextColor(Color.WHITE);
-
-                return view;
-
+            public void onClick(View v) {
+                switch (view.getId()) {
+                    case R.id.imageViewReset:
+                        reset();
+                        break;
+                    case R.id.imageViewStartStop:
+                        startStop();
+                        break;
+                }
             }
         };
-
-        list_view.setAdapter(ArrayAdapter);
     }
 
-    /**
-     * 리스너 초기화
-     */
-    private void initListeners() {
-        imageViewReset.setOnClickListener(this);
-        imageViewStartStop.setOnClickListener(this);
+ //리스너 초기화
+ private void initListeners() {
+     View.OnClickListener listener = new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             switch (view.getId()) {
+                 case R.id.imageViewReset:
+                     reset();
+                     break;
+                 case R.id.imageViewStartStop:
+                     startStop();
+                     break;
+             }
+         }
+     };
 
-
-    }
-
-
-
-
-
-    /**
-     * 클릭 이벤트 설정
-     *
-     * @param view
-     */
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.imageViewReset:
-                reset();
-                break;
-            case R.id.imageViewStartStop:
-                startStop();
-                break;
-        }
-    }
+     imageViewReset.setOnClickListener(listener);
+     imageViewStartStop.setOnClickListener(listener);
+ }
 
     /**
      * 카운트 다운 시간을 리셋하고 재시작하는 기능
@@ -122,7 +103,6 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         stopCountDownTimer();
         startCountDownTimer();
     }
-
     /**
      * 타이머가 시작하고 멈추는 기능
      */
@@ -155,7 +135,6 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
-
     /**
      * 타이머에 시간이 설정 되어있는지 체크하크
      *  - 있는 경우 : 타이머에 시간 세팅
@@ -168,12 +147,11 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
             time = Integer.parseInt(editTextMinute.getText().toString().trim());
         } else {
 
-            Toast.makeText(getApplicationContext(), "시간을 설정해주세요", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "시간을 설정해주세요", Toast.LENGTH_LONG).show();
         }
 
         timeCountInMilliSeconds = time * 30 * 1000;
     }
-
     /**
      * 카운트다운 시작 기능
      */
@@ -208,7 +186,6 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         }.start();
         countDownTimer.start();
     }
-
     /**
      *  카운트 다운 정지 및 초기화
      */
@@ -224,8 +201,6 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         progressBarCircle.setMax((int) timeCountInMilliSeconds / 1000);
         progressBarCircle.setProgress((int) timeCountInMilliSeconds / 1000);
     }
-
-
     /**
      * 밀리언 초를 시간으로 포멧해주는 기능
      *
@@ -241,5 +216,6 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
 
     }
+
 
 }

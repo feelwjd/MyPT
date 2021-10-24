@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Calender_Main"></activity>
+        <activity android:name=".Watch"></activity>
 
 
     </application>

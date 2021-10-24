@@ -14,15 +14,15 @@
         android:enabled="true"
         />
     <item
-        android:id="@+id/group"
+        android:id="@+id/watch"
         android:icon="@drawable/ic_baseline_fitness_center_24"
-        android:title="group"
+        android:title="watch"
         android:enabled="true"
         />
     <item
-        android:id="@+id/hotel"
+        android:id="@+id/mypage"
         android:icon="@drawable/ic_baseline_fitness_center_24"
-        android:title="hotel"
+        android:title="mypage"
         android:enabled="true"
         />
 

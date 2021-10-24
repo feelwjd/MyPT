@@ -19,11 +19,20 @@ public class MainActivity extends AppCompatActivity {
         actionBar.hide();
 
         Button calenderBtn = (Button) findViewById(R.id.btn1);
+        Button watchbtn = (Button) findViewById(R.id.btn2);
         calenderBtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
                 Intent intent = new Intent (getApplicationContext(), Calender_Main.class);
+                startActivity(intent);
+            }
+        });
+        watchbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Watch.class);
                 startActivity(intent);
             }
         });

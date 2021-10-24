@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.mypt.R;
 
-public class FragHotel extends Fragment{
+public class FragMypage extends Fragment{
     private View view;
 
     private String TAG = "프래그먼트";
@@ -20,7 +20,7 @@ public class FragHotel extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView");
-        view = inflater.inflate(R.layout.frag_hotel, container, false);
+        view = inflater.inflate(R.layout.frag_mypage, container, false);
 
 
         return view;

@@ -8,7 +8,8 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
 a
@@ -17,6 +18,11 @@ a
         android:layout_height="wrap_content"
         android:text="calender gogoDDD"
         android:id="@+id/btn1"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="watch gogoDDD"
+        android:id="@+id/btn2"/>
 
 
 </LinearLayout>
