@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".Calender_Main"></activity>
         <activity android:name=".Watch"></activity>
+        <activity android:name=".TestActivity"></activity>
+        <activity android:name=".Calender"></activity>
 
 
     </application>

@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button calenderBtn = (Button) findViewById(R.id.btn1);
         Button watchbtn = (Button) findViewById(R.id.btn2);
+        Button ttbtn = (Button) findViewById(R.id.btn3);
+        Button calbtn = (Button) findViewById(R.id.btn4);
+
+
         calenderBtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -36,6 +40,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ttbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        calbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
