@@ -10,9 +10,16 @@ import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.Button;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -22,7 +29,7 @@ public class TestActivity extends AppCompatActivity{
     public static final int LOAD_SUCCESS = 101;
 
 
-    private String REQUEST_URL = Config.APIWORKOUT; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
+    private String REQUEST_URL = Config.APIUSER; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
@@ -92,7 +99,7 @@ public class TestActivity extends AppCompatActivity{
             public void run() {
 
                 String result;
-
+                JSONObject body = new JSONObject(); //JSON 오브젝트의 head 부분
                 try {
 
                     Log.d(TAG, REQUEST_URL);
@@ -104,10 +111,17 @@ public class TestActivity extends AppCompatActivity{
                     httpURLConnection.setConnectTimeout(3000); // 연결시간이 지정시간 넘어가면 타임아웃됨
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
-                    httpURLConnection.setRequestMethod("GET"); // GET 방식으로 가져오는데 이건 임시라서 POST형식으로 하는걸 추천
+                    httpURLConnection.setRequestMethod("POST"); // GET 방식으로 가져오는데 이건 임시라서 POST형식으로 하는걸 추천
+                    httpURLConnection.setRequestProperty("Content-Type","application/json");
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.connect();  // 연결
 
+
+                    body.put("userid","dbehdgns118");
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(httpURLConnection.getOutputStream()));
+                    bufferedWriter.write(String.valueOf(body));
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
 
                     int responseStatusCode = httpURLConnection.getResponseCode();
 
