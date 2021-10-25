@@ -16,7 +16,7 @@ public class Calender extends AppCompatActivity {
     public TextView textView1;
     public ListView listView;
     /** 여기부터 내비바 필요한거**/
-    public Button btncomu,btncal,btnmy;
+    public Button btncomu,btncal,btnmy,btnstart;
     /** 여기까지 내비바 필요한거**/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,13 @@ public class Calender extends AppCompatActivity {
         String[] values = new String[] {"상체", "복부", "하체"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
         listView.setAdapter(adapter);
+
+
         /** 여기부터 내비바 필요한거**/
         btncomu = findViewById(R.id.btncomu);
         btncal = findViewById(R.id.btncal);
         btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
 
         btncomu.setOnClickListener(new View.OnClickListener(){
 
@@ -63,10 +66,22 @@ public class Calender extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
                 Intent intent = new Intent (getApplicationContext(), Watch.class);
                 startActivity(intent);
             }
         });
+
+
+
         /** 여기까지 내비바 필요한거**/
         
 

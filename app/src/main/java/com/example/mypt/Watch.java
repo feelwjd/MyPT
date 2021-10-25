@@ -2,12 +2,14 @@ package com.example.mypt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -24,7 +26,9 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
     private long timeCountInMilliSeconds = 1 * 60000;
     public String[] routine ={"상체","하체","기타등등"};
     public ListView list_view ;
-
+    /** 여기부터 내비바 필요한거**/
+    public Button btncomu,btncal,btnmy,btnstart;
+    /** 여기까지 내비바 필요한거**/
     private enum TimerStatus {
         STARTED,
         STOPPED
@@ -49,6 +53,51 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
         // 리스너 초기화
         initListeners();
+        /** 여기부터 내비바 필요한거**/
+        btncomu = findViewById(R.id.btncomu);
+        btncal = findViewById(R.id.btncal);
+        btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
+
+        btncomu.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btncal.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnmy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        /** 여기까지 내비바 필요한거**/
 
     }
 
@@ -241,5 +290,7 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
 
     }
+
+
 
 }

@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Calender_Main"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".Calender"></activity>
+        <activity android:name=".DbTest"></activity>
 
 
     </application>
