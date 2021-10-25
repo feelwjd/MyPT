@@ -141,6 +141,7 @@ public class DbTest extends AppCompatActivity {
                 Log.d("test", "jsonString.length() "+jsonString.length());
                 Log.d("test", "buffer "+buffer);
                 Log.d("test", "buffer.length() "+buffer.length());
+
 //                for (int i = 0; i < buffer.length(); i++) {
 //                    jObject = jArray.getJSONObject(i);
 //                    // beacuse you have only one key-value pair in each object so I have used index 0
@@ -148,12 +149,13 @@ public class DbTest extends AppCompatActivity {
 //                    j=i;
 //                   // myHashMap.put(keyString, jObject.getString(keyString));
 //                }
+
                 j=3;
                 do{
-                    if(i<(buffer.length()-4)) {
+                    if(i<(buffer.length()-500)) {
                         jObject = jArray.getJSONObject(i);
 //                    // beacuse you have only one key-value pair in each object so I have used index 0
-                        keyString = (String) jObject.names().get(j);
+                         keyString = (String) jObject.names().get(j);
                         j += 3;
                         myHashMap.put(keyString, jObject.getString(keyString));
                         i++;
@@ -169,6 +171,7 @@ public class DbTest extends AppCompatActivity {
 
             return myHashMap;
         }
+
 
 
         @Override

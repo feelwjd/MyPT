@@ -35,6 +35,7 @@
         <activity android:name=".DbTest"></activity>
 
 
+
     </application>
 
 </manifest>
