@@ -29,7 +29,7 @@ public class TestActivity extends AppCompatActivity{
     public static final int LOAD_SUCCESS = 101;
 
 
-    private String REQUEST_URL = Config.APIUSER; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
+    private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
@@ -154,6 +154,9 @@ public class TestActivity extends AppCompatActivity{
 
                 } catch (Exception e) {
                     result = e.toString();
+
+                   // String title = result.getString("RoutineDate");
+
                 }
 
 
