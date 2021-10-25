@@ -2,7 +2,7 @@ package com.example.mypt;
 
 public class Config { // URL 형식으로 통신함. 각 요소에 필요한 파라미터 값을 넘겨줘야 작동함. 파라미터 값 유무 잘 확인할 것.
     // 기능이 없어지고 통합되는 부분도 있을 수 있으니 그건 따로 전달해드리겠음.
-    public static String BASE = "3.34.96.177:8000/"; //기본 우리 서버주소
+    public static String BASE = "http://3.34.96.177:8000/"; //기본 우리 서버주소
     public static String USERS = BASE + "users/"; //이거 아무것도아닌데 나중에 추가되는 부분이 있을 수 있음.
     public static String SIGNUP = BASE + "users/signup"; // 회원가입 기능. 파라미터 값으론 userid, pw, username, height, weight, sex 있음 *sex는 0이 남자 / 1이 여자임.
     public static String SIGNIN = BASE + "users/signin"; // 로그인 기능. 파라미터 값으로 userid, pw가 필요.
