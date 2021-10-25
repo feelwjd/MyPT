@@ -27,10 +27,9 @@ import java.net.URL;
 public class TestActivity extends AppCompatActivity{
     private static final String TAG = "test";
     public static final int LOAD_SUCCESS = 101;
-    String jsonString = "[{\"userid\":\"feelwjd\","
-            + "}]";
 
-    private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
+
+    private String REQUEST_URL = Config.APIUSER; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
@@ -116,6 +115,8 @@ public class TestActivity extends AppCompatActivity{
                     httpURLConnection.setRequestProperty("Content-Type","application/json");
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.connect();  // 연결
+
+
                     body.put("userid","dbehdgns118");
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(httpURLConnection.getOutputStream()));
                     bufferedWriter.write(String.valueOf(body));
