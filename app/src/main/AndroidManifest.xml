@@ -13,10 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPT">
 
-        <activity android:name=".FirstActivity">
+        <activity android:name=".Community_item_detail">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -24,6 +23,11 @@
         </activity>
         <activity android:name=".SignUpActivity">
         </activity>
+        <activity android:name=".FirstActivity">
+        </activity>
+        <activity android:name=".CommunityActivity_1">
+        </activity>
+
 
     </application>
 
