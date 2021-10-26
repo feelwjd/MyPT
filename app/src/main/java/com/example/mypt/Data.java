@@ -1,33 +1,43 @@
 package com.example.mypt;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Data {
     @SerializedName("userid")
+    @Expose
     private String userid;
 
     @SerializedName("routineid")
+    @Expose
     private int routineid;
 
     @SerializedName("UserRoutineId")
+    @Expose
     private int UserRoutineId;
 
     @SerializedName("RoutineDate")
+    @Expose
     private String RoutineDate;
 
     @SerializedName("Time")
+    @Expose
     private String Time;
 
     @SerializedName("workoutid")
+    @Expose
     private String workoutid;
 
     @SerializedName("routinename")
+    @Expose
     private String routinename;
 
     @SerializedName("description")
+    @Expose
     private String description;
 
     @SerializedName("workoutname")
+    @Expose
     private String workoutname;
 
     public String getUserid() {

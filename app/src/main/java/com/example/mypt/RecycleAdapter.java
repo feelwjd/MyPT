@@ -33,8 +33,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
 
         holder.userid.setText(dataList.get(position).getUserid());
-        holder.routineid.setText(dataList.get(position).getRoutineid());
-        holder.UserRoutineId.setText(dataList.get(position).getUserRoutineId());
+        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));
+        holder.UserRoutineId.setText(String.valueOf(dataList.get(position).getUserRoutineId()));
         holder.RoutineDate.setText(dataList.get(position).getRoutineDate());
         holder.Time.setText(dataList.get(position).getTime());
         holder.workoutid.setText(dataList.get(position).getWorkoutid());

@@ -1,19 +1,18 @@
 package com.example.mypt;
 
-import com.example.mypt.RoutineInfoResult;
-
-import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
+import retrofit2.http.Body;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface RetrofitService {
-    @FormUrlEncoded
+
+    @Headers("Content-Type: application/json")
     @POST("api/routine-info")
-    Call<TestItem> getData(@FieldMap HashMap<String, Object> param);
+    //Call<Map<String,Object>> getData(@FieldMap HashMap<String, Object> param);
+    //Call<TestItem> getData(@FieldMap HashMap<String, String> param);
+    //Call<TestItem> getData(@Query("userid") String userid);
+    Call<List<Data>> getData(@Body JsonObject jsonObject);
 }

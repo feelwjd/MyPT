@@ -15,6 +15,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.Button;
 
+import com.google.gson.Gson;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +30,7 @@ import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,13 +39,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.POST;
 
 public class TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
     TestItem dataList;
     List<Data> dataInfo;
-
+    List<Data> aaa;
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
 
@@ -53,36 +57,39 @@ public class TestActivity extends AppCompatActivity{
     //private TextView textView;
     //Data data;
     //RoutineInfoResult routineInfoResult;
-
+    Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3);
         dataInfo = new ArrayList<>();
+
         recyclerView = findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        HashMap<String ,Object> input = new HashMap<>();
-        input.put("userid","dbehdgns118");
+        //HashMap<String ,String> input = new HashMap<>();
+        //input.put("userid","dbehdgns118");
 
+        JsonObject jsonObject = new JsonObject("feelwjd");
+        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<TestItem> call = retrofitService.getData(input);
-        call.enqueue(new Callback<TestItem>() {
+        Call<List<Data>> call = retrofitService.getData(jsonObject);
+        call.enqueue(new Callback<List<Data>>() {
             @Override
-            public void onResponse(Call<TestItem> call, Response<TestItem> response) {
+            public void onResponse(Call<List<Data>> call, Response<List<Data>> response) {
                 Log.d("Test","sex");
-                dataList = response.body();
-                Log.d("TestActivity",dataList.toString());
-                dataInfo = dataList.body;
-
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),dataInfo);
+                //dataList = response.body();
+                //Log.d("TestActivity",dataList.toString());
+                //dataList = response.body().toString();
+                //dataInfo = dataList.body;
+                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
 
             @Override
-            public void onFailure(Call<TestItem> call, Throwable t) {
+            public void onFailure(Call<List<Data>> call, Throwable t) {
                 Log.d("TestActivity",t.toString());
             }
         });
