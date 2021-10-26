@@ -25,11 +25,15 @@
         <activity android:name=".jgh_SignUpActivity"></activity>
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".jgh_CommunityActivity_1"></activity>
+        <activity android:name=".jgh_Community_item_detail"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".DbTest"></activity>
-        <activity android:name=".jgh_Community_item_detail"></activity>
-
+        <activity android:name=".BodyPicture"></activity>
+        <activity android:name=".PopupActivity"></activity>
+        <activity android:name=".CheckBody"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Routine"></activity>
 
     </application>
 
