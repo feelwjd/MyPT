@@ -16,7 +16,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
-    TextView txt =(TextView) findViewById(R.id.textView);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Button ttbtn = (Button) findViewById(R.id.btn3);
         Button calbtn = (Button) findViewById(R.id.btn4);
 
-        CallRetrofit();
+       // CallRetrofit();
 
         calenderBtn.setOnClickListener(new View.OnClickListener(){
 
@@ -124,32 +124,32 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    void CallRetrofit() {
-        String postBody= "dbehdgns118";  /**txt.getText().toString();**/ //이부분에 포스트 넣을거인거같은데??
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://3.34.96.177:8000/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        PostReqeustApi postReqeustApi = retrofit.create(PostReqeustApi.class);
-
-        //Mock data test
-        PostModel postModel = new PostModel("post1", postBody);
-
-        Call<PostModel> call= postReqeustApi.PostDataIntoServer(postModel);
-
-        call.enqueue(new Callback<PostModel>() {
-            @Override
-            public void onResponse(Call<PostModel> call, Response<PostModel> response) {
-                //보여준다 결과를
-                txt.setText(response.body().bodypost);
-            }
-
-            @Override
-            public void onFailure(Call<PostModel> call, Throwable t) {
-
-            }
-        });
-
-    }
+//    void CallRetrofit() {
+//        String postBody= "dbehdgns118";  /**txt.getText().toString();**/ //이부분에 포스트 넣을거인거같은데??
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("http://3.34.96.177:8000/")
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        PostReqeustApi postReqeustApi = retrofit.create(PostReqeustApi.class);
+//
+//        //Mock data test
+//        PostModel postModel = new PostModel("post1", postBody);
+//
+//        Call<PostModel> call= postReqeustApi.PostDataIntoServer(postModel);
+//
+//        call.enqueue(new Callback<PostModel>() {
+//            @Override
+//            public void onResponse(Call<PostModel> call, Response<PostModel> response) {
+//                //보여준다 결과를
+//                txt.setText(response.body().bodypost);
+//            }
+//
+//            @Override
+//            public void onFailure(Call<PostModel> call, Throwable t) {
+//
+//            }
+//        });
+//
+//    }
 }

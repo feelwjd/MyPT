@@ -36,13 +36,7 @@ a
         android:text="cal gogoDDD"
         android:id="@+id/btn4"/>
 
-    <TextView
-        android:id="@+id/textview"
-        android:textSize="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        tools:ignore="MissingConstraints"></TextView>
+
 </LinearLayout>
 
 
