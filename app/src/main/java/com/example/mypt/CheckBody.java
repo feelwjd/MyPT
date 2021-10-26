@@ -9,35 +9,69 @@ import android.widget.Button;
 
 public class CheckBody extends AppCompatActivity {
 
+    public Button btncomu,btncal,btnmy,btnstart,mainbtn1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbody);
 
-        Button imageButton = (Button) findViewById(R.id.btn1);
-        imageButton.setOnClickListener(new View.OnClickListener(){
+        mainbtn1 = findViewById(R.id.mainbtn1);
+
+        mainbtn1.setOnClickListener(new View.OnClickListener(){
+
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(), BodyPicture.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
                 startActivity(intent);
             }
         });
 
-        imageButton = (Button) findViewById(R.id.btn2);
-        imageButton.setOnClickListener(new View.OnClickListener(){
+        /** 여기부터 내비바 필요한거**/
+        btncomu = findViewById(R.id.btncomu);
+        btncal = findViewById(R.id.btncal);
+        btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
+
+        btncomu.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
-            Intent intent = new Intent(getApplicationContext(), Routine.class);
-            startActivity(intent);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
             }
-    }
-        );
+        });
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        btncal.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnmy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                startActivity(intent);
+            }
+        });
 
 
+
+        /** 여기까지 내비바 필요한거**/
     }
 }

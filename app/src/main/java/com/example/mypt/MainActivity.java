@@ -32,11 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        watchbtn.setOnClickListener(new View.OnClickListener(){
+        Button checkbtn = (Button) findViewById(R.id.button2);
+        checkbtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
                 startActivity(intent);
             }
         });

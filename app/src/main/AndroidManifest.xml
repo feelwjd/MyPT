@@ -3,7 +3,6 @@
     package="com.example.mypt">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyPT"
-        android:usesCleartextTraffic="true"
-        >
+        android:theme="@style/Theme.MyPT">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Watch"></activity>
-        <activity android:name=".TestActivity"></activity>
         <activity android:name=".Calender"></activity>
-        <activity android:name=".DbTest"></activity>
-
+        <activity android:name=".BodyPicture"/>
+        <activity android:name=".CheckBody"/>
+        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
 
     </application>
 
