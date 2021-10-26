@@ -149,13 +149,13 @@ public class TestActivity extends AppCompatActivity{
                     while ((line = bufferedReader.readLine()) != null) {
                         //sb.append(line);
                         aa.add(bufferedReader.readLine());
-                        
+
                     }
 
                     bufferedReader.close();
                     httpURLConnection.disconnect();
 
-                    
+
                     results = aa;
 
                 } catch (Exception e) {
@@ -165,7 +165,7 @@ public class TestActivity extends AppCompatActivity{
                 //ItemAdapter itemAdapter = new ItemAdapter()
                 Message message = mHandler.obtainMessage(LOAD_SUCCESS, results); // 받아온 Json 출력하는 부분인데 솔직히 이건 프론트 분들이 잘아실꺼라 생각함 ㅎㅎ;;;
                 //나는 그냥 받아온거 그냥 쭉 보여준건데 이뿌게 잘 보이게 부탁해용^^7
-                //mHandler.sendMessage(message);
+                mHandler.sendMessage(message);
 
             }
 
