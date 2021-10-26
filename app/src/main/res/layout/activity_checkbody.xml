@@ -15,7 +15,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -27,6 +27,7 @@
             android:layout_marginLeft="30dp"
             android:backgroundTint="#050F4E"
             android:fontFamily="@font/hsfont"
+            android:textColor="@color/white"
             android:text="당신의 달라진 몸 확인해보세요!"
             android:textSize="23dp"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -36,37 +37,80 @@
             android:layout_width="170dp"
             android:layout_height="150dp"
             android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/mainbtn1"
             android:backgroundTint="#FA014059"
+            android:textColor="@color/white"
             android:fontFamily="@font/hsfont"
-            android:text="나만의 루틴을   만들어볼까요?"
+            android:text="나만의 루틴을       만들어볼까요?"
             android:textSize="23dp" />
-    </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/mainbtn3"
+            android:layout_width="360dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/mainbtn2"
+            android:backgroundTint="#B10076"
+            android:fontFamily="@font/hsfont"
+            android:text="AI가 추천하는 당신의 루틴 !"
+            android:textSize="23dp" />
+
+        <Button
+            android:id="@+id/mainbtn4"
+            android:layout_width="360dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@+id/mainbtn3"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#730024"
+            android:fontFamily="@font/hsfont"
+            android:text="커뮤니티 사이트로 이동 !"
+            android:textSize="23dp" />
+    </RelativeLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
 
-    <Button
-        android:id="@+id/mainbtn3"
-        android:layout_width="360dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#B10076"
-        android:fontFamily="@font/hsfont"
-        android:text="AI가 추천하는 당신의 루틴 !"
-        android:textSize="23dp" />
+        tools:ignore="MissingConstraints">
 
-    <Button
-        android:id="@+id/mainbtn4"
-        android:layout_width="360dp"
-        android:layout_height="70dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#730024"
-        android:fontFamily="@font/hsfont"
-        android:text="커뮤니티 사이트로 이동 !"
-        android:textSize="23dp" />
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/btncomu"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:text="COMUNITY" />
 
+        <Button
+            android:id="@+id/btncal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Calender" />
+
+        <Button
+            android:id="@+id/btnmy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="MYPAGE" />
+        <Button
+            android:id="@+id/btnstart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="START" />
+
+    </LinearLayout>
 
     </LinearLayout>
