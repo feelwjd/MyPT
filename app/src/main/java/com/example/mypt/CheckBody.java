@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class CheckBody extends AppCompatActivity {
 
-    public Button btncomu,btncal,btnmy,btnstart,mainbtn1;
+    public Button btncomu,btncal,btnmy,btnstart,mainbtn1,mainbtn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,17 @@ public class CheckBody extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
+                startActivity(intent);
+            }
+        });
+        mainbtn2 = findViewById(R.id.mainbtn2);
+
+        mainbtn2.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),SearchList.class);
                 startActivity(intent);
             }
         });

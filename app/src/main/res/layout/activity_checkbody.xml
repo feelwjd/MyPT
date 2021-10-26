@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="250dp"
         android:orientation="horizontal">
 
     </LinearLayout>
@@ -32,6 +32,7 @@
             android:textSize="23dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
+
         <Button
             android:id="@+id/mainbtn2"
             android:layout_width="170dp"
@@ -39,12 +40,10 @@
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/mainbtn1"
             android:backgroundTint="#FA014059"
-            android:textColor="@color/white"
             android:fontFamily="@font/hsfont"
             android:text="나만의 루틴을       만들어볼까요?"
+            android:textColor="@color/white"
             android:textSize="23dp" />
-
-
 
         <Button
             android:id="@+id/mainbtn3"

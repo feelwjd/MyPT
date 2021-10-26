@@ -36,7 +36,7 @@ public class BodyPicture extends AppCompatActivity {
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 3) {
+        if( ++CURRENT_INDEX > 1) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
