@@ -32,8 +32,6 @@
         <activity android:name=".BodyPicture"/>
         <activity android:name=".CheckBody"/>
         <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
-
-
         <activity android:name=".DbTest"></activity>
 
 
