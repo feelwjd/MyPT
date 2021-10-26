@@ -32,6 +32,32 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        watchbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                startActivity(intent);
+            }
+        });
+        ttbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+                startActivity(intent);
+            }
+        });
+
+        calbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
 
         ttbtn.setOnClickListener(new View.OnClickListener(){
 
