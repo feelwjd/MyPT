@@ -14,30 +14,14 @@ public class CheckBody extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbody);
 
-        Button imageButton = (Button) findViewById(R.id.btn1);
-        imageButton.setOnClickListener(new View.OnClickListener(){
+        Button imageButton = (Button) findViewById(R.id.mainbtn1);
+        imageButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(), BodyPicture.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
                 startActivity(intent);
             }
         });
-
-        imageButton = (Button) findViewById(R.id.btn2);
-        imageButton.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-            Intent intent = new Intent(getApplicationContext(), Routine.class);
-            startActivity(intent);
-            }
-    }
-        );
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-
-
     }
 }

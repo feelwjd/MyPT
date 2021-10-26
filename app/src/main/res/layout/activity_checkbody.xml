@@ -3,108 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@drawable/start1" >
-
+    android:background="#222121"
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="350dp"
+        android:orientation="horizontal">
 
+    </LinearLayout>
 
-        <Button
-            android:id="@+id/btn1"
-            android:fontFamily="@font/hsfont"
-            android:backgroundTint="#50AF2E"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:insetLeft="55dp"
-            android:layout_marginBottom="40dp"
-            android:text="사진 비교" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn2"
+            android:id="@+id/mainbtn1"
+            android:layout_width="170dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="30dp"
+            android:backgroundTint="#050F4E"
             android:fontFamily="@font/hsfont"
-            android:backgroundTint="#50AF2E"
-            android:textSize="20dp"
+            android:text="당신의 달라진 몸 확인해보세요!"
+            android:textSize="23dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="90dp"
-            android:text="루틴 설정" />
+        <Button
+            android:id="@+id/mainbtn2"
+            android:layout_width="170dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#FA014059"
+            android:fontFamily="@font/hsfont"
+            android:text="나만의 루틴을   만들어볼까요?"
+            android:textSize="23dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+    <Button
+        android:id="@+id/mainbtn3"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#B10076"
+        android:fontFamily="@font/hsfont"
+        android:text="AI가 추천하는 당신의 루틴 !"
+        android:textSize="23dp" />
+
+    <Button
+        android:id="@+id/mainbtn4"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#730024"
+        android:fontFamily="@font/hsfont"
+        android:text="커뮤니티 사이트로 이동 !"
+        android:textSize="23dp" />
 
 
     </LinearLayout>
-    <ScrollView
-
-        android:id="@+id/ScrollView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/btn3"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:drawableBottom="@drawable/chest"
-                android:drawablePadding="0dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/btn4"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/back"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/btn5"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/leg"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/btn6"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/biceps"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-            <Button
-                android:id="@+id/btn7"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/triceps" />
-
-            <Button
-                android:id="@+id/btn8"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/shoulder" />
-
-            <Button
-                android:id="@+id/btn9"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:drawableBottom="@drawable/physical" />
-        </LinearLayout>
-    </ScrollView>
-
-
-
-</LinearLayout>
