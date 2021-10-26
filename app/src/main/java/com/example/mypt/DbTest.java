@@ -25,7 +25,7 @@ import java.net.URL;
 
 
 public class DbTest extends AppCompatActivity {
-
+    Boolean ifis = true;
     private TextView tvData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +83,7 @@ public class DbTest extends AppCompatActivity {
 
                     String line = "";
                     while((line = reader.readLine()) != null){
+
                         Log.d("test",line);
                         buffer.append(line);
                     }
