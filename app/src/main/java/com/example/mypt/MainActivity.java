@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.hide();
 
         Button calenderBtn = (Button) findViewById(R.id.btn1);
-        Button watchbtn = (Button) findViewById(R.id.btn2);
+
         Button ttbtn = (Button) findViewById(R.id.btn3);
         Button calbtn = (Button) findViewById(R.id.btn4);
 
@@ -32,15 +32,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Button checkbtn = (Button) findViewById(R.id.button2);
-        checkbtn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
-                startActivity(intent);
-            }
-        });
+
+
         ttbtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
