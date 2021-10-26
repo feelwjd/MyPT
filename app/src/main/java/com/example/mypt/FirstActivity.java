@@ -8,7 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class jgh_FirstActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,10 @@ public class jgh_FirstActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(jgh_FirstActivity.this, jgh_LoginActivity.class);
+                Intent intent = new Intent(FirstActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
-        }, 50);
+        }, 500);
     }
     public void onBackPressed() {
         //2000밀리초 = 2초

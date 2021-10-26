@@ -51,7 +51,7 @@ public class DbTest extends AppCompatActivity {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("userid", "dbehdgns118");
+                jsonObject.accumulate("userid", "testgirl");
                 //jsonObject.accumulate("name", "yun");
 
                 HttpURLConnection con = null;

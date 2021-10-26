@@ -15,17 +15,17 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".jgh_FirstActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".jgh_LoginActivity"></activity>
-        <activity android:name=".jgh_SignUpActivity"></activity>
+        <activity android:name=".FirstActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".TestActivity"></activity>
-        <activity android:name=".jgh_CommunityActivity_1"></activity>
-        <activity android:name=".jgh_Community_item_detail"></activity>
+        <activity android:name=".CommunityActivity_1"></activity>
+        <activity android:name=".Community_item_detail"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".DbTest"></activity>

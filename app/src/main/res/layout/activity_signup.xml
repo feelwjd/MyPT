@@ -8,7 +8,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".jgh_SignUpActivity"
+    tools:context=".SignUpActivity"
     android:id="@+id/container2">
 
     <TextView
@@ -20,7 +20,7 @@
         android:textColor="@color/black"
         android:textSize="35dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/id"
+        app:layout_constraintBottom_toTopOf="@+id/userid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -103,33 +103,20 @@
         app:layout_constraintStart_toStartOf="@+id/weight"
         app:layout_constraintTop_toBottomOf="@+id/weight" />
 
-    <EditText
-        android:id="@+id/img_path"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="이미지 (경로)"
-        android:inputType="textPersonName"
-        android:theme="@style/myEditTextstyle2"
-        app:layout_constraintEnd_toEndOf="@+id/sex"
-        app:layout_constraintStart_toStartOf="@+id/sex"
-        app:layout_constraintTop_toBottomOf="@+id/sex" />
-
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"
         android:maxHeight="200dp"
         android:src="@drawable/img_icon"
-        app:layout_constraintEnd_toEndOf="@+id/img_path"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/img_path"
-        app:layout_constraintTop_toBottomOf="@+id/img_path" />
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/sex"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="@+id/sex"
+        app:layout_constraintTop_toBottomOf="@+id/sex" />
 
     <Button
         android:id="@+id/btn_register"
@@ -142,7 +129,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/image"
-        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/image"
         app:layout_constraintVertical_bias="0.0" />
@@ -162,12 +148,11 @@
         android:id="@+id/img_btn"
         android:layout_width="90dp"
         android:layout_height="45dp"
-        android:layout_marginTop="500dp"
-        android:text="이미지선택"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="28dp"
         android:onClick="loadImagefromGallery"
+        android:text="이미지선택"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toEndOf="@+id/img_path"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
