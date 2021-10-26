@@ -23,6 +23,7 @@ import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class TestActivity extends AppCompatActivity{
     private static final String TAG = "test";
@@ -34,15 +35,16 @@ public class TestActivity extends AppCompatActivity{
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+        //ArrayList<RoutineInfoVO> list = new ArrayList<>();
 
         Button buttonRequestJSON = (Button)findViewById(R.id.button_main_requestjson);
-        textviewJSONText = (TextView)findViewById(R.id.textview_main_jsontext);
-        textviewJSONText.setMovementMethod(new ScrollingMovementMethod());
+        //textviewJSONText = (TextView)findViewById(R.id.textview_main_jsontext);
+        //textviewJSONText.setMovementMethod(new ScrollingMovementMethod());
+
 
         buttonRequestJSON.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +102,7 @@ public class TestActivity extends AppCompatActivity{
 
                 String result;
                 JSONObject body = new JSONObject(); //JSON 오브젝트의 head 부분
+                ArrayList<String> results = null;
                 try {
 
                     Log.d(TAG, REQUEST_URL);
@@ -140,26 +143,30 @@ public class TestActivity extends AppCompatActivity{
 
                     StringBuilder sb = new StringBuilder();
                     String line;
+                    ArrayList<String> aa = new ArrayList<String>();
 
 
                     while ((line = bufferedReader.readLine()) != null) {
-                        sb.append(line);
+                        //sb.append(line);
+                        aa.add(bufferedReader.readLine());
+                        
                     }
 
                     bufferedReader.close();
                     httpURLConnection.disconnect();
 
-                    result = sb.toString().trim();
-
+                    
+                    results = aa;
 
                 } catch (Exception e) {
                     result = e.toString();
                 }
 
-
-                Message message = mHandler.obtainMessage(LOAD_SUCCESS, result); // 받아온 Json 출력하는 부분인데 솔직히 이건 프론트 분들이 잘아실꺼라 생각함 ㅎㅎ;;;
+                //ItemAdapter itemAdapter = new ItemAdapter()
+                Message message = mHandler.obtainMessage(LOAD_SUCCESS, results); // 받아온 Json 출력하는 부분인데 솔직히 이건 프론트 분들이 잘아실꺼라 생각함 ㅎㅎ;;;
                 //나는 그냥 받아온거 그냥 쭉 보여준건데 이뿌게 잘 보이게 부탁해용^^7
-                mHandler.sendMessage(message);
+                //mHandler.sendMessage(message);
+
             }
 
         });
