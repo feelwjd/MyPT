@@ -1,4 +1,4 @@
-package com.example.mypt;//package com.example.mypt;
+//package com.example.mypt;
 //
 //import androidx.appcompat.app.AppCompatActivity;
 //import androidx.core.app.ComponentActivity;

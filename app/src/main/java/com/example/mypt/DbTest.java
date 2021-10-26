@@ -1,17 +1,17 @@
 package com.example.mypt;
 
 
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.*;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -51,7 +51,7 @@ public class DbTest extends AppCompatActivity {
             try {
                 //JSONObject를 만들고 key value 형식으로 값을 저장해준다.
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.accumulate("userid", "testgirl");
+                jsonObject.accumulate("userid", "dbehdgns118");
                 //jsonObject.accumulate("name", "yun");
 
                 HttpURLConnection con = null;

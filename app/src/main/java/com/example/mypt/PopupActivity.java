@@ -7,8 +7,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.mypt.R;
 
 public class PopupActivity extends AppCompatActivity {
 

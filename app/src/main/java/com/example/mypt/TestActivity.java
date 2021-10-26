@@ -1,17 +1,18 @@
 package com.example.mypt;
 
-import android.app.ProgressDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.app.ProgressDialog;
 import android.os.Handler;
 import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -28,7 +29,7 @@ public class TestActivity extends AppCompatActivity{
     public static final int LOAD_SUCCESS = 101;
 
 
-    private String REQUEST_URL = Config.APIUSER; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
+    private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     private ProgressDialog progressDialog;
     private TextView textviewJSONText;
@@ -106,8 +107,8 @@ public class TestActivity extends AppCompatActivity{
                     HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 
 
-                    httpURLConnection.setReadTimeout(5000);
-                    httpURLConnection.setConnectTimeout(5000); // 연결시간이 지정시간 넘어가면 타임아웃됨
+                    httpURLConnection.setReadTimeout(3000);
+                    httpURLConnection.setConnectTimeout(3000); // 연결시간이 지정시간 넘어가면 타임아웃됨
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setRequestMethod("POST"); // GET 방식으로 가져오는데 이건 임시라서 POST형식으로 하는걸 추천
@@ -116,7 +117,7 @@ public class TestActivity extends AppCompatActivity{
                     httpURLConnection.connect();  // 연결
 
 
-                    body.put("userid","testgirl");
+                    body.put("userid","dbehdgns118");
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(httpURLConnection.getOutputStream()));
                     bufferedWriter.write(String.valueOf(body));
                     bufferedWriter.flush();

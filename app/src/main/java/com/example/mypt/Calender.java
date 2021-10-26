@@ -1,16 +1,29 @@
 package com.example.mypt;
 
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+>>>>>>> origin/psh2
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+<<<<<<< HEAD
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+=======
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+>>>>>>> origin/psh2
 public class Calender extends AppCompatActivity {
     public TextView textView1;
     public ListView listView;
