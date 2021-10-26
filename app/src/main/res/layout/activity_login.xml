@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/night"
-    tools:context=".LoginActivity"
+    tools:context=".jgh_LoginActivity"
     android:id="@+id/container1">
 
     <TextView
@@ -37,6 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout2">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="아이디"
@@ -60,6 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/btn_signup">
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="비밀번호"

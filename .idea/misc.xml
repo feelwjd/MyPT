@@ -3,11 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_fitness_center_24.xml" value="0.27395833333333336" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/id_24.xml" value="0.27395833333333336" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/lock_24.xml" value="0.27395833333333336" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_bodypicture.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_calender.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_checkbody.xml" value="0.2318840579710145" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_1.xml" value="0.2318840579710145" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_item_detail.xml" value="0.2318840579710145" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_first.xml" value="0.2318840579710145" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_login.xml" value="0.2318840579710145" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_main.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_popup.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_routine.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_signup.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_test.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_watch.xml" value="0.12487335359675786" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/dbtest.xml" value="0.2318840579710145" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/tt.xml" value="0.2318840579710145" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/CalenderActivity.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_calender.xml" value="0.22" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_first.xml" value="0.3125" />

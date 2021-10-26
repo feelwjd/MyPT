@@ -8,7 +8,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity"
+    tools:context=".jgh_SignUpActivity"
     android:id="@+id/container2">
 
     <TextView
@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/id"
+        android:id="@+id/userid"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="120dp"
@@ -47,12 +47,12 @@
         android:hint="비밀번호 (10자 이내)"
         android:inputType="textPersonName"
         android:theme="@style/myEditTextstyle2"
-        app:layout_constraintEnd_toEndOf="@+id/id"
-        app:layout_constraintStart_toStartOf="@+id/id"
-        app:layout_constraintTop_toBottomOf="@+id/id" />
+        app:layout_constraintEnd_toEndOf="@+id/userid"
+        app:layout_constraintStart_toStartOf="@+id/userid"
+        app:layout_constraintTop_toBottomOf="@+id/userid" />
 
     <EditText
-        android:id="@+id/nickname"
+        android:id="@+id/username"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -73,9 +73,9 @@
         android:hint="키 (cm)"
         android:inputType="textPersonName"
         android:theme="@style/myEditTextstyle2"
-        app:layout_constraintEnd_toEndOf="@+id/nickname"
-        app:layout_constraintStart_toStartOf="@+id/nickname"
-        app:layout_constraintTop_toBottomOf="@+id/nickname" />
+        app:layout_constraintEnd_toEndOf="@+id/username"
+        app:layout_constraintStart_toStartOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
         android:id="@+id/weight"
@@ -90,31 +90,21 @@
         app:layout_constraintStart_toStartOf="@+id/height"
         app:layout_constraintTop_toBottomOf="@+id/height" />
 
-    <RadioGroup android:id="@+id/sex"
-        android:orientation="horizontal"
+    <EditText
+        android:id="@+id/sex"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="15dp"
-
+        android:ems="10"
+        android:hint="성별 (남성 = 0, 여성 = 1)"
+        android:inputType="textPersonName"
+        android:theme="@style/myEditTextstyle2"
         app:layout_constraintEnd_toEndOf="@+id/weight"
         app:layout_constraintStart_toStartOf="@+id/weight"
-        app:layout_constraintTop_toBottomOf="@+id/weight">
-        <RadioButton android:layout_weight="1"
-            android:text="남자"
-            android:id="@+id/rg_btn1"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:textSize="18dp"/>
-        <RadioButton android:layout_weight="1"
-            android:text="여자"
-            android:id="@+id/rg_btn2"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:textSize="18dp"/>
-    </RadioGroup>
+        app:layout_constraintTop_toBottomOf="@+id/weight" />
 
     <EditText
-        android:id="@+id/img"
+        android:id="@+id/img_path"
         android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginTop="15dp"
@@ -127,7 +117,7 @@
         app:layout_constraintTop_toBottomOf="@+id/sex" />
 
     <ImageView
-        android:id="@+id/img_view"
+        android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
@@ -136,11 +126,10 @@
         android:maxWidth="200dp"
         android:maxHeight="200dp"
         android:src="@drawable/img_icon"
-        app:layout_constraintEnd_toEndOf="@+id/img"
+        app:layout_constraintEnd_toEndOf="@+id/img_path"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/img"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        />
+        app:layout_constraintStart_toStartOf="@+id/img_path"
+        app:layout_constraintTop_toBottomOf="@+id/img_path" />
 
     <Button
         android:id="@+id/btn_register"
@@ -152,10 +141,10 @@
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/img_view"
+        app:layout_constraintEnd_toEndOf="@+id/image"
         app:layout_constraintHorizontal_bias="0.411"
-        app:layout_constraintStart_toStartOf="@+id/img_view"
-        app:layout_constraintTop_toBottomOf="@+id/img_view"
+        app:layout_constraintStart_toStartOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/image"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -166,7 +155,7 @@
         android:text="중복확인"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toEndOf="@+id/id"
+        app:layout_constraintStart_toEndOf="@+id/userid"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -178,7 +167,7 @@
         android:onClick="loadImagefromGallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.44"
-        app:layout_constraintStart_toEndOf="@+id/img"
+        app:layout_constraintStart_toEndOf="@+id/img_path"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
