@@ -8,110 +8,104 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class RequestHttpURLConnection {
-    public ArrayList<RoutineInfoVO> request(String _url, JSONObject _params){
+    public String request(String _url, ContentValues _params){
 
         // HttpURLConnection 참조 변수.
-        //HttpURLConnection urlConn = null;
+        HttpURLConnection urlConn = null;
         // URL 뒤에 붙여서 보낼 파라미터.
-        //StringBuffer sbParams = new StringBuffer();
+        StringBuffer sbParams = new StringBuffer();
 
         /**
          * 1. StringBuffer에 파라미터 연결
          * */
         // 보낼 데이터가 없으면 파라미터를 비운다.
+        if (_params == null)
+            sbParams.append("");
+            // 보낼 데이터가 있으면 파라미터를 채운다.
+        else {
+            // 파라미터가 2개 이상이면 파라미터 연결에 &가 필요하므로 스위칭할 변수 생성.
+            boolean isAnd = false;
+            // 파라미터 키와 값.
+            String key;
+            String value;
 
-        /**
-         * 2. HttpURLConnection을 통해 web의 데이터를 가져온다.
-         * */
-        ArrayList<RoutineInfoVO> list_routineinfo = new ArrayList<>();
-        Gson gson = new Gson();
-        //String result;
-        JSONObject body = new JSONObject(); //JSON 오브젝트의 head 부분
+            for(Map.Entry<String, Object> parameter : _params.valueSet()){
+                key = parameter.getKey();
+                value = parameter.getValue().toString();
+
+                // 파라미터가 두개 이상일때, 파라미터 사이에 &를 붙인다.
+                if (isAnd)
+                    sbParams.append("&");
+
+                sbParams.append(key).append("=").append(value);
+
+                // 파라미터가 2개 이상이면 isAnd를 true로 바꾸고 다음 루프부터 &를 붙인다.
+                if (!isAnd)
+                    if (_params.size() >= 2)
+                        isAnd = true;
+            }
+        }
         try {
 
 
             URL url = new URL(_url);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            urlConn = (HttpURLConnection) url.openConnection();
 
+            // [2-1]. urlConn 설정.
+            urlConn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : POST.
+            urlConn.setRequestProperty("Accept-Charset", "UTF-8"); // Accept-Charset 설정.
+            urlConn.setRequestProperty("Context_Type", "application/x-www-form-urlencoded;cahrset=UTF-8");
 
-            httpURLConnection.setReadTimeout(3000);
-            httpURLConnection.setConnectTimeout(3000); // 연결시간이 지정시간 넘어가면 타임아웃됨
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestMethod("POST"); // GET 방식으로 가져오는데 이건 임시라서 POST형식으로 하는걸 추천
-            httpURLConnection.setRequestProperty("Content-Type","application/json");
-            httpURLConnection.setUseCaches(false);
-            httpURLConnection.connect();  // 연결
+            // [2-2]. parameter 전달 및 데이터 읽어오기.
+            String strParams = sbParams.toString(); //sbParams에 정리한 파라미터들을 스트링으로 저장. 예)id=id1&pw=123;
+            OutputStream os = urlConn.getOutputStream();
+            os.write(strParams.getBytes("UTF-8")); // 출력 스트림에 출력.
+            os.flush(); // 출력 스트림을 플러시(비운다)하고 버퍼링 된 모든 출력 바이트를 강제 실행.
+            os.close(); // 출력 스트림을 닫고 모든 시스템 자원을 해제.
 
+            // [2-3]. 연결 요청 확인.
+            // 실패 시 null을 리턴하고 메서드를 종료.
+            if (urlConn.getResponseCode() != HttpURLConnection.HTTP_OK)
+                return null;
 
-            body.put("userid","dbehdgns118");
-            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(httpURLConnection.getOutputStream()));
-            bufferedWriter.write(String.valueOf(_params));
+            // [2-4]. 읽어온 결과물 리턴.
+            // 요청한 URL의 출력물을 BufferedReader로 받는다.
+            BufferedReader reader = new BufferedReader(new InputStreamReader(urlConn.getInputStream(), "UTF-8"));
 
-            bufferedWriter.flush();
-            bufferedWriter.close();
+            // 출력물의 라인과 그 합에 대한 변수.
+            String line;
+            String page = "";
 
-            int responseStatusCode = httpURLConnection.getResponseCode();
-
-            InputStream inputStream;
-            if (responseStatusCode == HttpURLConnection.HTTP_OK) {
-
-                inputStream = httpURLConnection.getInputStream();
-            } else {
-                inputStream = httpURLConnection.getErrorStream();
-
-            }
-            byte[] aaa = new byte[inputStream.available()];
-            inputStream.read(aaa);
-            inputStream.close();
-            String json = new String(aaa,"UTF-8");
-
-            JSONObject jsonObject = new JSONObject(json);
-
-            JSONArray jsonArray = jsonObject.getJSONArray("ROUTINEINFO");
-
-            int index = 0;
-
-            while (index < jsonArray.length()) {
-
-                RoutineInfoVO routineInfoVO = gson.fromJson(jsonArray.get(index).toString(), RoutineInfoVO.class);
-                list_routineinfo.add(routineInfoVO);
-                index++;
+            // 라인을 받아와 합친다.
+            while ((line = reader.readLine()) != null){
+                page += line;
             }
 
-            //InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "UTF-8");
-           // BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            return page;
 
-            //StringBuilder sb = new StringBuilder();
-            //String line;
-
-
-            //while ((line = bufferedReader.readLine()) != null) {
-            //    sb.append(line);
-            //}
-
-           // bufferedReader.close();
-            httpURLConnection.disconnect();
-
-            //result = sb.toString().trim();
-            return list_routineinfo;
-
-
-        } catch (Exception e) {
-            //result = e.toString();
+        } catch (MalformedURLException e) { // for URL.
+            e.printStackTrace();
+        } catch (IOException e) { // for openConnection().
+            e.printStackTrace();
+        } finally {
+            if (urlConn != null)
+                urlConn.disconnect();
         }
 
+        return null;
 
-    return null;
     }
 
 
