@@ -14,38 +14,10 @@
         android:text="userid"
         android:textColor="#000000"
         android:textSize="15dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/routinename"
-            android:layout_width="325dp"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:paddingLeft="5dp"
-            android:text="routinename" />
-
-        <TextView
-            android:id="@+id/Time"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:paddingRight="5dp"
-            android:text="Time" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/UserRoutineId"
-            android:layout_width="325dp"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:paddingLeft="5dp"
-            android:text="UserRoutineId" />
 
         <TextView
             android:id="@+id/RoutineDate"
@@ -56,27 +28,7 @@
             android:text="Date" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/workoutid"
-            android:layout_width="325dp"
-            android:layout_height="match_parent"
-            android:layout_weight="9"
-            android:paddingLeft="5dp"
-            android:text="workoutid" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:paddingRight="5dp"
-            android:text="description" />
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -88,14 +40,6 @@
             android:layout_weight="9"
             android:paddingLeft="5dp"
             android:text="workoutname" />
-
-        <TextView
-            android:id="@+id/routineid"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:paddingRight="5dp"
-            android:text="routineid" />
 
     </LinearLayout>
 </LinearLayout>

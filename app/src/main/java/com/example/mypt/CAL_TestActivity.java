@@ -19,11 +19,11 @@ import retrofit2.Response;
 public class CAL_TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
-    TestItem dataList;
-    List<Data> dataInfo;
-    List<Data> aaa;
+
+    List<CAL_Data> dataInfo;
+
     RecyclerView recyclerView;
-    RecycleAdapter recycleAdapter;
+    CAL_RecycleAdapter recycleAdapter;
 
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
@@ -36,7 +36,7 @@ public class CAL_TestActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test3);
+        setContentView(R.layout.cal_activity_test3);
         dataInfo = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -49,22 +49,22 @@ public class CAL_TestActivity extends AppCompatActivity{
 
         JsonObject jsonObject = new JsonObject("feelwjd");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
-        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<Data>> call = retrofitService.getData(jsonObject);
-        call.enqueue(new Callback<List<Data>>() {
+        CAL_RetrofitService retrofitService = CAL_APIClient.getClient().create(CAL_RetrofitService.class);
+        Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);
+        call.enqueue(new Callback<List<CAL_Data>>() {
             @Override
-            public void onResponse(Call<List<Data>> call, Response<List<Data>> response) {
+            public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
                 Log.d("Test","sex");
                 //dataList = response.body();
                 //Log.d("TestActivity",dataList.toString());
                 //dataList = response.body().toString();
                 //dataInfo = dataList.body;
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<Data>> call, Throwable t) {
+            public void onFailure(Call<List<CAL_Data>> call, Throwable t) {
                 Log.d("TestActivity",t.toString());
             }
         });

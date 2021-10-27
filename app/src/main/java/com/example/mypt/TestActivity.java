@@ -44,9 +44,10 @@ import retrofit2.http.POST;
 public class TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
-    TestItem dataList;
+
     List<Data> dataInfo;
-    List<Data> aaa;
+    //List<CAL_Data> dataInfo2;
+
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
 
