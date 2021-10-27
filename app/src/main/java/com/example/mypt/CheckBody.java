@@ -9,7 +9,8 @@ import android.widget.Button;
 
 public class CheckBody extends AppCompatActivity {
 
-    public Button btncomu,btncal,btnmy,btnstart,mainbtn1,mainbtn2;
+    public Button btncomu,btncal,btnmy,btnstart;
+    public Button mainbtn1,mainbtn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
