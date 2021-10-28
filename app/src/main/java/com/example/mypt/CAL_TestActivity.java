@@ -21,7 +21,6 @@ public class CAL_TestActivity extends AppCompatActivity{
     //public static final int LOAD_SUCCESS = 101;
 
     List<CAL_Data> dataInfo;
-
     RecyclerView recyclerView;
     CAL_RecycleAdapter recycleAdapter;
 
@@ -36,19 +35,12 @@ public class CAL_TestActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cal_activity_test3);
+        setContentView(R.layout.tt);
         dataInfo = new ArrayList<>();
-
         recyclerView = findViewById(R.id.recyclerView);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-        //HashMap<String ,String> input = new HashMap<>();
-        //input.put("userid","dbehdgns118");
-
         JsonObject jsonObject = new JsonObject("feelwjd");
-        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         CAL_RetrofitService retrofitService = CAL_APIClient.getClient().create(CAL_RetrofitService.class);
         Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);
         call.enqueue(new Callback<List<CAL_Data>>() {

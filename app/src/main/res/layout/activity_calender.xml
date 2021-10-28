@@ -19,6 +19,8 @@
 <!--        tools:ignore="MissingConstraints" />-->
 
 
+
+
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calenderView"
         android:layout_width="match_parent"
@@ -26,8 +28,22 @@
 
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all" />
+    /***/
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_below="@id/calenderView"
+        app:layout_constraintVertical_bias="0" />
+/***/
 
 
+/**아래까지 네비입니다잉**/
     <LinearLayout
         android:id="@+id/nav"
         android:layout_width="match_parent"
@@ -39,14 +55,6 @@
         android:paddingBottom="0dp"
         android:background="@drawable/nav_rectangle"
         tools:ignore="MissingConstraints">
-
-
-
-
-
-
-
-
 
         <Button
             android:id="@+id/btncal"

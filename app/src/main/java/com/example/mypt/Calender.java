@@ -1,33 +1,53 @@
 package com.example.mypt;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.datepicker.MaterialCalendar;
+import com.google.gson.Gson;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-public class Calender extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Calender extends AppCompatActivity  {
 
     MaterialCalendarView materialCalendarView;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
     /** 여기까지 내비바 필요한거**/
+
+
+
+
+    /**리사이클러*/
+    List<CAL_Data> dataInfo;
+    RecyclerView recyclerView;
+    CAL_RecycleAdapter recycleAdapter;
+    Gson gson;
+    /**리사이클러*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -37,8 +57,36 @@ public class Calender extends AppCompatActivity {
 //        //타이틀바 없애는 코드
 //        ActionBar actionBar = getSupportActionBar();
 //        actionBar.hide();
+/***/
+        dataInfo = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        JsonObject jsonObject = new JsonObject("feelwjd");
+        CAL_RetrofitService retrofitService = CAL_APIClient.getClient().create(CAL_RetrofitService.class);
+        Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);
+        call.enqueue(new Callback<List<CAL_Data>>() {
+            @Override
+            public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
+                Log.d("Test","sex");
+                //dataList = response.body();
+                //Log.d("TestActivity",dataList.toString());
+                //dataList = response.body().toString();
+                //dataInfo = dataList.body;
+                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
+                recyclerView.setAdapter(recycleAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<CAL_Data>> call, Throwable t) {
+                Log.d("TestActivity",t.toString());
+            }
+        });
 
 
+recyclerView.addItemDecoration(new CAL_RecyclerDecoration(1));
+
+/***/
         materialCalendarView = findViewById(R.id.calenderView);
         //materialCalendarView.setSelectedDate(CalendarDay.today());
 
