@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".LoginActivity">
+        <activity android:name=".Community_UpLoad">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,8 +24,6 @@
         <activity android:name=".FirstActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".TestActivity"></activity>
-        <activity android:name=".CommunityActivity_1"></activity>
-        <activity android:name=".Community_item_detail"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".DbTest"></activity>
@@ -34,7 +32,7 @@
         <activity android:name=".CheckBody"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Routine"></activity>
-
+        <activity android:name=".Login_Activity"></activity>
     </application>
 
 </manifest>

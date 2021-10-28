@@ -1,21 +1,19 @@
 package com.example.mypt;
 
-<<<<<<< HEAD
-=======
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
->>>>>>> origin/psh2
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-<<<<<<< HEAD
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-=======
->>>>>>> origin/psh2
+
 public class CheckBody extends AppCompatActivity {
 
     @Override

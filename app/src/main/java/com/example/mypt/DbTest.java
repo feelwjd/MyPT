@@ -1,7 +1,5 @@
 package com.example.mypt;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.*;

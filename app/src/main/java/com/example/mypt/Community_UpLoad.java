@@ -7,6 +7,7 @@ import android.provider.MediaStore;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -14,7 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class SignUpActivity extends AppCompatActivity {
+public class Community_UpLoad extends AppCompatActivity {
     private static int PICK_IMAGE_REQUEST = 1;
     ImageView image;
     static final String TAG = "JoinActivity";
@@ -22,16 +23,25 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
+        setContentView(R.layout.activity_community_upload);
         //타이틀바 없애는 코드
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
         ConstraintLayout constraintLayout = findViewById(R.id.container2);
+
+        Button btn_community=(Button) findViewById(R.id.btn_community);
+        btn_community.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(getApplicationContext(), Retrofit_Community.class);
+                startActivity(intent1);
+            }
+        });
+
     }
 
     //로드버튼 클릭시 실행
-    public void loadImagefromGallery(View view) {
+    public void loadImagefromGallery2(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT); //ACTION_PIC과 차이점?
         intent.setType("image/*"); //이미지만 보이게
         //갤러리앱을 열어서 원하는 이미지를 선택
@@ -52,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
                 int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
 
-                ImageView img_view = (ImageView) findViewById(R.id.image);
+                ImageView img_view = (ImageView) findViewById(R.id.image1);
                 img_view.setImageBitmap(scaled);
 
             } else {
@@ -64,4 +74,5 @@ public class SignUpActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }
