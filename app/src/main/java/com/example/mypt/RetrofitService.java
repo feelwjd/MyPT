@@ -34,8 +34,5 @@ public interface RetrofitService {
     @POST("users/signdel")
     Call<List<SigndelVO>> getSigndel(@Body SigndelObject signdelObject);
 
-    @Headers("Content-Type: application/json")
-    @POST("api/workout")
-    Call<List<workoutVO>> getWorkout();
 
 }
