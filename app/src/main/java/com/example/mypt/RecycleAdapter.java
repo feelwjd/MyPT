@@ -9,69 +9,71 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mypt.api.RoutineInfoVO;
+
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
 
     private Context c;
-    private List<Data> dataList;
+    private List<RoutineInfoVO> routineInfoVOList;
 
-    public RecycleAdapter(Context c, List<Data> dataList) {
+    public RecycleAdapter(Context c, List<RoutineInfoVO> routineInfoVOList) {
         this.c = c;
-        this.dataList = dataList;
+        this.routineInfoVOList = routineInfoVOList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(c).inflate(R.layout.item_list, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
 
-        holder.userid.setText(dataList.get(position).getUserid());
-//        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));
-//        holder.UserRoutineId.setText(String.valueOf(dataList.get(position).getUserRoutineId()));
-        holder.RoutineDate.setText(dataList.get(position).getRoutineDate());
-//        holder.Time.setText(dataList.get(position).getTime());
-//        holder.workoutid.setText(dataList.get(position).getWorkoutid());
-//        holder.routinename.setText(dataList.get(position).getRoutinename());
-//        holder.description.setText(dataList.get(position).getDescription());
-        holder.workoutname.setText(dataList.get(position).getWorkoutname());
+        holder.userid.setText(routineInfoVOList.get(position).getUserid());
+        holder.routineid.setText(String.valueOf(routineInfoVOList.get(position).getRoutineid()));
+        holder.UserRoutineId.setText(String.valueOf(routineInfoVOList.get(position).getUserRoutineId()));
+        holder.RoutineDate.setText(routineInfoVOList.get(position).getRoutineDate());
+        holder.Time.setText(routineInfoVOList.get(position).getTime());
+        holder.workoutid.setText(routineInfoVOList.get(position).getWorkoutid());
+        holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
+        holder.description.setText(routineInfoVOList.get(position).getDescription());
+        holder.workoutname.setText(routineInfoVOList.get(position).getWorkoutname());
 
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return routineInfoVOList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView userid;
-//        TextView routineid;
-//        TextView UserRoutineId;
+        TextView routineid;
+        TextView UserRoutineId;
         TextView RoutineDate;
-//        TextView Time;
-//        TextView workoutid;
-//        TextView routinename;
-//        TextView description;
+        TextView Time;
+        TextView workoutid;
+        TextView routinename;
+        TextView description;
         TextView workoutname;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             userid = (TextView)itemView.findViewById(R.id.userid);
-//            routineid = (TextView)itemView.findViewById(R.id.routineid);
-//            UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
+            routineid = (TextView)itemView.findViewById(R.id.routineid);
+            UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
             RoutineDate = (TextView)itemView.findViewById(R.id.RoutineDate);
-//            Time = (TextView)itemView.findViewById(R.id.Time);
-//            workoutid = (TextView)itemView.findViewById(R.id.workoutid);
-//            routinename = (TextView)itemView.findViewById(R.id.routinename);
-//            description = (TextView)itemView.findViewById(R.id.description);
+            Time = (TextView)itemView.findViewById(R.id.Time);
+            workoutid = (TextView)itemView.findViewById(R.id.workoutid);
+            routinename = (TextView)itemView.findViewById(R.id.routinename);
+            description = (TextView)itemView.findViewById(R.id.description);
             workoutname = (TextView)itemView.findViewById(R.id.workoutname);
 
 

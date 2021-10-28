@@ -1,7 +1,6 @@
 package com.example.mypt;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 public class APIClient {
     public static String BASE_URL = "http://3.34.96.177:8000/";
 
