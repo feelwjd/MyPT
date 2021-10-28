@@ -11,26 +11,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
+public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.MyViewHolder>{
 
     private Context c;
-    private List<Data> dataList;
+    private List<CAL_Data> dataList;
 
-    public RecycleAdapter(Context c, List<Data> dataList) {
+    public CAL_RecycleAdapter(Context c, List<CAL_Data> dataList) {
         this.c = c;
         this.dataList = dataList;
     }
 
     @NonNull
     @Override
-    public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CAL_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(c).inflate(R.layout.item_list, parent, false);
+        View view = LayoutInflater.from(c).inflate(R.layout.cal_item_list, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CAL_RecycleAdapter.MyViewHolder holder, int position) {
 
         holder.userid.setText(dataList.get(position).getUserid());
 //        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));

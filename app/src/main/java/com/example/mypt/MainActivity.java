@@ -52,10 +52,31 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+                Intent intent = new Intent (getApplicationContext(), CAL_TestActivity.class);
                 startActivity(intent);
             }
         });
+
+        //////////////////////////////////////////////
+
+
+
+
+//        ttbtn.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View view){
+//                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+
+
+
+
+        //////////////////////////////////////////////
 
         calbtn.setOnClickListener(new View.OnClickListener(){
 
@@ -67,14 +88,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ttbtn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), DbTest.class);
-                startActivity(intent);
-            }
-        });
 
         calbtn.setOnClickListener(new View.OnClickListener(){
 
