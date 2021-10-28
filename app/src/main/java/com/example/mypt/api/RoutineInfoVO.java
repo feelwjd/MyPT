@@ -1,9 +1,9 @@
-package com.example.mypt;
+package com.example.mypt.api;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Data {
+public class RoutineInfoVO {
     @SerializedName("userid")
     @Expose
     private String userid;

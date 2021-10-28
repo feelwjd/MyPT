@@ -1,5 +1,7 @@
 package com.example.mypt;
 
+import com.example.mypt.api.RoutineInfoVO;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -11,8 +13,5 @@ public interface RetrofitService {
 
     @Headers("Content-Type: application/json")
     @POST("api/routine-info")
-    //Call<Map<String,Object>> getData(@FieldMap HashMap<String, Object> param);
-    //Call<TestItem> getData(@FieldMap HashMap<String, String> param);
-    //Call<TestItem> getData(@Query("userid") String userid);
-    Call<List<Data>> getData(@Body JsonObject jsonObject);
+    Call<List<RoutineInfoVO>> getData(@Body JsonObject jsonObject);
 }
