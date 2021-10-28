@@ -12,10 +12,6 @@ public class SigninVO {
     @Expose
     private String pw;
 
-    @SerializedName("weight")
-    @Expose
-    private float weight;
-
     public String getUserid() {
         return userid;
     }
@@ -24,7 +20,4 @@ public class SigninVO {
         return pw;
     }
 
-    public float getWeight() {
-        return weight;
-    }
 }

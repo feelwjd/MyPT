@@ -98,10 +98,38 @@
         android:ems="10"
         android:hint="성별 (남성 = 0, 여성 = 1)"
         android:inputType="textPersonName"
+        android:visibility="gone"
         android:theme="@style/myEditTextstyle2"
         app:layout_constraintEnd_toEndOf="@+id/weight"
         app:layout_constraintStart_toStartOf="@+id/weight"
         app:layout_constraintTop_toBottomOf="@+id/weight" />
+
+    <RadioGroup
+        android:id="@+id/sex_2"
+        android:orientation="horizontal"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/weight"
+        app:layout_constraintStart_toStartOf="@+id/weight"
+        app:layout_constraintTop_toBottomOf="@+id/weight">
+        <RadioButton
+            android:layout_weight="1"
+            android:text="남자"
+            android:id="@+id/sex_man"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:textSize="18dp"/>
+        <RadioButton
+            android:layout_weight="1"
+            android:text="여자"
+            android:id="@+id/sex_woman"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:textSize="18dp"/>
+    </RadioGroup>
+
+
 
     <ImageView
         android:id="@+id/image"
@@ -113,10 +141,10 @@
         android:maxHeight="200dp"
         android:src="@drawable/img_icon"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/sex"
+        app:layout_constraintEnd_toEndOf="@+id/sex_2"
         app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="@+id/sex"
-        app:layout_constraintTop_toBottomOf="@+id/sex" />
+        app:layout_constraintStart_toStartOf="@+id/sex_2"
+        app:layout_constraintTop_toBottomOf="@+id/sex_2" />
 
     <Button
         android:id="@+id/btn_register"
@@ -132,17 +160,6 @@
         app:layout_constraintStart_toStartOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/image"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/validateButton"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="120dp"
-        android:text="중복확인"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
-        app:layout_constraintStart_toEndOf="@+id/userid"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/img_btn"

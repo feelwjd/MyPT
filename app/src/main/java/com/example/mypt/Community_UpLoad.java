@@ -33,7 +33,7 @@ public class Community_UpLoad extends AppCompatActivity {
         btn_community.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), Retrofit_Community.class);
+                Intent intent1=new Intent(getApplicationContext(), Community_main.class);
                 startActivity(intent1);
             }
         });

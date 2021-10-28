@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.mypt.users.SigninVO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         Button watchbtn = (Button) findViewById(R.id.btn2);
         Button ttbtn = (Button) findViewById(R.id.btn3);
         Button calbtn = (Button) findViewById(R.id.btn4);
+
+        Intent intent = getIntent();
+        SigninVO signinVO = intent.getParcelableExtra("signinVO");
 
 
         calenderBtn.setOnClickListener(new View.OnClickListener(){

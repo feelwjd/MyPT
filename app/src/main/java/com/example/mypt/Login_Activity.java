@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mypt.users.SigninVO;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
@@ -21,6 +22,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import com.example.mypt.users.SigninObject;
 
 public class Login_Activity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
@@ -32,6 +36,7 @@ public class Login_Activity extends AppCompatActivity {
 
     //뒤로가기 버튼 눌렀던 시간 저장
     private long backKeyPressedTime = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,6 @@ public class Login_Activity extends AppCompatActivity {
 
         }
 
-        Button btn_signup=(Button) findViewById(R.id.btn_signup);
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,29 +81,43 @@ public class Login_Activity extends AppCompatActivity {
         });
         //------------------------------------------------------------------------
 
-        JsonObject jsonObject = new JsonObject(login_id,login_pw);
-        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
-        Login_RetrofitService retrofitService = Retrofit.getClient().create(Login_RetrofitService.class);
-        Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);
-        call.enqueue(new Callback<List<CAL_Data>>() {
+        btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
-                Log.d("Test","sex");
-                //dataList = response.body();
-                //Log.d("TestActivity",dataList.toString());
-                //dataList = response.body().toString();
-                //dataInfo = dataList.body;
-
-            }
-
-            @Override
-            public void onFailure(Call<List<CAL_Data>> call, Throwable t) {
-                Log.d("TestActivity",t.toString());
+            public void onClick(View view) {
+                login();    // 버튼 클릭시, 로그인을 진행합니다.
             }
         });
-        //------------------------------------------------------------------------
     }
 
+        private void login(){
+            String userid = login_id.getText().toString();
+            String pw = login_pw.getText().toString();
+
+            SigninObject signinObject = new SigninObject(userid, pw);
+                //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+                RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
+                Call<SigninVO> call = retrofitService.getLogin(signinObject);
+                call.enqueue(new Callback<SigninVO>() {
+                    @Override
+                    public void onResponse(Call<SigninVO> call, Response<SigninVO> response) {
+                        SigninVO signinVO = response.body();
+
+                        if(signinVO != null){       // 회원입니다.
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(getApplicationContext(), userid+"님 어서오세요!", Toast.LENGTH_SHORT).show();
+                        }else{                      // 회원이 아닙니다.
+                            Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<SigninVO> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "로그인에 실패하였습니다!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    //----------------------------------------------
     public void onBackPressed() {
         //2000밀리초 = 2초
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
