@@ -21,9 +21,9 @@ import retrofit2.Response;
 public class TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
-    TestItem dataList;
+  // TestItem dataList;
     List<workoutVO> workoutVOList;
-    List<RoutineInfoVO> aaa;
+ //  List<RoutineInfoVO> aaa;
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
 
@@ -51,8 +51,8 @@ public class TestActivity extends AppCompatActivity{
 
         //JsonObject jsonObject = new JsonObject("feelwjd");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
-        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<workoutVO>> call = retrofitService.getWorkout();
+        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);   // 서버연결
+        Call<List<workoutVO>> call = retrofitService.getWorkout();      // `call 선언
         call.enqueue(new Callback<List<workoutVO>>() {
             @Override
             public void onResponse(Call<List<workoutVO>> call, Response<List<workoutVO>> response) {

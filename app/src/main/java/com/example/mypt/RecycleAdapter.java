@@ -35,10 +35,10 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
 
-        holder.workoutid.setText(workoutVOList.get(position).getWorkoutid());
-        holder.workoutname.setText(String.valueOf(workoutVOList.get(position).getWorkoutname()));
-        holder.part.setText(String.valueOf(workoutVOList.get(position).getPart()));
-        holder.dclass.setText(workoutVOList.get(position).getWorkoutclass());
+        holder.workoutid.setText(String.valueOf(workoutVOList.get(position).getWorkoutid()));
+        holder.workoutname.setText(workoutVOList.get(position).getWorkoutname());
+        holder.part.setText(workoutVOList.get(position).getPart());
+        holder.dclass.setText(String.valueOf(workoutVOList.get(position).getWorkoutclass()));
         //holder.Time.setText(workoutVOList.get(position).getTime());
         //holder.workoutid.setText(workoutVOList.get(position).getWorkoutid());
         //holder.routinename.setText(workoutVOList.get(position).getRoutinename());
