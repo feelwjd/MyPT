@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.api.workoutVO;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
     TestItem dataList;
-    List<RoutineInfoVO> routineInfoInfoVO;
+    List<workoutVO> workoutVOList;
     List<RoutineInfoVO> aaa;
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
@@ -38,7 +39,7 @@ public class TestActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3);
-        routineInfoInfoVO = new ArrayList<>();
+        workoutVOList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -48,13 +49,13 @@ public class TestActivity extends AppCompatActivity{
         //HashMap<String ,String> input = new HashMap<>();
         //input.put("userid","dbehdgns118");
 
-        JsonObject jsonObject = new JsonObject("feelwjd");
+        //JsonObject jsonObject = new JsonObject("feelwjd");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<RoutineInfoVO>> call = retrofitService.getData(jsonObject);
-        call.enqueue(new Callback<List<RoutineInfoVO>>() {
+        Call<List<workoutVO>> call = retrofitService.getWorkout();
+        call.enqueue(new Callback<List<workoutVO>>() {
             @Override
-            public void onResponse(Call<List<RoutineInfoVO>> call, Response<List<RoutineInfoVO>> response) {
+            public void onResponse(Call<List<workoutVO>> call, Response<List<workoutVO>> response) {
                 Log.d("Test","sex");
                 //dataList = response.body();
                 //Log.d("TestActivity",dataList.toString());
@@ -65,7 +66,7 @@ public class TestActivity extends AppCompatActivity{
             }
 
             @Override
-            public void onFailure(Call<List<RoutineInfoVO>> call, Throwable t) {
+            public void onFailure(Call<List<workoutVO>> call, Throwable t) {
                 Log.d("TestActivity",t.toString());
             }
         });

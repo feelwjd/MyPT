@@ -1,6 +1,7 @@
 package com.example.mypt;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.api.workoutVO;
 import com.example.mypt.users.SigndelObject;
 import com.example.mypt.users.SigndelVO;
 import com.example.mypt.users.SigninObject;
@@ -32,4 +33,9 @@ public interface RetrofitService {
     @Headers("Content-Type: application/json")
     @POST("users/signdel")
     Call<List<SigndelVO>> getSigndel(@Body SigndelObject signdelObject);
+
+    @Headers("Content-Type: application/json")
+    @POST("api/workout")
+    Call<List<workoutVO>> getWorkout();
+
 }
