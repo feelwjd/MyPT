@@ -1,14 +1,19 @@
 package com.example.mypt;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,14 +34,13 @@ import com.example.mypt.users.SigninObject;
 public class Login_Activity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     TextView tvTime;
-
+    Dialog dialog;
     List<CAL_Data> dataInfo;
     TextInputEditText login_id, login_pw;
-    Button btn_signin, btn_signup;
-
+    Button btn_signin, btn_signup, btn_delete, no, check;
+    EditText delete_id,delete_pw;
     //뒤로가기 버튼 눌렀던 시간 저장
     private long backKeyPressedTime = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,8 @@ public class Login_Activity extends AppCompatActivity {
         login_pw = (TextInputEditText)findViewById(R.id.login_pw);
         btn_signin = (Button) findViewById(R.id.btn_signin);
         btn_signup=(Button) findViewById(R.id.btn_signup);
+        btn_delete=(Button) findViewById(R.id.btn_delete);
+
         //캘린더(시간)
         Calendar c = Calendar.getInstance();
         //시간 계산
@@ -72,6 +78,16 @@ public class Login_Activity extends AppCompatActivity {
 
         }
 
+        dialog = new Dialog(Login_Activity.this);       // Dialog 초기화
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
+        dialog.setContentView(R.layout.activity_signdelete);
+        btn_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showdialog();
+            }
+        });
+
         btn_signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,12 +95,14 @@ public class Login_Activity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-        //------------------------------------------------------------------------
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();    // 버튼 클릭시, 로그인을 진행합니다.
+                login();
             }
         });
     }
@@ -117,7 +135,24 @@ public class Login_Activity extends AppCompatActivity {
                     }
                 });
     }
-    //----------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    public void showdialog() {
+        dialog.show();
+
+        delete_id = (EditText) findViewById(R.id.delete_id);
+        delete_pw = (EditText) findViewById(R.id.delete_pw);
+        no = (Button)dialog.findViewById(R.id.no);
+        check = (Button)dialog.findViewById(R.id.check);
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss(); // 다이얼로그 닫기
+            }
+        });
+    }
+
+
     public void onBackPressed() {
         //2000밀리초 = 2초
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {

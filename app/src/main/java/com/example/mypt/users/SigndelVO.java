@@ -11,4 +11,20 @@ public class SigndelVO {
     public String getMessage() {
         return message;
     }
+
+    @SerializedName("userid")
+    @Expose
+    private String userid;
+
+    @SerializedName("pw")
+    @Expose
+    private String pw;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public String getPw() {
+        return pw;
+    }
 }

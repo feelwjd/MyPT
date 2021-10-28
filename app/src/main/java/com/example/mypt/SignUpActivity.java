@@ -53,6 +53,7 @@ public class SignUpActivity extends AppCompatActivity {
         sex = (EditText) findViewById(R.id.sex);
         sex_2 = (RadioGroup) findViewById(R.id.sex_2);
         btn_register = (Button) findViewById(R.id.btn_register);
+        image=(ImageView)findViewById(R.id.image);
 
         sex_2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             //해당하는 라디오박스의 항목들을 클릭하면 연령대 EditText에 해당 숫자들이 표시된다.
@@ -161,7 +162,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            Toast.makeText(this, "Oops! 로딩에 오류가 있습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "오류가 발생했습니다.", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }

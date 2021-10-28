@@ -24,9 +24,8 @@ public class Community_UpLoad extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_upload);
-        //타이틀바 없애는 코드
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        getSupportActionBar().setTitle("사진 업로드");
+
         ConstraintLayout constraintLayout = findViewById(R.id.container2);
 
         Button btn_community=(Button) findViewById(R.id.btn_community);
