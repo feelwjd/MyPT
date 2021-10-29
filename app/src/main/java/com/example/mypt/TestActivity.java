@@ -66,9 +66,10 @@ public class TestActivity extends AppCompatActivity{
 
                 String date1;
                 routineInfoInfoVO = response.body();
-                date1 = routineInfoInfoVO.get(1).getRoutineDate();
+                date1 = "2021-09-24";
                 Log.d("Test",date1);
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body(),date1);
+
                 recyclerView.setAdapter(recycleAdapter);
             }
 

@@ -1,6 +1,7 @@
 package com.example.mypt;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +18,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     private Context c;
     private List<RoutineInfoVO> routineInfoVOList;
+    private String date;
+    private int where;
 
-    public RecycleAdapter(Context c, List<RoutineInfoVO> routineInfoVOList) {
+    public RecycleAdapter(Context c, List<RoutineInfoVO> routineInfoVOList, String date) {
         this.c = c;
         this.routineInfoVOList = routineInfoVOList;
+        this.date = date;
     }
 
     @NonNull
@@ -34,16 +38,29 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
 
-        holder.userid.setText(routineInfoVOList.get(position).getUserid());
-        holder.routineid.setText(String.valueOf(routineInfoVOList.get(position).getRoutineid()));
-        holder.UserRoutineId.setText(String.valueOf(routineInfoVOList.get(position).getUserRoutineId()));
-        holder.RoutineDate.setText((CharSequence) routineInfoVOList.get(position).getRoutineDate());
-        holder.Time.setText(routineInfoVOList.get(position).getTime());
-        holder.workoutid.setText(routineInfoVOList.get(position).getWorkoutid());
-        holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
-        holder.description.setText(routineInfoVOList.get(position).getDescription());
-        holder.workoutname.setText(routineInfoVOList.get(position).getWorkoutname());
 
+        if (date.equals(routineInfoVOList.get(position).getRoutineDate())) {
+            holder.userid.setText(routineInfoVOList.get(position).getUserid());
+            holder.routineid.setText(String.valueOf(routineInfoVOList.get(position).getRoutineid()));
+            holder.UserRoutineId.setText(String.valueOf(routineInfoVOList.get(position).getUserRoutineId()));
+            holder.RoutineDate.setText(routineInfoVOList.get(position).getRoutineDate());
+            holder.Time.setText(routineInfoVOList.get(position).getTime());
+            holder.workoutid.setText(routineInfoVOList.get(position).getWorkoutid());
+            holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
+            holder.description.setText(routineInfoVOList.get(position).getDescription());
+            holder.workoutname.setText(routineInfoVOList.get(position).getWorkoutname());
+        }
+        else{
+            holder.userid.setText("루틴이 없습니다.");
+            holder.routineid.setText("");
+            holder.UserRoutineId.setText("");
+            holder.RoutineDate.setText("");
+            holder.Time.setText("");
+            holder.workoutid.setText("");
+            holder.routinename.setText("");
+            holder.description.setText("");
+            holder.workoutname.setText("");
+        }
     }
 
     @Override
