@@ -28,7 +28,7 @@
 
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all" />
-    /***/
+    /****/
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -40,7 +40,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_below="@id/calenderView"
         app:layout_constraintVertical_bias="0" />
-/***/
+    /****/
 
 
 /**아래까지 네비입니다잉**/

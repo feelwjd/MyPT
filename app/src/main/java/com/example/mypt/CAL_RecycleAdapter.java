@@ -1,6 +1,7 @@
 package com.example.mypt;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Date;
 import java.util.List;
 
 public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.MyViewHolder>{
@@ -19,6 +21,8 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
     public CAL_RecycleAdapter(Context c, List<CAL_Data> dataList) {
         this.c = c;
         this.dataList = dataList;
+
+
     }
 
     @NonNull
@@ -31,6 +35,8 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull CAL_RecycleAdapter.MyViewHolder holder, int position) {
+
+
 
         holder.userid.setText(dataList.get(position).getUserid());
 //        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));
@@ -46,6 +52,8 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 
     @Override
     public int getItemCount() {
+        //return 3;
+
         return dataList.size();
     }
 
@@ -61,10 +69,16 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 //        TextView description;
         TextView workoutname;
 
+
+
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+
             userid = (TextView)itemView.findViewById(R.id.userid);
+
+
 //            routineid = (TextView)itemView.findViewById(R.id.routineid);
 //            UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
             RoutineDate = (TextView)itemView.findViewById(R.id.RoutineDate);

@@ -32,6 +32,8 @@ public class CAL_TestActivity extends AppCompatActivity{
     //Data data;
     //RoutineInfoResult routineInfoResult;
     Gson gson;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +45,16 @@ public class CAL_TestActivity extends AppCompatActivity{
         JsonObject jsonObject = new JsonObject("feelwjd");
         CAL_RetrofitService retrofitService = CAL_APIClient.getClient().create(CAL_RetrofitService.class);
         Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);
-        call.enqueue(new Callback<List<CAL_Data>>() {
+
+
+
+
+        call.enqueue(new Callback<List<CAL_Data>>()
+        {
             @Override
             public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
-                Log.d("Test","sex");
+
+
                 //dataList = response.body();
                 //Log.d("TestActivity",dataList.toString());
                 //dataList = response.body().toString();

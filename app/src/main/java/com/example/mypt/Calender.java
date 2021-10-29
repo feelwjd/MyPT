@@ -59,6 +59,8 @@ public class Calender extends AppCompatActivity  {
 //        actionBar.hide();
 /***/
         dataInfo = new ArrayList<>();
+
+
         recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -68,18 +70,22 @@ public class Calender extends AppCompatActivity  {
         call.enqueue(new Callback<List<CAL_Data>>() {
             @Override
             public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
-                Log.d("Test","sex");
-                //dataList = response.body();
-                //Log.d("TestActivity",dataList.toString());
-                //dataList = response.body().toString();
-                //dataInfo = dataList.body;
+
+//            String date1;
+//                dataInfo = response.body();
+//                date1 = String.valueOf(dataInfo.get(1).getRoutineDate());
+//                Log.d("TEST1",date1);
+
+
+
+
                 recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
 
             @Override
             public void onFailure(Call<List<CAL_Data>> call, Throwable t) {
-                Log.d("TestActivity",t.toString());
+
             }
         });
 
