@@ -4,6 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class SigninVO {
+    @SerializedName("message")
+    @Expose
+    private String message;
+
     @SerializedName("userid")
     @Expose
     private String userid;
@@ -11,10 +15,6 @@ public class SigninVO {
     @SerializedName("pw")
     @Expose
     private String pw;
-
-    @SerializedName("weight")
-    @Expose
-    private float weight;
 
     public String getUserid() {
         return userid;
@@ -24,7 +24,7 @@ public class SigninVO {
         return pw;
     }
 
-    public float getWeight() {
-        return weight;
+    public String getMessage() {
+        return message;
     }
 }
