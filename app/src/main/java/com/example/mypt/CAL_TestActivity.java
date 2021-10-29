@@ -54,12 +54,12 @@ public class CAL_TestActivity extends AppCompatActivity{
             @Override
             public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
 
-
+                String date="20";
                 //dataList = response.body();
                 //Log.d("TestActivity",dataList.toString());
                 //dataList = response.body().toString();
                 //dataInfo = dataList.body;
-                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),date);
                 recyclerView.setAdapter(recycleAdapter);
             }
 

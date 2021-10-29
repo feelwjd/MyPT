@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 
+import com.example.mypt.api.RoutineInfoVO;
 import com.google.android.material.datepicker.MaterialCalendar;
 import com.google.gson.Gson;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -49,9 +50,12 @@ public class Calender extends AppCompatActivity  {
 
     /**리사이클러*/
     List<CAL_Data> dataInfo;
+    CAL_Data CAL_Data;
     RecyclerView recyclerView;
     CAL_RecycleAdapter recycleAdapter;
+    List<CAL_Data> filterList;
     Gson gson;
+    String searchday="2020-09-24";
     /**리사이클러*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +70,10 @@ public class Calender extends AppCompatActivity  {
 /***/
         dataInfo = new ArrayList<>();
 
+        filterList=new ArrayList<>();
         materialCalendarView = findViewById(R.id.calenderView);
 
-        materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
-            DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
-            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.KOREA);
 
-            @Override
-            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                String selected_day, selected_moth, selected_year;
-                selected_day = String.valueOf(date.getDay());
-                selected_moth= String.valueOf(date.getMonth());
-                selected_year= String.valueOf(date.getYear());
-                String searchday;
-                searchday=selected_year+"-"+selected_moth+"-"+selected_day;
-//                LocalDate selected_date = LocalDate.parse(selected_date, inputFormatter);
-//                String formattedDate = outputFormatter.format(selected_date);
-                Log.d("TEST123",searchday);
-            }
-        });
 
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -101,20 +90,47 @@ public class Calender extends AppCompatActivity  {
 //                date1 = String.valueOf(dataInfo.get(1).getRoutineDate());
 //                Log.d("TEST1",date1);
 
-                String date1;
+                /**날짜 스트링변경*/
+                materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
+                    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
+                    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.KOREA);
+
+                    @Override
+                    public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+                        String selected_day, selected_moth, selected_year;
+                        selected_day = String.valueOf(date.getDay());
+                        selected_moth= String.valueOf(date.getMonth());
+                        selected_year= String.valueOf(date.getYear());
+                        searchday=selected_year+"-"+selected_moth+"-"+selected_day;
+//                LocalDate selected_date = LocalDate.parse(selected_date, inputFormatter);
+//                String formattedDate = outputFormatter.format(selected_date);
+                        Log.d("TEST123",searchday);
+                    }
+
+
+
+
+
+                });
+
+
+                /***/
+
+                /***날짜변경/   /***/
                 dataInfo = response.body();
-                date1 = dataInfo.get(1).getRoutineDate();
-                Log.d("Test12",date1);
+                Log.d("Test12",searchday);
+                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),searchday);
+                for (int i = 0;i < response.body().size();i++){
+                    if (response.body().get(i).getRoutineDate().contains(searchday)){
+                        filterList.add(response.body().get(i));
+                    }
+                }
+                recycleAdapter.filterList(filterList);
 
+                /***날짜변경/   /***/
 
-                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
-                recyclerView.setAdapter(recycleAdapter);
-
-
-                recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
-
             @Override
             public void onFailure(Call<List<CAL_Data>> call, Throwable t) {
 
