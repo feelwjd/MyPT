@@ -10,3 +10,6 @@ public class JsonObject {
         this.userid = userid;
     }
 }
+
+
+// 파싱하려는 데이터를 jsonObject에 형태로 적어준다.

@@ -20,15 +20,16 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/workoutname"
+        android:layout_width="325dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="8dp"
+        android:layout_weight="9"
+        android:paddingLeft="5dp"
+        android:text="workoutname"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_favorites"
-        app:layout_constraintStart_toEndOf="@+id/btn_favorites"
-        app:layout_constraintTop_toTopOf="@+id/btn_favorites"
-        tools:text="푸쉬업" />
+        app:layout_constraintStart_toEndOf="@+id/btn_favorites" />
 
     <ImageButton
         android:id="@+id/btn_more"

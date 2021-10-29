@@ -1,5 +1,14 @@
 package com.example.mypt;
 
+import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.api.workoutVO;
+import com.example.mypt.users.SigndelObject;
+import com.example.mypt.users.SigndelVO;
+import com.example.mypt.users.SigninObject;
+import com.example.mypt.users.SigninVO;
+import com.example.mypt.users.SignupObject;
+import com.example.mypt.users.SignupVO;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -11,8 +20,19 @@ public interface RetrofitService {
 
     @Headers("Content-Type: application/json")
     @POST("api/routine-info")
-    //Call<Map<String,Object>> getData(@FieldMap HashMap<String, Object> param);
-    //Call<TestItem> getData(@FieldMap HashMap<String, String> param);
-    //Call<TestItem> getData(@Query("userid") String userid);
-    Call<List<Data>> getData(@Body JsonObject jsonObject);
+    Call<List<RoutineInfoVO>> getData(@Body JsonObject jsonObject);
+
+    @Headers("Content-Type: application/json")
+    @POST("users/signin")
+    Call<List<SigninVO>> getLogin(@Body SigninObject signinObject);
+
+    @Headers("Content-Type: application/json")
+    @POST("users/signup")
+    Call<List<SignupVO>> getSignup(@Body SignupObject signupObject);
+
+    @Headers("Content-Type: application/json")
+    @POST("users/signdel")
+    Call<List<SigndelVO>> getSigndel(@Body SigndelObject signdelObject);
+
+
 }

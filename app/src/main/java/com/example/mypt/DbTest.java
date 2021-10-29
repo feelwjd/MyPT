@@ -1,7 +1,5 @@
 package com.example.mypt;
 
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.*;
@@ -11,9 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,14 +20,10 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 
 public class DbTest extends AppCompatActivity {
-    String line = "";
-    StringBuffer buffer = new StringBuffer();
+
     private TextView tvData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +36,11 @@ public class DbTest extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new JSONTask().execute("http://3.34.96.177:8000/api/user-routine");
+                new JSONTask().execute("http://3.34.96.177:8000/api/user");
             }
         });
 
-
-
     }
-
 
     public class JSONTask extends AsyncTask<String, String, String>{
 
@@ -63,10 +51,6 @@ public class DbTest extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.accumulate("userid", "dbehdgns118");
                 //jsonObject.accumulate("name", "yun");
-
-
-
-
 
                 HttpURLConnection con = null;
                 BufferedReader reader = null;
@@ -93,17 +77,16 @@ public class DbTest extends AppCompatActivity {
 
                     reader = new BufferedReader(new InputStreamReader(stream));
 
-                    //StringBuffer buffer = new StringBuffer();
+                    StringBuffer buffer = new StringBuffer();
 
                     String line = "";
                     while((line = reader.readLine()) != null){
-
-                        //Log.d("test",line);
+                        Log.d("test",line);
                         buffer.append(line);
                     }
 
 
-                    //Log.d("test", buffer.getClass().getName());
+                    Log.d("test", String.valueOf(buffer));
                     return buffer.toString();
 
                 } catch (MalformedURLException e){
@@ -128,65 +111,14 @@ public class DbTest extends AppCompatActivity {
 
             return null;
         }
-        int j = 0;
-        int i =0;
-        public HashMap<String, String> convertToHashMap(String jsonString) {
-            HashMap<String, String> myHashMap = new HashMap<String, String>();
-            try {
-                JSONArray jArray = new JSONArray(jsonString);
-                JSONObject jObject = null;
-                String keyString=null;
 
-                Log.d("test", "jsonString "+jArray);
-                Log.d("test", "jsonString.length() "+jsonString.length());
-                Log.d("test", "buffer "+buffer);
-                Log.d("test", "buffer.length() "+buffer.length());
-
-//                for (int i = 0; i < buffer.length(); i++) {
-//                    jObject = jArray.getJSONObject(i);
-//                    // beacuse you have only one key-value pair in each object so I have used index 0
-//                    //keyString = (String)jObject.names().get(3);
-//                    j=i;
-//                   // myHashMap.put(keyString, jObject.getString(keyString));
-//                }
-
-                j=3;
-                do{
-                    if(i<(buffer.length()-500)) {
-                        jObject = jArray.getJSONObject(i);
-//                    // beacuse you have only one key-value pair in each object so I have used index 0
-                         keyString = (String) jObject.names().get(j);
-                        j += 3;
-                        myHashMap.put(keyString, jObject.getString(keyString));
-                        i++;
-                    }
-                    else break;
-                }while(i<buffer.length());
-
-
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-            return myHashMap;
-        }
-
-
-
+        //doInBackground메소드가 끝나면 여기로 와서 텍스트뷰의 값을 바꿔준다.
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             tvData.setText(result);
-
-            HashMap<String, String> map = convertToHashMap(buffer.toString());
-            Log.d("test", "j "+ j);
-            // Log.d("test", "test"+map);
-            // Log.d("test", "test type "+map.getClass().getName());
-            // Log.d("test", "test datas "+buffer);
         }
 
     }
-
 }
 

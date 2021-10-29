@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="12dp"
+        android:textSize="30dp"
+        android:text="회원탈퇴" />
+
+    <TextView
+        android:id="@+id/textViewid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="아이디" />
+
+    <EditText
+        android:id="@+id/delete_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:hint="ID"
+        android:textSize="15dp"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textViewpw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:text="비밀번호" />
+
+    <EditText
+        android:id="@+id/delete_pw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:textSize="15dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="#00ff0000"
+            android:onClick="check"
+            android:text="취소"
+            android:textColor="#ffff0000"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:backgroundTint="#00ff0000"
+            android:onClick="check"
+            android:text="탈퇴하기"
+            android:textColor="#ffff0000"
+            android:textSize="15dp" />
+
+
+    </LinearLayout>
+</LinearLayout>

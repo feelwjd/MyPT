@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mypt.My_beforeafter;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,10 +54,31 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+                Intent intent = new Intent (getApplicationContext(), My_beforeafter.class);
                 startActivity(intent);
             }
         });
+
+        //////////////////////////////////////////////
+
+
+
+
+//        ttbtn.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View view){
+//                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+
+
+
+
+        //////////////////////////////////////////////
 
         calbtn.setOnClickListener(new View.OnClickListener(){
 
@@ -67,14 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ttbtn.setOnClickListener(new View.OnClickListener(){
 
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), DbTest.class);
-                startActivity(intent);
-            }
-        });
 
         calbtn.setOnClickListener(new View.OnClickListener(){
 

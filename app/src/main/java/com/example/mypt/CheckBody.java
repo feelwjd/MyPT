@@ -1,26 +1,34 @@
 package com.example.mypt;
 
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 public class CheckBody extends AppCompatActivity {
 
     public Button btncomu,btncal,btnmy,btnstart;
-    public Button mainbtn1,mainbtn2;
+    public Button mainbtn1,mainbtn2,mainbtn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbody);
 
+
+
         mainbtn1 = findViewById(R.id.mainbtn1);
 
         mainbtn1.setOnClickListener(new View.OnClickListener(){
-
 
             @Override
             public void onClick(View view) {
@@ -35,7 +43,19 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SearchList.class);
+                Intent intent = new Intent(getApplicationContext(),My_TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        mainbtn4 = findViewById(R.id.mainbtn4);
+
+        mainbtn4.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Community_UpLoad.class);
                 startActivity(intent);
             }
         });

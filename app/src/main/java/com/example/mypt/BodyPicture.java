@@ -29,6 +29,8 @@ public class BodyPicture extends AppCompatActivity {
 
     //
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,15 +85,16 @@ public class BodyPicture extends AppCompatActivity {
 
         ImageView imageView1 = (ImageView)findViewById( R.id.image1);
         ImageView imageView2 = (ImageView)findViewById( R.id.image2);
+        ImageView imageView3 = (ImageView)findViewById(R.id.album);
 
-        imageViews = new ImageView[]{ imageView1, imageView2};
+        imageViews = new ImageView[]{ imageView1, imageView2, imageView3};
         imageView1.setVisibility(View.VISIBLE);
         CURRENT_INDEX = 0;
     }
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 1) {
+        if( ++CURRENT_INDEX > 2) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
