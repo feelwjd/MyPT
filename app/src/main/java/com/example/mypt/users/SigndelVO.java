@@ -8,10 +8,6 @@ public class SigndelVO {
     @Expose
     private String message;
 
-    public String getMessage() {
-        return message;
-    }
-
     @SerializedName("userid")
     @Expose
     private String userid;
@@ -27,4 +23,9 @@ public class SigndelVO {
     public String getPw() {
         return pw;
     }
+
+    public String getMessage() {
+        return message;
+    }
+
 }

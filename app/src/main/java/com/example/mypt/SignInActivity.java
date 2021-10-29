@@ -164,8 +164,6 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void delete(){
-        delete_id = (EditText) dialog.findViewById(R.id.delete_id);
-        delete_pw = (EditText) dialog.findViewById(R.id.delete_pw);
 
         String del_userid = delete_id.getText().toString();
         String del_pw = delete_pw.getText().toString();

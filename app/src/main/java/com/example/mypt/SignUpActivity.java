@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     Button btn_register;
     EditText userid, pw, username, height, weight, sex;
     RadioGroup sex_2;
+    SignupVO signupVO = new SignupVO();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +79,10 @@ public class SignUpActivity extends AppCompatActivity {
                 String WEIGHT = weight.getText().toString();
                 String SEX = sex.getText().toString();
 
+                Float height = Float.parseFloat(HEIGHT);
+                Float weight = Float.parseFloat(WEIGHT);
+                Integer sex = Integer.parseInt(SEX);
+
                 ID=ID.trim();PW=PW.trim();NAME=NAME.trim();
                 HEIGHT=HEIGHT.trim();WEIGHT=WEIGHT.trim();SEX=SEX.trim();
                 //빈값이 넘어올때의 처리
@@ -86,43 +92,38 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 // 문제없으면, 회원가입을 진행합니다.
                 else {
-                    signup();
+                    signup(new SignupObject(ID,PW,NAME,height,weight,sex));
                 }
             }
         });
     }
 
-    private void signup(){
+    private void signup(SignupObject signupObject){
 
-        String ID = userid.getText().toString();
-        String PW = pw.getText().toString();
-        String NAME = username.getText().toString();
-        String HEIGHT= height.getText().toString();
-        String WEIGHT = weight.getText().toString();
-        String SEX = sex.getText().toString();
-
-        Float height = Float.parseFloat(HEIGHT);
-        Float weight = Float.parseFloat(WEIGHT);
-        Integer sex = Integer.parseInt(SEX);
-
-        SignupObject signupObject = new SignupObject(ID, PW,NAME,height,weight,sex);
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
         Call<SignupVO> call = retrofitService.getSignup(signupObject);
         call.enqueue(new Callback<SignupVO>() {
             @Override
             public void onResponse(Call<SignupVO> call, Response<SignupVO> response) {
-                SignupVO signupVO = response.body();
+                //Log.d("sdf",signupVO.getMessage());
 
+                signupVO = response.body();
+                Toast.makeText(getApplicationContext(), signupVO.getMessage(), Toast.LENGTH_SHORT).show();
+
+                      //getStatus로 받아온 코드가 201(OK)면 회원가입 프래그먼트 종료
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), userid+"님 회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
+
+
 
             }
 
             @Override
             public void onFailure(Call<SignupVO> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "중복되는 아이디입니다!", Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
     }
