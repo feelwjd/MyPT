@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mypt.mypage.My_beforeafter;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
+                Intent intent = new Intent (getApplicationContext(), My_beforeafter.class);
                 startActivity(intent);
             }
         });

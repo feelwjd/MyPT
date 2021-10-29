@@ -20,13 +20,9 @@ public class workoutVO {
     @Expose
     private String workoutclass;
 
-    public int getWorkoutid() {
-        return workoutid;
-    }
+    public int getWorkoutid() { return workoutid; }
 
-    public String getPart() {
-        return part;
-    }
+    public String getPart() {return part;}
 
     public String getWorkoutname() {
         return workoutname;
