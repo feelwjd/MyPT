@@ -49,6 +49,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
             holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
             holder.description.setText(routineInfoVOList.get(position).getDescription());
             holder.workoutname.setText(routineInfoVOList.get(position).getWorkoutname());
+            this.where = holder.getAdapterPosition();
+
         }
         else{
             holder.userid.setText("루틴이 없습니다.");
@@ -66,6 +68,11 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     @Override
     public int getItemCount() {
         return routineInfoVOList.size();
+    }
+
+    public void  filterList(List<RoutineInfoVO> filteredList) {
+        routineInfoVOList = filteredList;
+        notifyDataSetChanged();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
