@@ -27,7 +27,7 @@ public class TestActivity extends AppCompatActivity{
     RoutineInfoVO routineInfoVO;
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
-
+    List<RoutineInfoVO> filterList;
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     //private ProgressDialog progressDialog;
@@ -41,7 +41,7 @@ public class TestActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3);
 
-
+        filterList=new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -66,9 +66,15 @@ public class TestActivity extends AppCompatActivity{
 
                 String date1;
                 routineInfoInfoVO = response.body();
-                date1 = routineInfoInfoVO.get(1).getRoutineDate();
+                date1 = "2020-09-24";
                 Log.d("Test",date1);
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body(),date1);
+                for (int i = 0;i < response.body().size();i++){
+                    if (response.body().get(i).getRoutineDate().contains(date1)){
+                        filterList.add(response.body().get(i));
+                    }
+                }
+                recycleAdapter.filterList(filterList);
                 recyclerView.setAdapter(recycleAdapter);
             }
 
