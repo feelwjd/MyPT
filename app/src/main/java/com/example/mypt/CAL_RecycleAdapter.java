@@ -41,7 +41,7 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
         holder.userid.setText(dataList.get(position).getUserid());
 //        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));
 //        holder.UserRoutineId.setText(String.valueOf(dataList.get(position).getUserRoutineId()));
-        holder.RoutineDate.setText(dataList.get(position).getRoutineDate());
+        holder.RoutineDate.setText((CharSequence) dataList.get(position).getRoutineDate());
 //        holder.Time.setText(dataList.get(position).getTime());
 //        holder.workoutid.setText(dataList.get(position).getWorkoutid());
 //        holder.routinename.setText(dataList.get(position).getRoutinename());
