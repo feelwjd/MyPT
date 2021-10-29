@@ -37,7 +37,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         holder.userid.setText(routineInfoVOList.get(position).getUserid());
         holder.routineid.setText(String.valueOf(routineInfoVOList.get(position).getRoutineid()));
         holder.UserRoutineId.setText(String.valueOf(routineInfoVOList.get(position).getUserRoutineId()));
-        holder.RoutineDate.setText(routineInfoVOList.get(position).getRoutineDate());
+        holder.RoutineDate.setText((CharSequence) routineInfoVOList.get(position).getRoutineDate());
         holder.Time.setText(routineInfoVOList.get(position).getTime());
         holder.workoutid.setText(routineInfoVOList.get(position).getWorkoutid());
         holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
@@ -48,7 +48,8 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return routineInfoVOList.size();
+        int i = 1;
+        return i;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

@@ -10,6 +10,8 @@ import android.util.Log;
 import com.example.mypt.api.RoutineInfoVO;
 import com.google.gson.Gson;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,9 +22,9 @@ import retrofit2.Response;
 public class TestActivity extends AppCompatActivity{
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
-    TestItem dataList;
+
     List<RoutineInfoVO> routineInfoInfoVO;
-    List<RoutineInfoVO> aaa;
+    RoutineInfoVO routineInfoVO;
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
 
@@ -38,7 +40,7 @@ public class TestActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3);
-        routineInfoInfoVO = new ArrayList<>();
+
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -55,11 +57,17 @@ public class TestActivity extends AppCompatActivity{
         call.enqueue(new Callback<List<RoutineInfoVO>>() {
             @Override
             public void onResponse(Call<List<RoutineInfoVO>> call, Response<List<RoutineInfoVO>> response) {
-                Log.d("Test","sex");
+
+
                 //dataList = response.body();
                 //Log.d("TestActivity",dataList.toString());
                 //dataList = response.body().toString();
                 //dataInfo = dataList.body;
+
+                String date1;
+                routineInfoInfoVO = response.body();
+                date1 = routineInfoInfoVO.get(1).getRoutineDate();
+                Log.d("Test",date1);
                 recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
