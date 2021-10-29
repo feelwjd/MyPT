@@ -1,12 +1,12 @@
 package com.example.mypt;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity {
     private long backKeyPressedTime = 0;
@@ -21,10 +21,10 @@ public class FirstActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(FirstActivity.this, LoginActivity.class);
+                Intent intent = new Intent(FirstActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
-        }, 50);
+        }, 500);
     }
     public void onBackPressed() {
         //2000밀리초 = 2초

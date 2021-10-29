@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.mypt.users.SigninVO;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button calenderBtn = (Button) findViewById(R.id.btn1);
         Button watchbtn = (Button) findViewById(R.id.btn2);
+        Button ttbtn = (Button) findViewById(R.id.btn3);
+        Button calbtn = (Button) findViewById(R.id.btn4);
+
+        Intent intent = getIntent();
+        SigninVO signinVO = intent.getParcelableExtra("signinVO");
+
+
         calenderBtn.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender_Main.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
@@ -36,6 +46,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ttbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), DbTest.class);
+                startActivity(intent);
+            }
+        });
+
+        calbtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }

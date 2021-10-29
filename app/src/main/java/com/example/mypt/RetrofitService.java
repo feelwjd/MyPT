@@ -23,13 +23,13 @@ public interface RetrofitService {
 
     @Headers("Content-Type: application/json")
     @POST("users/signin")
-    Call<List<SigninVO>> getLogin(@Body SigninObject signinObject);
+    Call<SigninVO> getLogin(@Body SigninObject signinObject);
 
     @Headers("Content-Type: application/json")
     @POST("users/signup")
-    Call<List<SignupVO>> getSignup(@Body SignupObject signupObject);
+    Call<SignupVO> getSignup(@Body SignupObject signupObject);
 
     @Headers("Content-Type: application/json")
     @POST("users/signdel")
-    Call<List<SigndelVO>> getSigndel(@Body SigndelObject signdelObject);
+    Call<SigndelVO> getSigndel(@Body SigndelObject signdelObject);
 }

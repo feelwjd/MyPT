@@ -6,26 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-
-a
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="calender gogoDDD"
-        android:id="@+id/btn1"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="watch gogoDDD"
-        android:id="@+id/btn2"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-</LinearLayout>
+        a
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="calender gogoDDD"
+            android:id="@+id/btn1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="watch gogoDDD"
+            android:id="@+id/btn2"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tt gogoDDD"
+            android:id="@+id/btn3"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="cal gogoDDD"
+            android:id="@+id/btn4"/>
+
+    </LinearLayout>
 
 
 
