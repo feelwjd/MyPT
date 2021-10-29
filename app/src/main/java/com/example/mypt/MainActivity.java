@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.mypt.mypage.My_beforeafter;
+import com.example.mypt.My_beforeafter;
 
 import retrofit2.Call;
 import retrofit2.Callback;

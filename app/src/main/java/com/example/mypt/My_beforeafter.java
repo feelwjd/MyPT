@@ -1,4 +1,4 @@
-package com.example.mypt.mypage;
+package com.example.mypt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
