@@ -12,16 +12,16 @@ import com.example.mypt.R;
 
 public class My_beforeafter extends AppCompatActivity {
 
-    ImageView testimageview;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mybeforeafter);
 
-        testimageview = findViewById(R.id.testimageview);
+        imageView = findViewById(R.id.imageView22);
 
-        Button button = findViewById(R.id.testboutton);
+        Button button = findViewById(R.id.button22);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +32,7 @@ public class My_beforeafter extends AppCompatActivity {
 
     public void sendImageRequest(){
         String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
-        ImageLoadTask task = new ImageLoadTask(url, testimageview);
+        ImageLoadTask task = new ImageLoadTask(url, imageView);
         task.execute();
     }
 

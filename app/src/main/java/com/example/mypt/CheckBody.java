@@ -35,7 +35,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SearchList.class);
+                Intent intent = new Intent(getApplicationContext(),My_TestActivity.class);
                 startActivity(intent);
             }
         });
