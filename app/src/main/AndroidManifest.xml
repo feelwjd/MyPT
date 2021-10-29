@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".Login_Activity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +33,7 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Routine"></activity>
         <activity android:name=".Community_UpLoad"></activity>
-        <activity android:name=".SignDelete"></activity>
+        <activity android:name=".SignDeleteActivity"></activity>
     </application>
 
 </manifest>

@@ -26,7 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.mypt.users.SigninObject;
 
-public class SignDelete extends AppCompatActivity {
+public class SignDeleteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

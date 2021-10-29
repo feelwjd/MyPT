@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -22,7 +22,7 @@
         android:layout_marginStart="8dp" />
 
     <ImageView
-        android:id="@+id/ivImage1"
+        android:id="@+id/before"
         android:layout_width="180dp"
         android:layout_height="320dp"
         android:contentDescription="TODO"
@@ -36,7 +36,7 @@
         tools:srcCompat="@tools:sample/avatars[0]" />
 
     <ImageView
-        android:id="@+id/ivImage2"
+        android:id="@+id/after"
         android:layout_width="180dp"
         android:layout_height="320dp"
         android:contentDescription="TODO"
@@ -59,11 +59,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.020"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage1"
+        app:layout_constraintTop_toBottomOf="@+id/before"
         app:layout_constraintVertical_bias="0.90" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/heartcount"
         android:layout_width="82dp"
         android:layout_height="19dp"
         android:layout_marginTop="36dp"
@@ -72,11 +72,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage1"
+        app:layout_constraintTop_toBottomOf="@+id/before"
         app:layout_constraintVertical_bias="0.90" />
 
     <ImageView
-        android:id="@+id/detailviewitem_comment_imageview"
+        android:id="@+id/username_routine"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="4dp"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.40"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage1"
+        app:layout_constraintTop_toBottomOf="@+id/before"
         app:layout_constraintVertical_bias="0.90" />
 
 
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage1"
+        app:layout_constraintTop_toBottomOf="@+id/before"
         app:layout_constraintVertical_bias="0.90" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

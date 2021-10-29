@@ -17,13 +17,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.mypt.users.SigninObject;
-import com.example.mypt.users.SigninVO;
 import com.example.mypt.users.SignupObject;
 import com.example.mypt.users.SignupVO;
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -119,7 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onResponse(Call<SignupVO> call, Response<SignupVO> response) {
                 SignupVO signupVO = response.body();
 
-                Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
+                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
                 Toast.makeText(getApplicationContext(), userid+"님 회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
 

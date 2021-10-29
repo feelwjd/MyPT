@@ -1,15 +1,12 @@
 package com.example.mypt;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -17,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mypt.users.SigndelObject;
+import com.example.mypt.users.SigndelVO;
 import com.example.mypt.users.SigninVO;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -26,12 +25,10 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import com.example.mypt.users.SigninObject;
 
-public class Login_Activity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     TextView tvTime;
     Dialog dialog;
@@ -45,7 +42,7 @@ public class Login_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signin);
         //타이틀바 없애는 코드
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -78,7 +75,7 @@ public class Login_Activity extends AppCompatActivity {
 
         }
 
-        dialog = new Dialog(Login_Activity.this);       // Dialog 초기화
+        dialog = new Dialog(SignInActivity.this);       // Dialog 초기화
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dialog.setContentView(R.layout.activity_signdelete);
         btn_delete.setOnClickListener(new View.OnClickListener() {
@@ -139,8 +136,8 @@ public class Login_Activity extends AppCompatActivity {
     public void showdialog() {
         dialog.show();
 
-        delete_id = (EditText) findViewById(R.id.delete_id);
-        delete_pw = (EditText) findViewById(R.id.delete_pw);
+        delete_id = (EditText) dialog.findViewById(R.id.delete_id);
+        delete_pw = (EditText) dialog.findViewById(R.id.delete_pw);
         no = (Button)dialog.findViewById(R.id.no);
         check = (Button)dialog.findViewById(R.id.check);
 
@@ -150,9 +147,55 @@ public class Login_Activity extends AppCompatActivity {
                 dialog.dismiss(); // 다이얼로그 닫기
             }
         });
+
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String del_userid = delete_id.getText().toString();
+                String del_pw = delete_pw.getText().toString();
+                del_userid=del_userid.trim();del_pw=del_pw.trim();
+
+                if(del_userid.getBytes().length <= 0||del_pw.getBytes().length <= 0){
+                    Toast.makeText(getApplicationContext(), "빈 값이 있습니다!", Toast.LENGTH_SHORT).show();
+                }
+                delete();
+            }
+        });
     }
 
+    private void delete(){
+        delete_id = (EditText) dialog.findViewById(R.id.delete_id);
+        delete_pw = (EditText) dialog.findViewById(R.id.delete_pw);
 
+        String del_userid = delete_id.getText().toString();
+        String del_pw = delete_pw.getText().toString();
+
+        SigndelObject signdelObject = new SigndelObject(del_userid, del_pw);
+        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
+        Call<SigndelVO> call = retrofitService.getSigndel(signdelObject);
+        call.enqueue(new Callback<SigndelVO>() {
+            @Override
+            public void onResponse(Call<SigndelVO> call, Response<SigndelVO> response) {
+                SigndelVO signdelVO = response.body();
+
+                if(signdelVO != null){
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(), del_userid+"님의 회원탈퇴가 완료돠었습니다!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SigndelVO> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "회원탈퇴에 실패하였습니다!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    //-----------------------------------------------------------------------------------------------------------------------------------
     public void onBackPressed() {
         //2000밀리초 = 2초
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {

@@ -7,7 +7,7 @@ public class SigndelObject {
     private String userid;
     private String pw;
 
-    public SigndelObject(String userid){
+    public SigndelObject(String userid, String pw){
         this.userid = userid;
         this.pw = pw;
     }
