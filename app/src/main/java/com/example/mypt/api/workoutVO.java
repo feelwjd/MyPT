@@ -28,7 +28,5 @@ public class workoutVO {
         return workoutname;
     }
 
-    public String getWorkoutclass() {
-        return workoutclass;
-    }
+    public String getWorkoutclass() { return workoutclass; }
 }

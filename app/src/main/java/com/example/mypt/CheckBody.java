@@ -17,17 +17,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CheckBody extends AppCompatActivity {
 
     public Button btncomu,btncal,btnmy,btnstart;
-    public Button mainbtn1,mainbtn2;
+    public Button mainbtn1,mainbtn2,mainbtn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbody);
 
+
+
         mainbtn1 = findViewById(R.id.mainbtn1);
 
         mainbtn1.setOnClickListener(new View.OnClickListener(){
-
 
             @Override
             public void onClick(View view) {
@@ -43,6 +44,18 @@ public class CheckBody extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),My_TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        mainbtn4 = findViewById(R.id.mainbtn4);
+
+        mainbtn4.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Community_main.class);
                 startActivity(intent);
             }
         });
