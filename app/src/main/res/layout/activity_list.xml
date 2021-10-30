@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ff1e1f23"
-        tools:context=".MainActivity">
+        tools:context=".My_TestActivity">
+
 
         <TextView
             android:id="@+id/textView"
@@ -72,7 +73,7 @@
                     android:layout_marginBottom="10dp"
                     android:text="즐겨찾기"
                     android:textColor="@color/white"
-                    android:textSize="17sp" />
+                    android:textSize="17dp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -115,12 +116,12 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_recent"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:minHeight="290dp"
                         android:orientation="vertical"
-                        tools:listitem="@layout/layout_rv_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/layout_rv_item" />
 
                     <TextView
                         android:id="@+id/tv_empty_recent"
@@ -150,12 +151,12 @@
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_aerobic"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:minHeight="290dp"
                         android:orientation="vertical"
-                        tools:listitem="@layout/layout_rv_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/layout_rv_item" />
 
                     <TextView
                         android:id="@+id/tv_empty_aerobic"

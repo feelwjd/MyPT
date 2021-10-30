@@ -21,27 +21,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".LoginActivity">
-        </activity>
-        <activity android:name=".SignUpActivity">
-        </activity>
+        <activity android:name=".My_TestActivity"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".TestActivity"></activity>
-        <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".DbTest"></activity>
         <activity android:name=".BodyPicture"></activity>
         <activity android:name=".PopupActivity"></activity>
         <activity android:name=".CheckBody"></activity>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Routine"></activity>
         <activity android:name=".Community_UpLoad"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
-        <activity android:name=".BodyPicture"/>
-        <activity android:name=".CheckBody"/>
-        <activity android:name=".PopupActivity" android:theme="@android:style/Theme.Dialog" />
 ///
         <activity android:name=".CAL_TestActivity"></activity>
 
