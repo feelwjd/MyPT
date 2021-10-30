@@ -2,23 +2,35 @@ package com.example.mypt;
 
 import android.os.Bundle;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.provider.MediaStore;
 
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.appcompat.app.ActionBar;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mypt.commu.CommunityObject;
+import com.example.mypt.commu.Community_Data;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Community_main extends AppCompatActivity{
+    Button btn_upload, btn_mainmenu, btn_f5;
+    List<Community_Data> dataInfo;
+    RecyclerView recyclerView;
+    Community_RecycleAdapter recycleAdapter;
+    Gson gson;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
@@ -26,5 +38,60 @@ public class Community_main extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         ConstraintLayout constraintLayout = findViewById(R.id.container2);
-}
+
+        dataInfo = new ArrayList<>();
+        recyclerView = findViewById(R.id.community_recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+
+
+        btn_upload = (Button) findViewById(R.id.btn_upload);
+        btn_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(), Community_UpLoad.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_mainmenu=(Button) findViewById(R.id.btn_mainmenu);
+        btn_mainmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+        btn_f5=(Button) findViewById(R.id.btn_f5);
+        btn_f5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    f5();
+            }
+        });
+    }
+
+    private void f5(){
+
+        CommunityObject communityObject = new CommunityObject("feelwjd");
+
+        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
+        Call<List<Community_Data>> call = retrofitService.getCommunity(communityObject);
+        call.enqueue(new Callback<List<Community_Data>>() {
+            @Override
+            public void onResponse(Call<List<Community_Data>> call, Response<List<Community_Data>> response) {
+                Log.d("Test","sex");
+
+                recycleAdapter = new Community_RecycleAdapter(getApplicationContext(),response.body());
+                recyclerView.setAdapter(recycleAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<List<Community_Data>> call, Throwable t) {
+                Log.d("Community_mainActivity",t.toString());
+            }
+        });
+    }
 }
