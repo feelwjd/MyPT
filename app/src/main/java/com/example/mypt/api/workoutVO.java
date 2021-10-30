@@ -16,7 +16,7 @@ public class workoutVO {
     @Expose
     private String workoutname;
 
-    @SerializedName("class")
+    @SerializedName("workoutclass")
     @Expose
     private String workoutclass;
 

@@ -3,7 +3,17 @@ package com.example.mypt.api;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.sql.Time;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 public class RoutineInfoVO {
+
+    DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
+    DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.KOREA);
+
     @SerializedName("userid")
     @Expose
     private String userid;
@@ -53,7 +63,9 @@ public class RoutineInfoVO {
     }
 
     public String getRoutineDate() {
-        return RoutineDate;
+        LocalDate date = LocalDate.parse(RoutineDate, inputFormatter);
+        String formattedDate = outputFormatter.format(date);
+        return formattedDate;
     }
 
     public String getTime() {

@@ -21,6 +21,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.mypt.users.SignupObject;
 import com.example.mypt.users.SignupVO;
 
+import java.nio.charset.Charset;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,12 +111,13 @@ public class SignUpActivity extends AppCompatActivity {
                 //Log.d("sdf",signupVO.getMessage());
 
                 signupVO = response.body();
-                Toast.makeText(getApplicationContext(), signupVO.getMessage(), Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(getApplicationContext(), String.valueOf(signupVO.getMessage()), Toast.LENGTH_SHORT).show();
 
                       //getStatus로 받아온 코드가 201(OK)면 회원가입 프래그먼트 종료
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), userid+"님 회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), userid+"님 회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
 
 
 
