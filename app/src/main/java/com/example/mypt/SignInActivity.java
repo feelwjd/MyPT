@@ -178,16 +178,14 @@ public class SignInActivity extends AppCompatActivity {
                 SigndelVO signdelVO = response.body();
 
                 if(signdelVO != null){
-                    dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), del_userid+"님의 회원탈퇴가 완료돠었습니다!", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "회원탈퇴에 실패하였습니다!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<SigndelVO> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "회원탈퇴에 실패하였습니다!", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                Toast.makeText(getApplicationContext(), del_userid+"님의 회원탈퇴가 완료돠었습니다!", Toast.LENGTH_SHORT).show();
             }
         });
 

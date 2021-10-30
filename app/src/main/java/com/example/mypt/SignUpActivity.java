@@ -2,6 +2,7 @@ package com.example.mypt;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 
@@ -20,6 +21,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.mypt.users.SignupObject;
 import com.example.mypt.users.SignupVO;
+
+import java.io.InputStream;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -106,23 +109,18 @@ public class SignUpActivity extends AppCompatActivity {
         call.enqueue(new Callback<SignupVO>() {
             @Override
             public void onResponse(Call<SignupVO> call, Response<SignupVO> response) {
-                //Log.d("sdf",signupVO.getMessage());
-
                 signupVO = response.body();
-                Toast.makeText(getApplicationContext(), signupVO.getMessage(), Toast.LENGTH_SHORT).show();
 
-                      //getStatus로 받아온 코드가 201(OK)면 회원가입 프래그먼트 종료
                 Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), userid+"님 회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
-
-
+                Toast.makeText(getApplicationContext(), "회원가입 성공했습니다!", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(Call<SignupVO> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "중복되는 아이디입니다!", Toast.LENGTH_SHORT).show();
+
                 t.printStackTrace();
             }
         });
@@ -150,8 +148,8 @@ public class SignUpActivity extends AppCompatActivity {
                 int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
 
-                ImageView img_view = (ImageView) findViewById(R.id.image);
-                img_view.setImageBitmap(scaled);
+                ImageView imgview = (ImageView) findViewById(R.id.image);
+                imgview.setImageBitmap(scaled);
 
             } else {
                 Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_LONG).show();

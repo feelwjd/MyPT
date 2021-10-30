@@ -10,7 +10,7 @@ public class SignupObject {
     private float height;
     private float weight;
     private int sex;
-
+    private String image;
 
     public SignupObject(String userid,String pw, String username, float height, float weight, int sex){
         this.userid = userid;
@@ -19,5 +19,6 @@ public class SignupObject {
         this.height = height;
         this.weight = weight;
         this.sex = sex;
+
     }
 }

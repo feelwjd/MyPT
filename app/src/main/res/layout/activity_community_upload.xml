@@ -6,12 +6,26 @@
     android:layout_width="fill_parent" >
 
 
+    <EditText
+        android:id="@+id/commudescript"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="380dp"
+        android:ems="10"
+        android:hint="한 줄 코멘트"
+        android:inputType="textPersonName"
+        android:theme="@style/myEditTextstyle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/image1"
         android:layout_width="350dp"
         android:layout_height="350dp"
         android:layout_gravity="center"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"
         android:maxHeight="200dp"
@@ -25,12 +39,13 @@
         android:id="@+id/btn_imageselect"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="70dp"
         android:onClick="loadImagefromGallery2"
-        android:text="이미지선택"
+        android:text="사진선택"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/image1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
 
@@ -38,11 +53,12 @@
         android:id="@+id/btn_upload"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="70dp"
         android:text="업로드"
         android:textSize="25dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/image1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
 
@@ -50,13 +66,13 @@
         android:id="@+id/btn_community"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="10dp"
         android:text="커뮤니티"
         android:textSize="25dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btn_imageselect"
+        app:layout_constraintEnd_toEndOf="@+id/btn_upload"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btn_imageselect"
-        app:layout_constraintTop_toBottomOf="@+id/btn_imageselect" />
+        app:layout_constraintStart_toStartOf="@+id/btn_upload"
+        app:layout_constraintTop_toBottomOf="@+id/btn_upload" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
