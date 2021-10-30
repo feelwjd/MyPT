@@ -57,11 +57,11 @@ public class Community_UpLoad extends AppCompatActivity {
 
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
                 //이미지가 너무 크면 불러 오지 못하므로 사이즈를 줄여 준다.
-                int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
-                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
+//                int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
+//                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
 
                 ImageView img_view = (ImageView) findViewById(R.id.image1);
-                img_view.setImageBitmap(scaled);
+                img_view.setImageBitmap(bitmap);
 
             } else {
                 Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_LONG).show();

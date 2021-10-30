@@ -12,13 +12,13 @@ public class SignupObject {
     private int sex;
     private String image;
 
-    public SignupObject(String userid,String pw, String username, float height, float weight, int sex){
+    public SignupObject(String userid,String pw, String username, float height, float weight, int sex, String image){
         this.userid = userid;
         this.pw = pw;
         this.username = username;
         this.height = height;
         this.weight = weight;
         this.sex = sex;
-
+        this.image = image;
     }
 }
