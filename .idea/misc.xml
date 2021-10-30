@@ -3,35 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.20277777777777778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_loop_24.xml" value="0.20277777777777778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.20277777777777778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_unlike.xml" value="0.20277777777777778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_1.xml" value="0.12310030395136778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_item_detail.xml" value="0.25" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_main.xml" value="0.22" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_recycler.xml" value="0.25" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_upload.xml" value="0.22" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_first.xml" value="0.12310030395136778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_list.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_login.xml" value="0.18" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_main.xml" value="0.12284701114488349" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_popup.xml" value="0.12284701114488349" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_routine.xml" value="0.12284701114488349" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_search.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_signdelete.xml" value="0.12284701114488349" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_signup.xml" value="0.18" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_test.xml" value="0.12310030395136778" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_test3.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/cal_activity_test3.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/cal_item_list.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/community_main.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/community_upload.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/dbtest.xml" value="0.12284701114488349" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/ddd.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/ic_launcher_foreground.xml" value="0.17844202898550723" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/item_list.xml" value="0.2526041666666667" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/signdelete.xml" value="0.2526041666666667" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/CalenderActivity.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_calender.xml" value="0.22" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_first.xml" value="0.3125" />
@@ -39,6 +10,12 @@
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/btn_my.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/cal_selector.xml" value="0.1" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/drawable_circle_inner.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/drawable_circle_outer.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/ic_baseline_fitness_center_24.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/ic_baseline_loop_24.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.31979166666666664" />
+        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.31979166666666664" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/nav_rectangle.xml" value="0.15833333333333333" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/round.xml" value="0.21927083333333333" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/drawable/square.xml" value="0.21927083333333333" />
@@ -58,9 +35,6 @@
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/layout/item_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21822916666666667" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-27/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.21822916666666667" />
-        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-29home/app/src/main/res/layout/activity_calender.xml" value="0.20208333333333334" />
-        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-29home/app/src/main/res/layout/cal_activity_test3.xml" value="0.20208333333333334" />
-        <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT10-29home/app/src/main/res/layout/tt.xml" value="0.20208333333333334" />
         <entry key="..\:/Users/feelw/Desktop/WorkPlace/MyPT/app/src/main/res/layout/login_test.xml" value="0.33" />
       </map>
     </option>

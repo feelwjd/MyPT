@@ -10,13 +10,18 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.mypt.api.RoutineInfoVO;
@@ -35,32 +40,37 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import kotlin.reflect.TypeOfKt;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Calender extends AppCompatActivity  {
+public class Calender extends AppCompatActivity {
 
     MaterialCalendarView materialCalendarView;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
     /** 여기까지 내비바 필요한거**/
-
-
-
+    public ListView list_view ;
+    String[] ptlist;
+    public String[] routine ={};
 
     /**리사이클러*/
-    TextView recycletext;
+    TextView recycletext,recycletextday;
     List<CAL_Data> dataInfo;
     CAL_Data CAL_Data;
     RecyclerView recyclerView;
     CAL_RecycleAdapter recycleAdapter;
     List<CAL_Data> filterList;
     Gson gson;
-    String searchday="2020-09-24";
+    String searchday="2020-03-02";
+    String Test1;
+    String[] array;
     /**리사이클러*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
 
 
         super.onCreate(savedInstanceState);
@@ -71,11 +81,14 @@ public class Calender extends AppCompatActivity  {
 //        actionBar.hide();
 /***/
         dataInfo = new ArrayList<>();
+        list_view = findViewById(R.id.list_view);
+
 
         filterList=new ArrayList<>();
         materialCalendarView = findViewById(R.id.calenderView);
-
+        recycletextday = findViewById(R.id.recycletextday);
         recycletext = findViewById(R.id.recycletext);
+
         recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -85,6 +98,8 @@ public class Calender extends AppCompatActivity  {
         call.enqueue(new Callback<List<CAL_Data>>() {
             @Override
             public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
+
+
 //            String date1;
 //                dataInfo = response.body();
 //                date1 = String.valueOf(dataInfo.get(1).getRoutineDate());
@@ -95,6 +110,15 @@ public class Calender extends AppCompatActivity  {
                     DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
                     DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.KOREA);
 
+
+
+
+
+
+
+
+
+
                     @Override
                     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                         String selected_day, selected_moth, selected_year;
@@ -104,31 +128,66 @@ public class Calender extends AppCompatActivity  {
                         searchday=selected_year+"-"+selected_moth+"-"+selected_day;
 //                LocalDate selected_date = LocalDate.parse(selected_date, inputFormatter);
 //                String formattedDate = outputFormatter.format(selected_date);
-                        Log.d("TEST123",searchday);
-                        recycletext.setText(searchday);
+
 
 
                         /***날짜변경22/   /***/
                         filterList.clear();
                         recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),searchday);
                         recycleAdapter.notifyDataSetChanged();
-                        Log.d("TEST123 numi rotinedate" , response.body().get(72).getRoutineDate());
+                       // Log.d("TEST123 numi rotinedate" , response.body().get(72).getRoutineDate());
                         int numi = 0;
+                        recycletext.setText("설정된 운동이 없습니다");
                         for (numi = 0;numi < 300;numi++){
-                            Log.d("TEST!!!",response.body().get(numi).getRoutineDate());
-                            Log.d("TEST!!! searchday",searchday);
+                          //  Log.d("TEST!!!!",numi+"   "+response.body().get(numi).getRoutineDate());
+                          //  Log.d("TEST!!! searchday",searchday);
+                            recycletextday.setText(searchday);
+
+                           // recycletext.setText("이날에 설정된 운동이 없습니다");
                             if (response.body().get(numi).getRoutineDate().equals(searchday)){
-                                filterList.add(response.body().get(numi));
-                                Log.d("TEST!!!! numi rotinedate" , response.body().get(numi).getRoutineDate());
-                                Log.d("TEST!!!! numi routinenmae" , response.body().get(numi).getWorkoutname());
+                                //filterList.add(response.body().get(numi));
+                                //Log.d("TEST!!!! numi rotinedate" , response.body().get(numi).getRoutineDate());
+                               // Log.d("TEST!!!! numi routinenmae" , response.body().get(numi).getWorkoutname());
                                 //Log.d("TEST123 datechanged searchdate",searchday);
-                                recycletext.setText(response.body().get(numi).getWorkoutname());
+
+                                if(response.body().get(numi).getWorkoutname().equals(searchday))
+                                {
+                                    recycletext.setText("이날에 설정된 운동이 없습니다");
+                                }
+                                else{
+                                    recycletext.setVisibility(View.VISIBLE);
+                                    Test1=response.body().get(numi).getWorkoutname();
+
+                                    Log.d("TEST!!!!!",Test1);
+                                    array = Test1.split(",");
+                                    String aaa ="";
+                                    for(int i =0;i<array.length;i++){
+                                        Log.d("TEST!!!!","length is " + i + array[i]);
+                                        recycletext.setText(array[0]);
+                                       aaa=aaa+array[i]+"\n";
+
+                                    }
+                                    //recycletext.setTextColor(getColor(black));
+                                    recycletext.setText(aaa);
+
+                                }
+
+
+//                                    Log.d("TEST!!!!!",Test1);
+//                                   array = Test1.split(",");
+//                                    for(int i =0;i<array.length;i++){
+//                                        Log.d("TEST!!!!","length is " + i + array[i]);
+//                                    }
+                               
                             }
                         }
                         //recycletext.setText(response.body().get(numi).getWorkoutname());
 
+
                         recycleAdapter.filterList(filterList);
                         /***날짜변경22/   /***/
+                       // list_view.setAdapter(ArrayAdapter);
+                        //ArrayAdapter.notifyDataSetChanged();
 
                     }
 
@@ -143,7 +202,7 @@ public class Calender extends AppCompatActivity  {
 
                 /***날짜변경/   /***/
                // dataInfo = response.body();
-                searchday="2020-05-05";
+                searchday="2021-05-05";
                 Log.d("Test12 0505",searchday);
                 recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),searchday);
 
@@ -413,7 +472,8 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
+                intent.putExtra("array",array);
                 startActivity(intent);
             }
         });
