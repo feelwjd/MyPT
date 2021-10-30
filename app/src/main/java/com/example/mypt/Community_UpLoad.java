@@ -18,7 +18,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 public class Community_UpLoad extends AppCompatActivity {
     private static int PICK_IMAGE_REQUEST = 1;
     ImageView image;
-    static final String TAG = "JoinActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

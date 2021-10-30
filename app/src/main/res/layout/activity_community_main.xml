@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Community_main">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/community_menu"
@@ -20,6 +19,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="사진 업로드"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_f5"
+            android:layout_width="169dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="게시판 갱신"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -42,6 +50,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerView"
         android:orientation="vertical"
+        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="550dp"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".Community_main">
 
 
     <TextView
@@ -24,7 +25,7 @@
     <ImageView
         android:id="@+id/after"
         android:layout_width="375dp"
-        android:layout_height="320dp"
+        android:layout_height="500dp"
         android:contentDescription="TODO"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +37,7 @@
         tools:srcCompat="@tools:sample/avatars[1]" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/redheart"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginBottom="80dp"
@@ -59,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/username_routine"
+        android:id="@+id/comment"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginBottom="32dp"
