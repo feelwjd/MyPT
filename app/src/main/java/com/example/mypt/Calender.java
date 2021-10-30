@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.example.mypt.api.RoutineInfoVO;
 import com.google.android.material.datepicker.MaterialCalendar;
@@ -49,6 +50,7 @@ public class Calender extends AppCompatActivity  {
 
 
     /**리사이클러*/
+    TextView recycletext;
     List<CAL_Data> dataInfo;
     CAL_Data CAL_Data;
     RecyclerView recyclerView;
@@ -73,9 +75,7 @@ public class Calender extends AppCompatActivity  {
         filterList=new ArrayList<>();
         materialCalendarView = findViewById(R.id.calenderView);
 
-
-
-
+        recycletext = findViewById(R.id.recycletext);
         recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -99,12 +99,37 @@ public class Calender extends AppCompatActivity  {
                     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                         String selected_day, selected_moth, selected_year;
                         selected_day = String.valueOf(date.getDay());
-                        selected_moth= String.valueOf(date.getMonth());
+                        selected_moth= String.valueOf(date.getMonth()+1);
                         selected_year= String.valueOf(date.getYear());
                         searchday=selected_year+"-"+selected_moth+"-"+selected_day;
 //                LocalDate selected_date = LocalDate.parse(selected_date, inputFormatter);
 //                String formattedDate = outputFormatter.format(selected_date);
                         Log.d("TEST123",searchday);
+                        recycletext.setText(searchday);
+
+
+                        /***날짜변경22/   /***/
+                        filterList.clear();
+                        recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),searchday);
+                        recycleAdapter.notifyDataSetChanged();
+                        Log.d("TEST123 numi rotinedate" , response.body().get(72).getRoutineDate());
+                        int numi = 0;
+                        for (numi = 0;numi < 300;numi++){
+                            Log.d("TEST!!!",response.body().get(numi).getRoutineDate());
+                            Log.d("TEST!!! searchday",searchday);
+                            if (response.body().get(numi).getRoutineDate().equals(searchday)){
+                                filterList.add(response.body().get(numi));
+                                Log.d("TEST!!!! numi rotinedate" , response.body().get(numi).getRoutineDate());
+                                Log.d("TEST!!!! numi routinenmae" , response.body().get(numi).getWorkoutname());
+                                //Log.d("TEST123 datechanged searchdate",searchday);
+                                recycletext.setText(response.body().get(numi).getWorkoutname());
+                            }
+                        }
+                        //recycletext.setText(response.body().get(numi).getWorkoutname());
+
+                        recycleAdapter.filterList(filterList);
+                        /***날짜변경22/   /***/
+
                     }
 
 
@@ -117,17 +142,30 @@ public class Calender extends AppCompatActivity  {
                 /***/
 
                 /***날짜변경/   /***/
-                dataInfo = response.body();
-                Log.d("Test12",searchday);
+               // dataInfo = response.body();
+                searchday="2020-05-05";
+                Log.d("Test12 0505",searchday);
                 recycleAdapter = new CAL_RecycleAdapter(getApplicationContext(),response.body(),searchday);
-                for (int i = 0;i < response.body().size();i++){
+
+                for (int i=0;i < response.body().size();i++){
+                  // Log.d("TEST123 for 들어가나" , "ㅂㅈㄷ1");
                     if (response.body().get(i).getRoutineDate().contains(searchday)){
-                        filterList.add(response.body().get(i));
+                        //filterList.add(response.body().get(i));
+                        Log.d("TEST12345", String.valueOf(i));
+
                     }
                 }
-                recycleAdapter.filterList(filterList);
+
+
+
 
                 /***날짜변경/   /***/
+                //recycleAdapter.filterList(filterList);
+
+
+
+
+
 
                 recyclerView.setAdapter(recycleAdapter);
             }

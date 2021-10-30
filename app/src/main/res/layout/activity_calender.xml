@@ -25,30 +25,28 @@
         android:id="@+id/calenderView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all" />
     /****/
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/calenderView"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_below="@id/calenderView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
 
         app:layout_constraintVertical_bias="0" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     /****/
-
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/recyclerView"
+    android:text="qweqwe"
+    android:id="@+id/recycletext"
+    />
 
 /**아래까지 네비입니다잉**/
     <LinearLayout
