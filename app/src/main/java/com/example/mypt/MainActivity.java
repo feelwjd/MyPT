@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button watchbtn = (Button) findViewById(R.id.btn2);
         Button ttbtn = (Button) findViewById(R.id.btn3);
         Button calbtn = (Button) findViewById(R.id.btn4);
+        Button logoutbtn = (Button) findViewById(R.id.btn5);
 
         Intent intent = getIntent();
         SigninVO signinVO = intent.getParcelableExtra("signinVO");
@@ -64,7 +65,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //로그아웃
+        logoutbtn.setOnClickListener(new View.OnClickListener(){
 
-
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(MainActivity.this/*현재 액티비티 위치*/ , SignInActivity.class/*이동 액티비티 위치*/);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(i);
+                Toast.makeText(getApplicationContext(), "로그아웃 완료!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 }

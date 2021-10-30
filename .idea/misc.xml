@@ -7,6 +7,7 @@
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_loop_24.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_unlike.xml" value="0.20277777777777778" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_checkbody.xml" value="0.12310030395136778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_1.xml" value="0.12310030395136778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_item_detail.xml" value="0.25" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_main.xml" value="0.22" />
@@ -15,7 +16,7 @@
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_first.xml" value="0.12310030395136778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_list.xml" value="0.17844202898550723" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_login.xml" value="0.18" />
-        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_main.xml" value="0.12284701114488349" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_popup.xml" value="0.12284701114488349" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_routine.xml" value="0.12284701114488349" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_search.xml" value="0.2526041666666667" />

@@ -34,6 +34,7 @@
         <activity android:name=".Routine"></activity>
         <activity android:name=".Community_UpLoad"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
+        <activity android:name=".Community_main"></activity>
     </application>
 
 </manifest>

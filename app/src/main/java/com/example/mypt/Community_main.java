@@ -19,6 +19,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class Community_main extends AppCompatActivity{
+    Button btn_upload, btn_mainmenu;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
@@ -26,5 +28,25 @@ public class Community_main extends AppCompatActivity{
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         ConstraintLayout constraintLayout = findViewById(R.id.container2);
-}
+
+        btn_upload = (Button) findViewById(R.id.btn_upload);
+        btn_mainmenu=(Button) findViewById(R.id.btn_mainmenu);
+
+        btn_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(getApplicationContext(), Community_UpLoad.class);
+                startActivity(intent1);
+            }
+        });
+
+        btn_mainmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent1);
+            }
+        });
+
+    }
 }
