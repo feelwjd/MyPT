@@ -1,5 +1,6 @@
 package com.example.mypt;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -13,6 +14,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
@@ -61,6 +63,8 @@ import android.os.AsyncTask;
 import android.widget.ImageView;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import android.provider.MediaStore;
 import android.view.View;
@@ -108,19 +112,23 @@ public class BodyPicture extends AppCompatActivity {
 
 
 
-//    btnImageSend = findViewById(R.id.btnImageSend);
-//    btnImageSend.setEnabled(false);
-//    btnImageSend.setOnClickListener(new View.OnClickListener()
 
 
 
-
-
+//
     beforeafterVO beforeafterVO = new beforeafterVO();
     private com.example.mypt.mypage.beforeafterObject beforeafterObject;
-
-    @Override
+//
+//    @SuppressLint("WrongThread")
+//    @Override
+    @SuppressLint("WrongThread")
     protected void onCreate(Bundle savedInstanceState) {
+//        savepic = findViewById(R.id.savepic);
+//        savepic.setEnabled(false);
+//        savepic.setOnClickListener(new View.OnClickListener()
+
+//        FileUploadUtils.send2Server(tempSelectFile);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodypicture);
         init();
@@ -182,14 +190,13 @@ public class BodyPicture extends AppCompatActivity {
             }
         });
 
-//        imgVwSelected = findViewById(R.id.imgVwSelected);
 //        @Override
 //        protected void onActivityResult(int requestCode, int resultCode, Intent data){
 //            if (requestCode != 1 || resultCode != RESULT_OK) {
 //                return;
 //            }
 //            Uri dataUri = data.getData();
-//            imgVwSelected.setImageURI(dataUri);
+//            imgVwSelected.setImageURI(dataUri)
 //            try {
 //                // ImageView 에 이미지 출력
 //                InputStream in = getContentResolver().openInputStream(dataUri);
@@ -207,7 +214,7 @@ public class BodyPicture extends AppCompatActivity {
 //            catch(IOException ioe) {
 //                ioe.printStackTrace();
 //            }
-//            btnImageSend.setEnabled(true);
+//            savepic.setEnabled(true);
 //        }
 
 
