@@ -32,6 +32,13 @@ public class ShareVO {
     @Expose
     private int heart;
 
+    @SerializedName("check")
+    @Expose
+    private Boolean check;
+
+//    public Boolean getCheck() {
+//        return check;
+//    }
 
     public int getCommuid() {
         return commuid;

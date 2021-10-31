@@ -3,12 +3,14 @@ package com.example.mypt;
 import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +27,7 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
     private Context c;
     private List<ShareVO> shareVOList;
 
+
     public Community_RecycleAdapter(Context c, List<ShareVO> shareVOList) {
         this.c = c;
         this.shareVOList = shareVOList;
@@ -37,6 +40,8 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
         View view = LayoutInflater.from(c).inflate(R.layout.activity_community_recycler, parent, false);
         return new MyViewHolder(view);
     }
+
+
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
@@ -58,7 +63,7 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-
+        int i=0;
         TextView userid;
         TextView heart;
         TextView commudescript;
@@ -74,16 +79,31 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
             comment = (ImageView) itemView.findViewById(R.id.comment);
             after = (ImageView) itemView.findViewById(R.id.after);
 
-            setOnClickListener(new View.OnClickListener() {
+            redheart.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
+                    i=1-i;
+                    String HEART = heart.getText().toString();
+                    Integer heart2 = Integer.parseInt(HEART);
 
+                    if(i==0){
+                        redheart.setImageResource(R.drawable.ic_unlike);
+                        heart2--;
+                        String HEART2=String.valueOf(heart2);
+                        heart.setText(HEART2);
+                    } else{
+                        redheart.setImageResource(R.drawable.ic_like);
+                        heart2++;
+                        String HEART2=String.valueOf(heart2);
+                        heart.setText(HEART2);
+                    }
                 }
+
             });
+
         }
 
 
-
-
     }
+
 }
