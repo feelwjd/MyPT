@@ -3,7 +3,8 @@ package com.example.mypt;
 import com.example.mypt.api.RoutineInfoVO;
 import com.example.mypt.commu.Community_Data;
 import com.example.mypt.commu.ShareObject;
-import com.example.mypt.commu.shareVO;
+import com.example.mypt.commu.ShareVO;
+import com.example.mypt.commu.ShareVO;
 import com.example.mypt.users.SigndelObject;
 import com.example.mypt.users.SigndelVO;
 import com.example.mypt.users.SigninObject;
@@ -34,7 +35,7 @@ public interface RetrofitService {
 
     @Headers("Content-Type: application/json")
     @GET("commu/share_show_all")
-    Call<List<Community_Data>> getCommunity();
+    Call<List<ShareVO>> getCommu();
 
     @Headers("Content-Type: application/json")
     @POST("users/signup")

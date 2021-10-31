@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class shareVO {
+public class ShareVO {
     @SerializedName("commuid")
     @Expose
     private int commuid;

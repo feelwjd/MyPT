@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.commu.Community_Data;
 import com.example.mypt.commu.CommunityallObject;
+import com.example.mypt.commu.ShareVO;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -28,11 +29,15 @@ import retrofit2.Response;
 
 public class Community_main extends AppCompatActivity{
     Button btn_upload, btn_mainmenu, btn_f5;
-    List<Community_Data> dataInfo;
+    List<ShareVO> shareVOList;
     RecyclerView recyclerView;
-    Community_RecycleAdapter recycleAdapter;
+    RecycleAdapter recycleAdapter;
+    String[] array;
     Gson gson;
 
+    /** 여기부터 내비바 필요한거**/
+    public Button btncomu,btncal,btnmy,btnstart;
+    /** 여기까지 내비바 필요한거**/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
@@ -41,7 +46,7 @@ public class Community_main extends AppCompatActivity{
         actionBar.hide();
         ConstraintLayout constraintLayout = findViewById(R.id.container2);
 
-        dataInfo = new ArrayList<>();
+        shareVOList = new ArrayList<>();
         recyclerView = findViewById(R.id.community_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -60,7 +65,7 @@ public class Community_main extends AppCompatActivity{
         btn_mainmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent1=new Intent(getApplicationContext(), Calender.class);
                 startActivity(intent1);
             }
         });
@@ -72,28 +77,74 @@ public class Community_main extends AppCompatActivity{
                     f5();
             }
         });
+
+        /** 여기부터 내비바 필요한거**/
+        btncomu = findViewById(R.id.btncomu);
+        btncal = findViewById(R.id.btncal);
+        btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
+
+        btncomu.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+                startActivity(intent);
+            }
+        });
+
+        btncal.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnmy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
+                intent.putExtra("array",array);
+                startActivity(intent);
+            }
+        });
+        /** 여기까지 내비바 필요한거**/
     }
 
     private void f5(){
 
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-
-        Call<List<Community_Data>> call = retrofitService.getCommunity();
-        call.enqueue(new Callback<List<Community_Data>>() {
+        Call<List<ShareVO>> call = retrofitService.getCommu();
+        call.enqueue(new Callback<List<ShareVO>>() {
             @Override
-            public void onResponse(Call<List<Community_Data>> call, Response<List<Community_Data>> response) {
+            public void onResponse(Call<List<ShareVO>> call, Response<List<ShareVO>> response) {
 
-                dataInfo = response.body();
-                Log.d("Test","sex");
 
-                recycleAdapter = new Community_RecycleAdapter(getApplicationContext(),response.body());
+                String date1;
+                shareVOList = response.body();
+
+
+                recycleAdapter = new RecycleAdapter(getApplicationContext(), response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<Community_Data>> call, Throwable t) {
-                Log.d("Community_mainActivity",t.toString());
+            public void onFailure(Call<List<ShareVO>> call, Throwable t) {
+                Log.d("TestActivity", t.toString());
             }
         });
     }
+
 }

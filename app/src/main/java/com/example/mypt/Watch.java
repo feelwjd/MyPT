@@ -1,11 +1,10 @@
 package com.example.mypt;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -17,6 +16,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +25,10 @@ import java.util.concurrent.TimeUnit;
 public class Watch extends AppCompatActivity implements View.OnClickListener {
 
     private long timeCountInMilliSeconds = 1 * 60000;
-    public String[] routine ={"상체","하체","기타등등"};
+
+
+
+    public String[] routine ={};
     public ListView list_view ;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
@@ -47,6 +51,12 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watch);
+
+        Intent intent = getIntent();
+        String[] array = (String[]) intent.getSerializableExtra("array");
+        Log.d("TEST!!!!!!", "!!!!!!!!!!!"+array);
+        Log.d("TEST!!!!!", "SIZESIZE  "+ array.length);
+        routine=array;
 
         // 뷰 초기화
         initViews();
@@ -81,16 +91,19 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
                 startActivity(intent);
             }
         });
 
         btnstart.setOnClickListener(new View.OnClickListener(){
 
+
             @Override
             public void onClick(View view){
                 Intent intent = new Intent (getApplicationContext(), Watch.class);
+
+                Log.d("TEST!!!!!","WATCH array  "+ array);
                 startActivity(intent);
             }
         });
@@ -113,8 +126,11 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         imageViewReset = findViewById(R.id.imageViewReset);
         imageViewStartStop = findViewById(R.id.imageViewStartStop);
         List<String> list = new ArrayList<>();
-        String[] ptlist = {"상체","하체","기타등등"};
-        ArrayAdapter<String>ArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ptlist){
+        String[] ptlist = routine;
+
+
+
+        ArrayAdapter<String>ArrayAdapter = new ArrayAdapter<String>(this, R.layout.list_lay,ptlist){
             @Override
             public View getView(int position, View convertView, ViewGroup parent)
             {
@@ -123,7 +139,7 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
                 TextView tv = (TextView) view.findViewById(android.R.id.text1);
 
-                tv.setTextColor(Color.WHITE);
+                tv.setTextColor(Color.rgb(0, 0 , 0));
 
                 return view;
 
@@ -139,7 +155,8 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
     private void initListeners() {
         imageViewReset.setOnClickListener(this);
         imageViewStartStop.setOnClickListener(this);
-
+       // editTextMinute.setText(routine.length);
+        textViewTime.setVisibility(View.INVISIBLE);
 
     }
 
@@ -214,7 +231,9 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         int time = 0;
         if (!editTextMinute.getText().toString().isEmpty()) {
 
-            time = Integer.parseInt(editTextMinute.getText().toString().trim());
+
+            time = routine.length;
+            //time = Integer.parseInt(editTextMinute.getText().toString().trim());
         } else {
 
             Toast.makeText(getApplicationContext(), "시간을 설정해주세요", Toast.LENGTH_LONG).show();
@@ -231,7 +250,7 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
         countDownTimer = new CountDownTimer(timeCountInMilliSeconds, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
+                textViewTime.setVisibility(View.VISIBLE);
                 textViewTime.setText(hmsTimeFormatter(millisUntilFinished));
 
                 progressBarCircle.setProgress((int) (millisUntilFinished / 1000));

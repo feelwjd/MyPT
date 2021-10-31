@@ -10,7 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.mypt.api.RoutineInfoVO;
-import com.example.mypt.commu.shareVO;
+import com.example.mypt.commu.ShareVO;
+import com.example.mypt.commu.ShareVO;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class TestActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
     List<RoutineInfoVO> filterList;
-    List<shareVO> shareVOList;
+    List<ShareVO> shareVOList;
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     //private ProgressDialog progressDialog;
@@ -62,10 +63,10 @@ public class TestActivity extends AppCompatActivity {
         JsonObject jsonObject = new JsonObject("feelwjd");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<shareVO>> call = retrofitService.getCommu();
-        call.enqueue(new Callback<List<shareVO>>() {
+        Call<List<ShareVO>> call = retrofitService.getCommu();
+        call.enqueue(new Callback<List<ShareVO>>() {
             @Override
-            public void onResponse(Call<List<shareVO>> call, Response<List<shareVO>> response) {
+            public void onResponse(Call<List<ShareVO>> call, Response<List<ShareVO>> response) {
 
 
                 //dataList = response.body();
@@ -88,7 +89,7 @@ public class TestActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<shareVO>> call, Throwable t) {
+            public void onFailure(Call<List<ShareVO>> call, Throwable t) {
                 Log.d("TestActivity", t.toString());
             }
         });

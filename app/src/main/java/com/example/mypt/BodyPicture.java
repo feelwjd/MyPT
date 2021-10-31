@@ -1,15 +1,10 @@
 package com.example.mypt;
 
 import android.os.Bundle;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BodyPicture extends AppCompatActivity {
@@ -36,7 +31,7 @@ public class BodyPicture extends AppCompatActivity {
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 3) {
+        if( ++CURRENT_INDEX > 1) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 

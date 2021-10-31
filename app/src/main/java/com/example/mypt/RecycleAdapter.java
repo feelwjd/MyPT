@@ -14,7 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.api.RoutineInfoVO;
-import com.example.mypt.commu.shareVO;
+import com.example.mypt.commu.ShareVO;
+import com.example.mypt.commu.ShareVO;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -27,10 +28,10 @@ import java.util.List;
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
 
     private Context c;
-    private List<shareVO> shareVOList;
+    private List<ShareVO> shareVOList;
 
 
-    public RecycleAdapter(Context c, List<shareVO> shareVOList) {
+    public RecycleAdapter(Context c, List<ShareVO> shareVOList) {
         this.c = c;
         this.shareVOList = shareVOList;
 
@@ -64,7 +65,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         return shareVOList.size();
     }
 
-    public void  filterList(List<shareVO> filteredList) {
+    public void  filterList(List<ShareVO> filteredList) {
         shareVOList = filteredList;
         notifyDataSetChanged();
     }

@@ -2,17 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
-    android:layout_width="fill_parent" >
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
 
     <EditText
-        android:id="@+id/commudescript"
+        android:id="@+id/userid2"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="332dp"
         android:ems="10"
-        android:hint="한 줄 코멘트"
+        android:hint="아이디"
         android:inputType="textPersonName"
         android:theme="@style/myEditTextstyle2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,12 +22,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/userid2"
+        android:id="@+id/commudescript"
         android:layout_width="350dp"
         android:layout_height="45dp"
         android:layout_marginTop="388dp"
         android:ems="10"
-        android:hint="유저아이디"
+        android:hint="코멘트"
         android:inputType="textPersonName"
         android:theme="@style/myEditTextstyle2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,44 +50,101 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <Button
         android:id="@+id/btn_imageselect"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:onClick="loadImagefromGallery2"
         android:text="사진선택"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/image1"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
 
     <Button
         android:id="@+id/btn_uploadthis"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:text="업로드"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/image1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
 
-    <Button
-        android:id="@+id/btn_community"
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:text="커뮤니티"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btn_uploadthis"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btn_uploadthis"
-        app:layout_constraintTop_toBottomOf="@+id/btn_uploadthis" />
+    /**아래까지 네비입니다잉**/
 
+    <LinearLayout
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/nav_rectangle"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btncal"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_cal"
+            android:drawablePadding="-5dp"
+            android:text="캘린더" />
+
+        <Button
+            android:id="@+id/btnstart"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_start"
+            android:drawablePadding="-5dp"
+            android:text="운동시작" />
+
+        <Button
+            android:id="@+id/btncomu"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_comu"
+            android:drawablePadding="-5dp"
+            android:text="커뮤니티" />
+
+        <Button
+            android:id="@+id/btnmy"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_my"
+            android:drawablePadding="-5dp"
+            android:text="마이페이지" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
