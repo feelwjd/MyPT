@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Community_UpLoad"></activity>
-        <activity android:name=".FirstActivity"></activity>
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".SignInActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
@@ -32,11 +31,10 @@
         <activity android:name=".CAL_TestActivity"></activity>
         <activity android:name=".CheckBody"></activity>
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".PopupActivity"></activity>
         <activity android:name=".Routine"></activity>
-        <activity android:name=".SearchList"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
         <activity android:name=".DbTest"></activity>
+        <activity android:name=".My_TestActivity"
         <activity android:name=".Watch"></activity>
 
     </application>
