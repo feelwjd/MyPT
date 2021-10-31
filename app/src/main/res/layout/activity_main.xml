@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
 
-        a
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +35,13 @@
             android:layout_height="wrap_content"
             android:text="cal gogoDDD"
             android:id="@+id/btn4"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
+            android:textSize="20dp"
+            android:id="@+id/btn5"/>
 
     </LinearLayout>
 

@@ -3,6 +3,7 @@
     package="com.example.mypt">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
@@ -15,14 +16,14 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".SignInActivity">
+        <activity android:name=".Community_UpLoad">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".FirstActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".Community_main"></activity>
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
@@ -32,8 +33,10 @@
         <activity android:name=".CheckBody"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Routine"></activity>
-        <activity android:name=".Community_UpLoad"></activity>
+        <activity android:name=".SignInActivity"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".CAL_TestActivity"></activity>
     </application>
 
 </manifest>

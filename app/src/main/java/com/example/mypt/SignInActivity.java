@@ -180,8 +180,6 @@ public class SignInActivity extends AppCompatActivity {
                 if(signdelVO != null){
                     dialog.dismiss();
                     Toast.makeText(getApplicationContext(), del_userid+"님의 회원탈퇴가 완료돠었습니다!", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -56,7 +56,7 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 //        TextView UserRoutineId;
         TextView RoutineDate;
 //        TextView Time;
-//        TextView workoutid;
+//        TextView workoutid;getWorkoutname
 //        TextView routinename;
 //        TextView description;
         TextView workoutname;
