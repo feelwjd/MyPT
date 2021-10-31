@@ -31,6 +31,7 @@
             android:textSize="20dp" />
 
         <Button
+            android:id="@+id/next"
             android:text="다음"
             android:fontFamily="@font/hsfont"
             android:textSize="20dp"
@@ -39,8 +40,6 @@
             android:backgroundTint="#A6B8C4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/next"
-            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/prev"
             android:layout_toEndOf="@+id/prev"
             android:onClick="onClickNext" />

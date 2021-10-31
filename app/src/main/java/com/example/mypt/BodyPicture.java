@@ -52,6 +52,7 @@ public class BodyPicture extends AppCompatActivity {
 
     Button savepic;
     beforeafterVO beforeafterVO = new beforeafterVO();
+    private com.example.mypt.mypage.beforeafterObject beforeafterObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,37 +83,44 @@ public class BodyPicture extends AppCompatActivity {
                     public void onClick(View view) {
                         String IMAGE = img_path;
                         afterpic(new beforeafterObject(IMAGE));
+
+                        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+                        My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
+                        Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
+                        call.enqueue(new Callback<beforeafterVO>() {
+                            @Override
+                            public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
+                                beforeafterVO = response.body();
+
+                                Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<beforeafterVO> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
+
+                                t.printStackTrace();
+                            }
+                        });
                     }
 
                 });
             }
         });
     }
-
+    public void loadImagefromGallery(View view) {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*"); //이미지만 보이게
+        intent.setType("album/*"); //이미지만 호출
+        //갤러리앱을 열어서 원하는 이미지를 선택
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+    }
     private void afterpic(beforeafterObject beforeafterObject) {
 
-        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
-        My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
-        Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
-        call.enqueue(new Callback<beforeafterVO>() {
-            @Override
-            public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
-                beforeafterVO = response.body();
 
-                Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onFailure(Call<beforeafterVO> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
-
-                t.printStackTrace();
-            }
-        });
     }
 
-    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         try {
