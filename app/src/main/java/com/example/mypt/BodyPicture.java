@@ -58,6 +58,8 @@ public class BodyPicture extends AppCompatActivity {
     private static final int REQUEST_CODE = 0;
     private static int PICK_IMAGE_REQUEST = 1;
     ImageView imageView;
+    ImageView image0;
+    ImageView album;
     private String img_path;
     //
 
@@ -74,7 +76,7 @@ public class BodyPicture extends AppCompatActivity {
 
 
         //////////////////////////////////////////////
-        imageView = findViewById(R.id.image1);
+        image0 = findViewById(R.id.image0);
 
         Button button = findViewById(R.id.hoon);
         button.setOnClickListener(new View.OnClickListener() {
@@ -91,9 +93,9 @@ public class BodyPicture extends AppCompatActivity {
 
         savepic = (Button) findViewById(R.id.savepic);
 
-        imageView = findViewById(R.id.album);
+        album = findViewById(R.id.album);
 
-        imageView.setOnClickListener(new View.OnClickListener() {
+        album.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -137,7 +139,7 @@ public class BodyPicture extends AppCompatActivity {
     /////////////////////////////////////////////////////////////////////////////
     public void sendImageRequest(){
         String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
-        ImageLoadTask task = new ImageLoadTask(url, imageView);
+        ImageLoadTask task = new ImageLoadTask(url, image0);
         task.execute();
     }
     /////////////////////////////////////////////////////////////////////////////
@@ -226,17 +228,18 @@ public class BodyPicture extends AppCompatActivity {
 
     private void init(){
 
+        ImageView imageView0 = (ImageView)findViewById(R.id.image0) ;
         ImageView imageView1 = (ImageView)findViewById( R.id.image1);
         ImageView imageView3 = (ImageView)findViewById(R.id.album);
 
-        imageViews = new ImageView[]{ imageView1, imageView3};
+        imageViews = new ImageView[]{ imageView1, imageView3, imageView0};
         imageView1.setVisibility(View.VISIBLE);
         CURRENT_INDEX = 0;
     }
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 1) {
+        if( ++CURRENT_INDEX > 2) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
