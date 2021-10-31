@@ -63,14 +63,14 @@ public class Community_UpLoad extends AppCompatActivity {
         image = (ImageView) findViewById(R.id.image1);
 
 
-        //Button btn_community=(Button) findViewById(R.id.btn_community);
-        //btn_community.setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        Intent intent1=new Intent(getApplicationContext(), Community_main.class);
-        //        startActivity(intent1);
-        //    }
-        //});
+        Button btn_community=(Button) findViewById(R.id.btn_commu);
+        btn_community.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1=new Intent(getApplicationContext(), Community_main.class);
+                startActivity(intent1);
+            }
+        });
 
         btn_uploadthis.setOnClickListener(new View.OnClickListener() {
             @Override
