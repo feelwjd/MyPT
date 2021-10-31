@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,6 +47,7 @@
             android:layout_margin="16dp"
             android:textColorHint="@color/white"
             android:textColor="@color/white"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/imageButton"
@@ -74,58 +78,34 @@
                     android:text="운동 목록"
                     android:textColor="@color/white"
                     android:textSize="17dp" />
-
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"/>
 
-                    <ImageButton
-                        android:id="@+id/btn_favorites"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:minWidth="32dp"
-                        android:minHeight="48dp"
-                        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
-                        tools:ignore="SpeakableTextPresentCheck" />
-                    <TextView
-                        android:id="@+id/rv_favorites"
-                        android:layout_width="325dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_weight="9"
-                        android:paddingLeft="5dp"
-                        android:text="workoutname"
-                        android:textColor="@color/white"
-                        android:layout_alignLeft="@+id/btn_favorites" />
-                </RelativeLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="290dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/layout_rv_item" />
 
+                <TextView
+                    android:id="@+id/rv_favorites"
+                    android:text="즐겨찾기한 운동이 없습니다."
+                    android:visibility="gone"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+                </LinearLayout>
 
 
-<!--                    <androidx.recyclerview.widget.RecyclerView-->
-<!--                        android:id="@+id/recyclerView"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:minHeight="290dp"-->
-<!--                        android:orientation="vertical"-->
-<!--                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-<!--                        tools:listitem="@layout/layout_rv_item" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_empty_favorites"-->
-<!--                        android:text=" 운동이 없습니다."-->
-<!--                        android:visibility="gone"-->
-<!--                        android:textColor="@color/white"-->
-<!--                        android:textSize="17sp"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_centerInParent="true"/>-->
-
-<!--                </RelativeLayout>-->
 
 
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

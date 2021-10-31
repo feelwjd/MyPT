@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_more"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_more"
-        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        android:src="@drawable/ic_baseline_favorite_border_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -26,6 +26,7 @@
         android:layout_marginStart="8dp"
         android:layout_weight="9"
         android:paddingLeft="5dp"
+        android:layout_marginBottom="15dp"
         android:text="workoutname"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_favorites"
@@ -40,7 +41,7 @@
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24"
+        android:src="@drawable/ic_baseline_arrow_forward_ios_24"
         tools:ignore="SpeakableTextPresentCheck" />
 
 
