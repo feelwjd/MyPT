@@ -5,7 +5,7 @@ import com.example.mypt.commu.Community_Data;
 import com.example.mypt.commu.CommunityallObject;
 import com.example.mypt.commu.CommunityallVO;
 import com.example.mypt.commu.ShareObject;
-import com.example.mypt.commu.ShareVO;
+
 import com.example.mypt.users.SigndelObject;
 import com.example.mypt.users.SigndelVO;
 import com.example.mypt.users.SigninObject;

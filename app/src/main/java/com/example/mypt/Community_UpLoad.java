@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.mypt.commu.ShareObject;
-import com.example.mypt.commu.ShareVO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -47,7 +46,7 @@ public class Community_UpLoad extends AppCompatActivity {
     Image img_path3;
     EditText commudescript, userid;
     Button btn_uploadthis;
-    ShareVO shareVO = new ShareVO();
+
     File file;
     //Bitmap image_send;
 
