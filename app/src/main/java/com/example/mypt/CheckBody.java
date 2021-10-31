@@ -32,7 +32,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
+                Intent intent = new Intent(getApplicationContext(),testpic.class);
                 startActivity(intent);
             }
         });
