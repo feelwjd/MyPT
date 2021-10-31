@@ -21,11 +21,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mypt.mypage.beforeafterObject;
+import com.example.mypt.mypage.beforeafterVO;
+import com.example.mypt.users.SignupObject;
+import com.example.mypt.users.SignupVO;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BodyPicture extends AppCompatActivity {
 
@@ -41,7 +50,8 @@ public class BodyPicture extends AppCompatActivity {
 
     //
 
-
+    Button savepic;
+    beforeafterVO beforeafterVO = new beforeafterVO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +63,11 @@ public class BodyPicture extends AppCompatActivity {
 
 
 
+        savepic = (Button) findViewById(R.id.savepic);
 
         imageView = findViewById(R.id.album);
 
-        imageView.setOnClickListener(new View.OnClickListener(){
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -64,6 +75,39 @@ public class BodyPicture extends AppCompatActivity {
                 intent.setType("image/*");  //추가
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
+
+
+                savepic.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String IMAGE = img_path;
+                        afterpic(new beforeafterObject(IMAGE));
+                    }
+
+                });
+            }
+        });
+    }
+
+    private void afterpic(beforeafterObject beforeafterObject) {
+
+        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+        My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
+        Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
+        call.enqueue(new Callback<beforeafterVO>() {
+            @Override
+            public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
+                beforeafterVO = response.body();
+
+                Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<beforeafterVO> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
+
+                t.printStackTrace();
             }
         });
     }

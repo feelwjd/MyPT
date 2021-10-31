@@ -46,19 +46,19 @@
             android:onClick="onClickNext" />
 
         <Button
+            android:id="@+id/savepic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="저장"
-            android:fontFamily="@font/hsfont"
-            android:textSize="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="40dp"
-            android:backgroundTint="#A6B8C4"
-            android:id="@+id/savepic"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/next"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
             android:layout_toEndOf="@+id/next"
-            android:onClick="onClickNext" />
+            android:layout_toRightOf="@+id/next"
+            android:backgroundTint="#A6B8C4"
+            android:fontFamily="@font/hsfont"
+            android:onClick="onClickNext"
+            android:text="저장"
+            android:textSize="20dp" />
 
 
     </RelativeLayout>
@@ -91,6 +91,8 @@
             app:srcCompat="@mipmap/ic_launcher"
             android:scaleType="fitCenter"
             android:visibility="invisible"
+            android:onClick="onActivityResult"
+
             />
 
 
