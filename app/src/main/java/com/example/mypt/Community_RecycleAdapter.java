@@ -14,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.commu.Community_Data;
+import com.example.mypt.commu.ShareVO;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +23,16 @@ import java.util.List;
 public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_RecycleAdapter.MyViewHolder>{
 
     private Context c;
-    private List<Community_Data> dataList;
-    public Community_RecycleAdapter(Context c, List<Community_Data> dataList) {
+    private List<ShareVO> shareVOList;
+
+    public Community_RecycleAdapter(Context c, List<ShareVO> shareVOList) {
         this.c = c;
-        this.dataList = dataList;
+        this.shareVOList = shareVOList;
     }
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public  Community_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(c).inflate(R.layout.activity_community_recycler, parent, false);
         return new MyViewHolder(view);
@@ -37,13 +40,22 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.userid.setText(dataList.get(position).getUserid());
-        holder.heart.setText(""+dataList.get(position).getHeart());
-        holder.commudescript.setText(""+dataList.get(position).getCommudescript());
+        holder.userid.setText(shareVOList.get(position).getUserid());
+        holder.commudescript.setText(shareVOList.get(position).getCommudescript());
+        holder.heart.setText(String.valueOf(shareVOList.get(position).getHeart()));
+        String imgUrl = shareVOList.get(position).getImage();
+        String mypt = "http://3.34.96.177:8000/shareimage/";
+        String result = mypt.concat(imgUrl);
+        Picasso.get().load(result).into(holder.after);
     }
 
     @Override
-    public int getItemCount() { return dataList.size(); }
+    public int getItemCount() { return shareVOList.size(); }
+
+    public void  filterList(List<ShareVO> filteredList) {
+        shareVOList = filteredList;
+        notifyDataSetChanged();
+    }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 

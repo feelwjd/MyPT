@@ -49,7 +49,8 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1' //로그인 로그를 남기기 위한 interceptor
     implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.2" //Okhttp3의 cookieJar 를 사용하여 쿠키를 유지
-    implementation 'com.github.prolificinteractive:material-calendarview:1.4.3'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.0'
 
 
