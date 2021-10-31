@@ -92,7 +92,6 @@ public class Calender extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<CAL_Data>> call, Response<List<CAL_Data>> response) {
 
-
 //            String date1;
 //                dataInfo = response.body();
 //                date1 = String.valueOf(dataInfo.get(1).getRoutineDate());
@@ -102,15 +101,6 @@ public class Calender extends AppCompatActivity {
                 materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
                     DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
                     DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.KOREA);
-
-
-
-
-
-
-
-
-
 
                     @Override
                     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
@@ -171,7 +161,7 @@ public class Calender extends AppCompatActivity {
 //                                    for(int i =0;i<array.length;i++){
 //                                        Log.d("TEST!!!!","length is " + i + array[i]);
 //                                    }
-                               
+
                             }
                         }
                         //recycletext.setText(response.body().get(numi).getWorkoutname());
@@ -183,9 +173,6 @@ public class Calender extends AppCompatActivity {
                         //ArrayAdapter.notifyDataSetChanged();
 
                     }
-
-
-
 
 
                 });
@@ -208,16 +195,8 @@ public class Calender extends AppCompatActivity {
                     }
                 }
 
-
-
-
                 /***날짜변경/   /***/
                 //recycleAdapter.filterList(filterList);
-
-
-
-
-
 
                 recyclerView.setAdapter(recycleAdapter);
             }
@@ -233,10 +212,6 @@ recyclerView.addItemDecoration(new CAL_RecyclerDecoration(1));
 /***/
 
         //materialCalendarView.setSelectedDate(CalendarDay.today());
-
-
-
-
 
 
 /** 토요일 파란색*/
@@ -273,53 +248,11 @@ materialCalendarView.addDecorator((new DayViewDecorator() {
     }
 }));
 
-
-
-
 materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
-
-
-
 
 //        String[] values = new String[] {"상체", "복부", "하체"};
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
 //        listView.setAdapter(adapter);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /** 월요일 검정*/
@@ -423,6 +356,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
                 view.addSpan(new ForegroundColorSpan(Color.rgb(153,204,255)));
             }
         });
+
 /** 여기부터 내비바 필요한거**/
         btncomu = findViewById(R.id.btncomu);
         btncal = findViewById(R.id.btncal);
@@ -466,9 +400,6 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             }
         });
         /** 여기까지 내비바 필요한거**/
-        
-
-
 
     }
 
@@ -476,7 +407,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
         //2000밀리초 = 2초
         if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
             backKeyPressedTime = System.currentTimeMillis();
-            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 로그아웃 됩니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 로그아웃!", Toast.LENGTH_SHORT).show();
             return;
         }
         //2초 이내에 뒤로가기 버튼을 한번 더 클릭시 앱 종료

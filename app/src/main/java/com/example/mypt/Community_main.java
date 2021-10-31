@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -139,6 +140,8 @@ public class Community_main extends AppCompatActivity{
 
                 recycleAdapter = new Community_RecycleAdapter(getApplicationContext(), response.body());
                 recyclerView.setAdapter(recycleAdapter);
+                Toast.makeText(getApplicationContext(), "새로고침 완료!", Toast.LENGTH_SHORT).show();
+                btn_f5.setText("Success!");
             }
 
             @Override
