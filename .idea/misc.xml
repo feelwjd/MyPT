@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/btn_comu.xml" value="0.2777777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_loop_24.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_baseline_stop_circle_24.xml" value="0.20277777777777778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/ic_unlike.xml" value="0.20277777777777778" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/drawable/side_nav_bar.xml" value="0.2777777777777778" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_bodypicture.xml" value="0.13703140830800406" />
+        <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_calender.xml" value="0.25" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_checkbody.xml" value="0.12310030395136778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_1.xml" value="0.12310030395136778" />
         <entry key="..\:/Android_Project/MyPT2/app/src/main/res/layout/activity_community_item_detail.xml" value="0.25" />

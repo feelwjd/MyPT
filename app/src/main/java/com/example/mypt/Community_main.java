@@ -31,8 +31,12 @@ public class Community_main extends AppCompatActivity{
     List<Community_Data> dataInfo;
     RecyclerView recyclerView;
     Community_RecycleAdapter recycleAdapter;
+    String[] array;
     Gson gson;
 
+    /** 여기부터 내비바 필요한거**/
+    public Button btncomu,btncal,btnmy,btnstart;
+    /** 여기까지 내비바 필요한거**/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
@@ -60,7 +64,7 @@ public class Community_main extends AppCompatActivity{
         btn_mainmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent1=new Intent(getApplicationContext(), Calender.class);
                 startActivity(intent1);
             }
         });
@@ -72,6 +76,50 @@ public class Community_main extends AppCompatActivity{
                     f5();
             }
         });
+
+        /** 여기부터 내비바 필요한거**/
+        btncomu = findViewById(R.id.btncomu);
+        btncal = findViewById(R.id.btncal);
+        btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
+
+        btncomu.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+                startActivity(intent);
+            }
+        });
+
+        btncal.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnmy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
+                intent.putExtra("array",array);
+                startActivity(intent);
+            }
+        });
+        /** 여기까지 내비바 필요한거**/
     }
 
     private void f5(){
@@ -96,4 +144,5 @@ public class Community_main extends AppCompatActivity{
             }
         });
     }
+
 }

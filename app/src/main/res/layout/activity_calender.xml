@@ -10,35 +10,64 @@
 
 
 
-    <TextView
-        android:id="@+id/textView1"
+<!--    <CalendarView-->
+<!--        android:id="@+id/calendarView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calenderView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:mcv_selectionColor="#00F"
+        app:mcv_showOtherDates="all" />
+    /****/
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="득근득근"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#9E28B3"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_alignParentStart="true"
-        tools:ignore="MissingConstraints" />
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="28dp"
-        android:layout_below="@id/textView1"
-        tools:ignore="MissingConstraints" />
+        android:visibility="invisible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintVertical_bias="0" />
+    /****/
+
+    <TextView
+        android:id="@+id/recycletextday"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_above="@id/recycletext"
+        android:text="qweqwe"
+        android:paddingLeft="50dp"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/recycletext"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_above="@id/nav"
+        android:text="qweqwe"
+        android:paddingLeft="50dp"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/nav"
-        android:layout_marginTop="-338dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="wrap_content" />
+
+
+/**아래까지 네비입니다잉**/
 
     <LinearLayout
         android:id="@+id/nav"
@@ -46,38 +75,63 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/nav_rectangle"
         android:orientation="horizontal"
+        android:paddingBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         tools:ignore="MissingConstraints">
 
         <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/btncomu"
+            android:id="@+id/btncal"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:text="COMUNITY" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_cal"
+            android:drawablePadding="-5dp"
+            android:text="캘린더" />
 
         <Button
-            android:id="@+id/btncal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Calender" />
+            android:id="@+id/btnstart"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_start"
+            android:drawablePadding="-5dp"
+            android:text="운동시작" />
+
+        <Button
+            android:id="@+id/btncomu"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_comu"
+            android:drawablePadding="-5dp"
+            android:text="커뮤니티" />
 
         <Button
             android:id="@+id/btnmy"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MYPAGE" />
-        <Button
-            android:id="@+id/btnstart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="START" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_my"
+            android:drawablePadding="-5dp"
+            android:text="마이페이지" />
 
     </LinearLayout>
 </RelativeLayout>

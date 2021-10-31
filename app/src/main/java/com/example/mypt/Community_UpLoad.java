@@ -43,7 +43,10 @@ public class Community_UpLoad extends AppCompatActivity {
     EditText commudescript, userid;
     Button btn_uploadthis;
     ShareVO shareVO = new ShareVO();
-
+    String[] array;
+    /** 여기부터 내비바 필요한거**/
+    public Button btncomu,btncal,btnmy,btnstart;
+    /** 여기까지 내비바 필요한거**/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,16 +58,6 @@ public class Community_UpLoad extends AppCompatActivity {
         commudescript = (EditText) findViewById(R.id.commudescript);
         btn_uploadthis = (Button) findViewById(R.id.btn_uploadthis);
         image = (ImageView) findViewById(R.id.image1);
-
-
-        Button btn_community=(Button) findViewById(R.id.btn_community);
-        btn_community.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), Community_main.class);
-                startActivity(intent1);
-            }
-        });
 
         btn_uploadthis.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +83,50 @@ public class Community_UpLoad extends AppCompatActivity {
 
             }
         });
+        /** 여기부터 내비바 필요한거**/
+        btncomu = findViewById(R.id.btncomu);
+        btncal = findViewById(R.id.btncal);
+        btnmy = findViewById(R.id.btnmy);
+        btnstart = findViewById(R.id.btnstart);
+
+        btncomu.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+                startActivity(intent);
+            }
+        });
+
+        btncal.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                startActivity(intent);
+            }
+        });
+
+        btnmy.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                startActivity(intent);
+            }
+        });
+
+        btnstart.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
+                intent.putExtra("array",array);
+                startActivity(intent);
+            }
+        });
+        /** 여기까지 내비바 필요한거**/
+
     }
 
     private void upload(ShareObject shareObject) {
