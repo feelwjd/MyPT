@@ -1,21 +1,31 @@
 package com.example.mypt;
 
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class BodyPicture extends AppCompatActivity {
 
@@ -25,7 +35,9 @@ public class BodyPicture extends AppCompatActivity {
 
     //
     private static final int REQUEST_CODE = 0;
+    private static int PICK_IMAGE_REQUEST = 1;
     private ImageView imageView;
+    private String img_path;
 
     //
 
@@ -49,6 +61,7 @@ public class BodyPicture extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setType("album/*");
+                intent.setType("image/*");  //추가
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
             }
@@ -58,27 +71,72 @@ public class BodyPicture extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                try {
-                    InputStream in = getContentResolver().openInputStream(data.getData());
+        try {
+            //이미지를 골랐을때
+            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && null != data) {
+                //data에서 절대경로로 이미지를 가져옴
+                Uri uri = data.getData();
 
-                    Bitmap img = BitmapFactory.decodeStream(in);
-                    in.close();
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                //이미지가 너무 크면 불러 오지 못하므로 사이즈를 줄여 준다.
+                int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
 
-                    imageView.setImageBitmap(img);
-                } catch (Exception e) {
+                ImageView imgview = (ImageView) findViewById(R.id.image);
+                imgview.setImageBitmap(scaled);
 
+                if (uri != null) {
+                    img_path = createCopyAndReturnRealPath(this, uri);
+                    Toast.makeText(this, img_path, Toast.LENGTH_LONG).show();
                 }
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+
+            } else {
+                Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_LONG).show();
             }
+
+        } catch (Exception e) {
+            Toast.makeText(this, "오류가 발생했습니다.", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
+    }
+    public String getPath(Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        startManagingCursor(cursor);
+        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(columnIndex);
+    }
 
+    // 절대경로 파악할 때 사용된 메소드
+    @Nullable
+    public static String createCopyAndReturnRealPath(@NonNull Context context, @NonNull Uri uri) {
+        final ContentResolver contentResolver = context.getContentResolver();
 
-        //
+        if (contentResolver == null)
+            return null;
+        // 파일 경로를 만듬
+        String filePath = context.getApplicationInfo().dataDir + File.separator
+                + System.currentTimeMillis();
+        File file = new File(filePath);
+        try {
+            // 매개변수로 받은 uri 를 통해  이미지에 필요한 데이터를 불러 들인다.
 
-
+            InputStream inputStream = contentResolver.openInputStream(uri);
+            if (inputStream == null)
+                return null;
+            // 이미지 데이터를 다시 내보내면서 file 객체에  만들었던 경로를 이용한다.
+            OutputStream outputStream = new FileOutputStream(file);
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = inputStream.read(buf)) > 0)
+                outputStream.write(buf, 0, len);
+            outputStream.close();
+            inputStream.close();
+        } catch (IOException ignore) {
+            return null;
+        }
+        return file.getAbsolutePath();
     }
 
     private void init(){

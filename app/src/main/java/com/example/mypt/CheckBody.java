@@ -54,7 +54,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Community_UpLoad.class);
+                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +65,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Community_UpLoad.class);
+                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
                 startActivity(intent);
             }
         });
