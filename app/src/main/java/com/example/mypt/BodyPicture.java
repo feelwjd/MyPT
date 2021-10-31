@@ -57,9 +57,8 @@ public class BodyPicture extends AppCompatActivity {
     //
     private static final int REQUEST_CODE = 0;
     private static int PICK_IMAGE_REQUEST = 1;
-    private ImageView imageView;
+    ImageView imageView;
     private String img_path;
-
     //
 
     Button savepic;

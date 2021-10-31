@@ -38,9 +38,9 @@ public class My_TestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        workoutVOList = new ArrayList<>();
 
-        recyclerView = findViewById(R.id.recyclerView);
+        workoutVOList = new ArrayList<>();
+        recyclerView = findViewById(R.id.rv_favorites);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
