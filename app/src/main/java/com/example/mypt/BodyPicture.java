@@ -91,7 +91,7 @@ import retrofit2.Response;
 
 public class BodyPicture extends AppCompatActivity {
 
-    public Button btncomu,btncal,btnmy,btnstart;
+//    public Button btncomu,btncal,btnmy,btnstart;
     private int CURRENT_INDEX;
     private ImageView[] imageViews;
 
@@ -105,6 +105,16 @@ public class BodyPicture extends AppCompatActivity {
     Button savepic;
     private String img_path;
     //
+
+
+
+//    btnImageSend = findViewById(R.id.btnImageSend);
+//    btnImageSend.setEnabled(false);
+//    btnImageSend.setOnClickListener(new View.OnClickListener()
+
+
+
+
 
     beforeafterVO beforeafterVO = new beforeafterVO();
     private com.example.mypt.mypage.beforeafterObject beforeafterObject;
@@ -129,36 +139,37 @@ public class BodyPicture extends AppCompatActivity {
                // intent.setType("album/*");
                 intent.setType("image/*");  //추가
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(intent, 1);
 
                 //////////////////////////////////
-
-                String IMAGE= img_path;
-                //IMAGE = IMAGE.trim();
-                afterpic(new beforeafterObject(IMAGE));
-                My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
-                Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
-                call.enqueue(new Callback<beforeafterVO>() {
-                    @Override
-                    public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
-                        beforeafterVO = response.body();
-
-                        Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<beforeafterVO> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
-
-                        t.printStackTrace();
-                    }
-                });
-
-
-//                savepic.setOnClickListener(new View.OnClickListener() {
+//
+//                String IMAGE= img_path;
+//                //IMAGE = IMAGE.trim();
+//                afterpic(new beforeafterObject(IMAGE));
+//                My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
+//                Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
+//                call.enqueue(new Callback<beforeafterVO>() {
 //                    @Override
-//                    public void onClick(View view) {
+//                    public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
+//                        beforeafterVO = response.body();
+//
+//                        Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<beforeafterVO> call, Throwable t) {
+//                        Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
+//
+//                        t.printStackTrace();
+//                    }
+//                });
+
+
+                savepic.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
 
                         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
 
@@ -166,8 +177,42 @@ public class BodyPicture extends AppCompatActivity {
 
 //                }
 //                );
+                    }
+                });
             }
         });
+
+//        imgVwSelected = findViewById(R.id.imgVwSelected);
+//        @Override
+//        protected void onActivityResult(int requestCode, int resultCode, Intent data){
+//            if (requestCode != 1 || resultCode != RESULT_OK) {
+//                return;
+//            }
+//            Uri dataUri = data.getData();
+//            imgVwSelected.setImageURI(dataUri);
+//            try {
+//                // ImageView 에 이미지 출력
+//                InputStream in = getContentResolver().openInputStream(dataUri);
+//                Bitmap image = BitmapFactory.decodeStream(in);
+//                imgVwSelected.setImageBitmap(image);
+//                in.close();
+//
+//                // 선택한 이미지 임시 저
+//
+//                String date = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss").format(new Date());
+//                tempSelectFile = new File(Environment.getExternalStorageDirectory()+"/Pictures/Test/", "temp_" + date + ".jpeg");
+//                OutputStream out = new FileOutputStream(tempSelectFile);
+//                image.compress(Bitmap.CompressFormat.JPEG, 100, out);
+//            }
+//            catch(IOException ioe) {
+//                ioe.printStackTrace();
+//            }
+//            btnImageSend.setEnabled(true);
+//        }
+
+
+
+
     }
     /////////////////////////////////////////////////////////////////////////////
     public void sendImageRequest(){
@@ -224,7 +269,7 @@ public class BodyPicture extends AppCompatActivity {
 
                 if (uri != null) {
                     img_path = createCopyAndReturnRealPath(this, uri);
-                    Toast.makeText(this, img_path, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, img_path, Toast.LENGTH_LONG).show();
                 }
 
             } else {
