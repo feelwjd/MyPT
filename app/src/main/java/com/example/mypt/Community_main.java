@@ -19,6 +19,7 @@ import com.example.mypt.commu.CommunityallObject;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -59,7 +60,7 @@ public class Community_main extends AppCompatActivity{
         btn_mainmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent1=new Intent(getApplicationContext(), Calendar.class);
                 startActivity(intent1);
             }
         });
