@@ -23,14 +23,14 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CAL_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(c).inflate(R.layout.cal_item_list, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CAL_RecycleAdapter.MyViewHolder holder, int position) {
 
         holder.userid.setText(dataList.get(position).getUserid());
 //        holder.routineid.setText(String.valueOf(dataList.get(position).getRoutineid()));
