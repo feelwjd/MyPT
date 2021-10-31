@@ -1,13 +1,12 @@
 package com.example.mypt;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mypt.users.SigninVO;
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), My_TestActivity.class);
+                Intent intent = new Intent (getApplicationContext(), TestActivity.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });

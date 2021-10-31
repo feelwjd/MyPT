@@ -9,6 +9,7 @@ import java.net.CookiePolicy;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.CookieJar;
+//import okhttp3.JavaNetCookieJar;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -28,4 +29,3 @@ public class APIClient {
         return retrofit;
     }
 }
-

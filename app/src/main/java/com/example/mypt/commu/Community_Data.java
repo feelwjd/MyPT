@@ -1,5 +1,7 @@
 package com.example.mypt.commu;
 
+import android.media.Image;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -16,6 +18,10 @@ public class Community_Data {
     @Expose
     private int heart;
 
+//    @SerializedName("image")
+//    @Expose
+//    private Image image;
+
     public String getUserid() {
         return userid;
     }
@@ -29,6 +35,8 @@ public class Community_Data {
     public int getHeart() {
         return heart;
     }
+
+
 
 
 }
