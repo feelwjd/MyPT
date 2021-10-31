@@ -79,4 +79,10 @@
         android:text="한 줄 코멘트 출력" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black">
+    </View>
+
 </LinearLayout>
