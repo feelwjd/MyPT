@@ -118,7 +118,7 @@ public class SignInActivity extends AppCompatActivity {
                         SigninVO signinVO = response.body();
 
                         if(signinVO != null){       // 회원입니다.
-                            Intent intent = new Intent(getApplicationContext(), Calender.class);
+                            Intent intent = new Intent(getApplicationContext(), Calendar.class);
                             startActivity(intent);
                             Toast.makeText(getApplicationContext(), userid+"님 어서오세요!", Toast.LENGTH_SHORT).show();
                         }else{                      // 회원이 아닙니다.
