@@ -12,14 +12,28 @@ public class ShareVO {
     private int status;
     @SerializedName("success")
     private boolean success;
-
     @SerializedName("userid")
     @Expose
     private String userid;
 
     @SerializedName("commudescript")
     @Expose
-    private String pw;
+    private String commudescript;
+
+    @SerializedName("image")
+    @Expose
+    private String image;
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public String getCmmudescript() {
+        return commudescript;
+    }
+    public String getImage() {
+        return image;
+    }
 
     public String getMessage() {
         return message;
@@ -28,13 +42,4 @@ public class ShareVO {
     public int getStatus() {
         return status;
     }
-
-    public String getUserid() {
-        return userid;
-    }
-
-    public String getCommudescript() {
-        return commudescript;
-    }
-
 }

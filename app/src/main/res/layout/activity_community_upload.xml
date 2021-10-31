@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:layout_width="fill_parent" >
 
 
@@ -10,9 +10,23 @@
         android:id="@+id/commudescript"
         android:layout_width="350dp"
         android:layout_height="45dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="336dp"
         android:ems="10"
         android:hint="한 줄 코멘트"
+        android:inputType="textPersonName"
+        android:theme="@style/myEditTextstyle2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/userid2"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="388dp"
+        android:ems="10"
+        android:hint="유저아이디"
         android:inputType="textPersonName"
         android:theme="@style/myEditTextstyle2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +37,7 @@
     <ImageView
         android:id="@+id/image1"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
@@ -39,7 +53,7 @@
         android:id="@+id/btn_imageselect"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="128dp"
         android:onClick="loadImagefromGallery2"
         android:text="사진선택"
         android:textSize="25dp"
@@ -53,7 +67,7 @@
         android:id="@+id/btn_uploadthis"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="128dp"
         android:text="업로드"
         android:textSize="25dp"
         android:textStyle="bold"

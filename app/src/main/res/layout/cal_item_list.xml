@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     >
 
-
-
     <TextView
         android:id="@+id/userid"
         android:layout_width="match_parent"

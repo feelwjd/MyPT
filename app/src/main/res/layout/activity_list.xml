@@ -1,174 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#222121">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ff1e1f23"
-        tools:context=".MainActivity">
-
-        <TextView
-            android:id="@+id/textView"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="운동"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageButton" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+        android:orientation="vertical">
 
         <EditText
-            android:id="@+id/et_search"
-            android:background="@drawable/background_search"
-            android:includeFontPadding="true"
-            android:drawableStart="@drawable/ic_baseline_search_24"
-            android:drawablePadding="10dp"
-            android:padding="12dp"
-            android:hint="운동 찾기"
-            android:layout_margin="16dp"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
+            android:id="@+id/editSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/imageButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="20dp"
+            android:hint="검색어를 입력하세요."
+            android:minHeight="48dp"
+            android:textColor="@color/white" />
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/et_search">
+        <ListView
+            android:id="@+id/listView"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#999999"
+            android:dividerHeight="1dp">
+        </ListView>
+    </LinearLayout>
 
-            <LinearLayout
-                android:paddingHorizontal="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="즐겨찾기"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_favorites"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="290dp"
-                        android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/layout_rv_item" />
-
-                    <TextView
-                        android:id="@+id/tv_empty_favorites"
-                        android:text="즐겨찾기한 운동이 없습니다."
-                        android:visibility="gone"
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"/>
-
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="최근 한 운동"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_recent"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:minHeight="290dp"
-                        android:orientation="vertical"
-                        tools:listitem="@layout/layout_rv_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tv_empty_recent"
-                        android:visibility="gone"
-                        android:text="최근에 한 운동이 없습니다."
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"/>
-                </RelativeLayout>
-
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="유산소"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_aerobic"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:minHeight="290dp"
-                        android:orientation="vertical"
-                        tools:listitem="@layout/layout_rv_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tv_empty_aerobic"
-                        android:visibility="gone"
-                        android:text="유산소 운동이 없습니다."
-                        android:textColor="@color/white"
-                        android:textSize="17sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"/>
-                </RelativeLayout>
-            </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</LinearLayout>

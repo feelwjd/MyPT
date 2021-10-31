@@ -13,8 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mypt.commu.CommunityObject;
 import com.example.mypt.commu.Community_Data;
+import com.example.mypt.commu.CommunityallObject;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -75,10 +75,10 @@ public class Community_main extends AppCompatActivity{
 
     private void f5(){
 
-        CommunityObject communityObject = new CommunityObject("feelwjd");
+        CommunityallObject communityallObject = new CommunityallObject("feelwjd");
 
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<Community_Data>> call = retrofitService.getCommunity(communityObject);
+        Call<List<Community_Data>> call = retrofitService.getCommunity(communityallObject);
         call.enqueue(new Callback<List<Community_Data>>() {
             @Override
             public void onResponse(Call<List<Community_Data>> call, Response<List<Community_Data>> response) {

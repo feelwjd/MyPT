@@ -23,16 +23,6 @@ public class CAL_TestActivity extends AppCompatActivity{
     RecyclerView recyclerView;
     CAL_RecycleAdapter recycleAdapter;
 
-<<<<<<< HEAD
-=======
-    //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
-
-    //private ProgressDialog progressDialog;
-    //private TextView textviewJSONText;
-    //private TextView textView;
-    //Data data;
-    //RoutineInfoResult routineInfoResult;
->>>>>>> 72abd22a2f70707e37cd1e229f46945aa10bd94b
     Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

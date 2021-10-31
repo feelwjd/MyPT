@@ -24,6 +24,7 @@
     </LinearLayout>
     <!-- //end 타이틀바 -->
 
+    <!-- Notice -->
     <LinearLayout
         android:padding="24dp"
         android:orientation="horizontal"
@@ -62,6 +63,7 @@
 
 
     </LinearLayout>
+    <!-- Notice -->
 
     <View
         android:background="#66bdbdbd"
