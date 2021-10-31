@@ -130,17 +130,16 @@
     </RadioGroup>
 
 
-
     <ImageView
         android:id="@+id/image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
+        android:layout_marginTop="4dp"
         android:adjustViewBounds="true"
         android:maxWidth="200dp"
         android:maxHeight="200dp"
         android:src="@drawable/img_icon"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@+id/sex_2"
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="@+id/sex_2"

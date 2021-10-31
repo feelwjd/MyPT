@@ -4,6 +4,47 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.app.AlertDialog;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
+
+import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.example.mypt.users.SignupObject;
+import com.example.mypt.users.SignupVO;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
@@ -59,11 +100,12 @@ public class BodyPicture extends AppCompatActivity {
     private static int PICK_IMAGE_REQUEST = 1;
     ImageView imageView;
     ImageView image0;
+    //
     ImageView album;
+    Button savepic;
     private String img_path;
     //
 
-    Button savepic;
     beforeafterVO beforeafterVO = new beforeafterVO();
     private com.example.mypt.mypage.beforeafterObject beforeafterObject;
 
@@ -71,75 +113,64 @@ public class BodyPicture extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodypicture);
-
-
-
-
-        //////////////////////////////////////////////
-        image0 = findViewById(R.id.image0);
-
-        Button button = findViewById(R.id.hoon);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendImageRequest();
-            }
-        });
-        ////////////////////////////////////////////
-
-
-
-        //
-
+        init();
         savepic = (Button) findViewById(R.id.savepic);
+        imageView = findViewById(R.id.imageView);
 
-        album = findViewById(R.id.album);
+                sendImageRequest();
+
+
+        album = (ImageView) findViewById(R.id.album);
 
         album.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setType("album/*");
-                intent.setType("image/*");  //추가
+//                intent.setType("image/*");  //추가
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
 
-
-                savepic.setOnClickListener(new View.OnClickListener() {
+                //////////////////////////////////
+                String IMAGE= img_path;
+                IMAGE = IMAGE.trim();
+                afterpic(new beforeafterObject(IMAGE));
+                My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
+                Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
+                call.enqueue(new Callback<beforeafterVO>() {
                     @Override
-                    public void onClick(View view) {
-                        String IMAGE = img_path;
-                        afterpic(new beforeafterObject(IMAGE));
+                    public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
+                        beforeafterVO = response.body();
 
-                        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
-                        My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
-                        Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
-                        call.enqueue(new Callback<beforeafterVO>() {
-                            @Override
-                            public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
-                                beforeafterVO = response.body();
+                        Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
-
-                            }
-
-                            @Override
-                            public void onFailure(Call<beforeafterVO> call, Throwable t) {
-                                Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
-
-                                t.printStackTrace();
-                            }
-                        });
                     }
 
+                    @Override
+                    public void onFailure(Call<beforeafterVO> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
+
+                        t.printStackTrace();
+                    }
                 });
+
+//                savepic.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+
+                        //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+
+//                    }
+
+//                }
+//                );
             }
         });
     }
     /////////////////////////////////////////////////////////////////////////////
     public void sendImageRequest(){
-        String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
-        ImageLoadTask task = new ImageLoadTask(url, image0);
+        String url = "http://3.34.96.177:8000/images/KakaoTalk_20211012_195157072.png";
+        ImageLoadTask task = new ImageLoadTask(url, imageView);
         task.execute();
     }
     /////////////////////////////////////////////////////////////////////////////
@@ -228,18 +259,17 @@ public class BodyPicture extends AppCompatActivity {
 
     private void init(){
 
-        ImageView imageView0 = (ImageView)findViewById(R.id.image0) ;
-        ImageView imageView1 = (ImageView)findViewById( R.id.image1);
-        ImageView imageView3 = (ImageView)findViewById(R.id.album);
+        ImageView imageView0 = (ImageView)findViewById(R.id.imageView) ;
+        ImageView imageView1 = (ImageView)findViewById(R.id.album);
 
-        imageViews = new ImageView[]{ imageView1, imageView3, imageView0};
-        imageView1.setVisibility(View.VISIBLE);
+        imageViews = new ImageView[]{ imageView0, imageView1 };
+        imageView0.setVisibility(View.VISIBLE);
         CURRENT_INDEX = 0;
     }
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 2) {
+        if( ++CURRENT_INDEX > 1) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
@@ -277,52 +307,7 @@ public class BodyPicture extends AppCompatActivity {
                 }
             }
         }
-        /** 여기부터 내비바 필요한거**/
-        btncomu = findViewById(R.id.btncomu);
-        btncal = findViewById(R.id.btncal);
-        btnmy = findViewById(R.id.btnmy);
-        btnstart = findViewById(R.id.btnstart);
 
-        btncomu.setOnClickListener(new View.OnClickListener(){
-
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
-                startActivity(intent);
-            }
-        });
-
-        btncal.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
-                startActivity(intent);
-            }
-        });
-
-        btnmy.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
-                startActivity(intent);
-            }
-        });
-
-        btnstart.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Watch.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        /** 여기까지 내비바 필요한거**/
     }
 
 

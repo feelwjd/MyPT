@@ -14,7 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-public class testpic  extends AppCompatActivity {
+public class testpic extends AppCompatActivity {
+
     ImageView imageView;
 
     @Override
@@ -34,7 +35,7 @@ public class testpic  extends AppCompatActivity {
     }
 
     public void sendImageRequest(){
-        String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
+        String url = "http://3.34.96.177:8000/images/KakaoTalk_20211012_195157072.png";
         ImageLoadTask task = new ImageLoadTask(url, imageView);
         task.execute();
     }

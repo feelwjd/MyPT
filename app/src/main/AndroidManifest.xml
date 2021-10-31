@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -21,18 +22,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FirstActivity"></activity>
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".TestActivity"></activity>
+
         <activity android:name=".Watch"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".DbTest"></activity>
         <activity android:name=".BodyPicture"></activity>
         <activity android:name=".PopupActivity"></activity>
         <activity android:name=".CheckBody"></activity>
-
+        <activity android:name=".testpic"></activity>
         <activity android:name=".Routine"></activity>
-        <activity android:name=".SignDeleteActivity"></activity>
     </application>
 
 </manifest>

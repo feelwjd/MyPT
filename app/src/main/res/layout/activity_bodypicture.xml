@@ -16,12 +16,7 @@
         android:orientation="horizontal">
 
 
-        <Button
-            android:id="@+id/hoon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="생성"
-            android:textSize="10dp" />
+
 
         <Button
             android:id="@+id/prev"
@@ -78,20 +73,12 @@
         >
 
         <ImageView
-            android:id="@+id/image0"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"
             android:src="@drawable/start"
             />
-        <ImageView
-            android:id="@+id/image1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            android:src="@drawable/start"
-            />
-
 
 
         <ImageView
