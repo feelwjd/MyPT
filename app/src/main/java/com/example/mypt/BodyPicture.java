@@ -6,9 +6,21 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.widget.ImageView;
+
+import java.net.URL;
+import java.util.HashMap;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -58,11 +70,25 @@ public class BodyPicture extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bodypicture);
-        init();
+
+
+
+
+        //////////////////////////////////////////////
+        imageView = findViewById(R.id.image1);
+
+        Button button = findViewById(R.id.hoon);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendImageRequest();
+            }
+        });
+        ////////////////////////////////////////////
+
+
 
         //
-
-
 
         savepic = (Button) findViewById(R.id.savepic);
 
@@ -109,6 +135,14 @@ public class BodyPicture extends AppCompatActivity {
             }
         });
     }
+    /////////////////////////////////////////////////////////////////////////////
+    public void sendImageRequest(){
+        String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
+        ImageLoadTask task = new ImageLoadTask(url, imageView);
+        task.execute();
+    }
+    /////////////////////////////////////////////////////////////////////////////
+
     public void loadImagefromGallery(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*"); //이미지만 보이게

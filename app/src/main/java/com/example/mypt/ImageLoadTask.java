@@ -8,6 +8,14 @@ import android.widget.ImageView;
 import java.net.URL;
 import java.util.HashMap;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.widget.ImageView;
+
+import java.net.URL;
+import java.util.HashMap;
+
 public class ImageLoadTask extends AsyncTask<Void, Void, Bitmap> {
 
     private String urlStr;

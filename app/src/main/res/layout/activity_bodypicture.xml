@@ -15,6 +15,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+
+        <Button
+            android:id="@+id/hoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="생성"
+            android:textSize="10dp" />
+
         <Button
             android:id="@+id/prev"
             android:layout_width="wrap_content"
