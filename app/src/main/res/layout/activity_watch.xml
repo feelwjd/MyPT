@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Watch"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    >
 
     <!-- 타이머 진행 바 -->
+
     <ProgressBar
         android:id="@+id/progressBarCircle"
         style="?android:attr/progressBarStyleHorizontal"
@@ -22,9 +24,10 @@
         android:rotation="-90"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.136" />
 
     <EditText
         android:id="@+id/editTextMinute"
@@ -90,22 +93,23 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarCircle"
+
         app:layout_constraintVertical_bias="0.074" />
 
     <ListView
-        android:textColor="#ffffff"
-        android:textSize="15sp"
         android:id="@+id/list_view"
         android:layout_width="270dp"
-        android:layout_height="204dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewStartStop"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+
+        app:layout_constraintBottom_toTopOf="@+id/nav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.074"
+
         app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewStartStop" />
 
 
 

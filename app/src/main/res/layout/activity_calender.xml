@@ -24,7 +24,7 @@
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calenderView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all" />
     /****/
@@ -45,25 +45,26 @@
     <TextView
         android:id="@+id/recycletextday"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="20dp"
         android:layout_above="@id/recycletext"
-
         android:text="qweqwe"
-        android:textSize="20dp" />
+        android:paddingLeft="50dp"
+        android:textSize="15dp" />
 
     <TextView
         android:id="@+id/recycletext"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="90dp"
         android:layout_above="@id/nav"
-
         android:text="qweqwe"
-        android:textSize="20dp" />
+        android:paddingLeft="50dp"
+        android:textColor="@color/black"
+        android:textSize="15dp" />
+
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/list_view"
-        android:layout_above="@+id/nav"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 /**아래까지 네비입니다잉**/

@@ -130,7 +130,7 @@ public class Watch extends AppCompatActivity implements View.OnClickListener {
 
 
 
-        ArrayAdapter<String>ArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ptlist){
+        ArrayAdapter<String>ArrayAdapter = new ArrayAdapter<String>(this, R.layout.list_lay,ptlist){
             @Override
             public View getView(int position, View convertView, ViewGroup parent)
             {
