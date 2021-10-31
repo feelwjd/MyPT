@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +38,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Calender extends AppCompatActivity {
-
+    //뒤로가기 버튼 눌렀던 시간 저장
+    private long backKeyPressedTime = 0;
     MaterialCalendarView materialCalendarView;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
@@ -468,5 +470,21 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
 
 
 
+    }
+
+    public void onBackPressed() {
+        //2000밀리초 = 2초
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 로그아웃 됩니다.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //2초 이내에 뒤로가기 버튼을 한번 더 클릭시 앱 종료
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            Intent i = new Intent(Calender.this/*현재 액티비티 위치*/ , SignInActivity.class/*이동 액티비티 위치*/);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(i);
+            Toast.makeText(getApplicationContext(), "로그아웃 완료!", Toast.LENGTH_SHORT).show();
+        }
     }
 }
