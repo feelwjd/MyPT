@@ -42,7 +42,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivityextends AppCompatActivity {
     private static int PICK_IMAGE_REQUEST = 1;
 
     ImageView image;
@@ -51,6 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
     RadioGroup sex_2;
     SignupVO signupVO = new SignupVO();
     String image2string;
+
     private String img_path;
 
     @Override
