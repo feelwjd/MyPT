@@ -60,7 +60,7 @@ public class Community_main extends AppCompatActivity{
         btn_mainmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), Calendar.class);
+                Intent intent1=new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent1);
             }
         });
