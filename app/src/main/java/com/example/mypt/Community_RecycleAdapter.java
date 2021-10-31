@@ -67,14 +67,23 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            userid = (TextView)itemView.findViewById(R.id.userid);
-            heart = (TextView)itemView.findViewById(R.id.heart);
-            commudescript = (TextView)itemView.findViewById(R.id.commudescript);
+            userid = (TextView) itemView.findViewById(R.id.userid);
+            heart = (TextView) itemView.findViewById(R.id.heart);
+            commudescript = (TextView) itemView.findViewById(R.id.commudescript);
             redheart = (ImageView) itemView.findViewById(R.id.redheart);
-            comment = (ImageView)itemView.findViewById(R.id.comment);
-            after = (ImageView)itemView.findViewById(R.id.after);
+            comment = (ImageView) itemView.findViewById(R.id.comment);
+            after = (ImageView) itemView.findViewById(R.id.after);
 
+            setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
         }
+
+
+
 
     }
 }
