@@ -126,14 +126,15 @@ public class BodyPicture extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setType("album/*");
-//                intent.setType("image/*");  //추가
+               // intent.setType("album/*");
+                intent.setType("image/*");  //추가
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(intent, REQUEST_CODE);
 
                 //////////////////////////////////
+
                 String IMAGE= img_path;
-                IMAGE = IMAGE.trim();
+                //IMAGE = IMAGE.trim();
                 afterpic(new beforeafterObject(IMAGE));
                 My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
                 Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
@@ -153,6 +154,7 @@ public class BodyPicture extends AppCompatActivity {
                         t.printStackTrace();
                     }
                 });
+
 
 //                savepic.setOnClickListener(new View.OnClickListener() {
 //                    @Override
@@ -178,12 +180,29 @@ public class BodyPicture extends AppCompatActivity {
     public void loadImagefromGallery(View view) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*"); //이미지만 보이게
-        intent.setType("album/*"); //이미지만 호출
+     //   intent.setType("album/*"); //이미지만 호출
         //갤러리앱을 열어서 원하는 이미지를 선택
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
     private void afterpic(beforeafterObject beforeafterObject) {
+        My_RetrofitService retrofitService = APIClient.getClient().create(My_RetrofitService.class);
+        Call<beforeafterVO> call = retrofitService.getbeforeafter(beforeafterObject);
+        call.enqueue(new Callback<beforeafterVO>() {
+            @Override
+            public void onResponse(Call<beforeafterVO> call, Response<beforeafterVO> response) {
+                beforeafterVO = response.body();
 
+                Toast.makeText(getApplicationContext(), "성공적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<beforeafterVO> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "저장 실패!", Toast.LENGTH_SHORT).show();
+
+                t.printStackTrace();
+            }
+        });
 
     }
 

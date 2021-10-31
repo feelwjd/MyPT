@@ -19,7 +19,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/workoutname1"
+            android:id="@+id/workoutname"
             android:layout_width="325dp"
             android:layout_height="match_parent"
             android:layout_weight="9"

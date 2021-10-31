@@ -22,4 +22,12 @@ public class beforeafterVO {
         return status;
     }
 
+    private String image;
+
+    public beforeafterVO() {
+
+        this.image = image;
+
+    }
+
 }

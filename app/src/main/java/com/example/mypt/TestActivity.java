@@ -13,11 +13,13 @@
 //import java.sql.Date;
 //import java.sql.Time;
 //import java.util.ArrayList;
+//import java.util.Arrays;
 //import java.util.List;
 //
 //import retrofit2.Call;
 //import retrofit2.Callback;
 //import retrofit2.Response;
+//import retrofit2.http.POST;
 //
 //public class TestActivity extends AppCompatActivity{
 //    //private static final String TAG = "test";
@@ -51,7 +53,7 @@
 //        //input.put("userid","dbehdgns118");
 //
 //        JsonObject jsonObject = new JsonObject("feelwjd");
-//        List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+//      //  List<POST> postList = Arrays.asList(gson.fromJson(reader));
 //        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
 //        Call<List<RoutineInfoVO>> call = retrofitService.getData(jsonObject);
 //        call.enqueue(new Callback<List<RoutineInfoVO>>() {

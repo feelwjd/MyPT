@@ -24,7 +24,7 @@ public class My_TestActivity extends AppCompatActivity {
     List<workoutVO> workoutVOList;
     //  List<RoutineInfoVO> aaa;
     RecyclerView recyclerView;
-    RecycleAdapter recycleAdapter;
+    My_RecycleAdapter recycleAdapter;
 
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
@@ -40,7 +40,7 @@ public class My_TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         workoutVOList = new ArrayList<>();
-        recyclerView = findViewById(R.id.rv_favorites);
+        recyclerView = findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -60,7 +60,7 @@ public class My_TestActivity extends AppCompatActivity {
                 //Log.d("TestActivity",dataList.toString());
                 //dataList = response.body().toString();
                 //dataInfo = dataList.body;
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new My_RecycleAdapter(getApplicationContext(),response.body());
                 recyclerView.setAdapter(recycleAdapter);
             }
 

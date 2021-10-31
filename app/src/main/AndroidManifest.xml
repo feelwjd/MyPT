@@ -31,6 +31,7 @@
         <activity android:name=".CheckBody"></activity>
         <activity android:name=".testpic"></activity>
         <activity android:name=".Routine"></activity>
+        <activity android:name=".My_TestActivity"/>
     </application>
 
 </manifest>

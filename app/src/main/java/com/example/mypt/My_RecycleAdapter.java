@@ -28,17 +28,17 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
     @Override
     public My_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(c).inflate(R.layout.item_list, parent, false);
+        View view = LayoutInflater.from(c).inflate(R.layout.layout_rv_item, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull My_RecycleAdapter.MyViewHolder holder, int position) {
 
-        holder.workoutid.setText(String.valueOf(workoutVOList.get(position).getWorkoutid()));
+      //  holder.workoutid.setText(String.valueOf(workoutVOList.get(position).getWorkoutid()));
         holder.workoutname.setText(workoutVOList.get(position).getWorkoutname());
-        holder.part.setText(workoutVOList.get(position).getPart());
-        holder.dclass.setText(String.valueOf(workoutVOList.get(position).getWorkoutclass()));
+//        holder.part.setText(workoutVOList.get(position).getPart());
+//        holder.dclass.setText(String.valueOf(workoutVOList.get(position).getWorkoutclass()));
         //holder.Time.setText(workoutVOList.get(position).getTime());
         //holder.workoutid.setText(workoutVOList.get(position).getWorkoutid());
         //holder.routinename.setText(workoutVOList.get(position).getRoutinename());
@@ -54,10 +54,10 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView workoutid;
+    //    TextView workoutid;
         TextView workoutname;
-        TextView part;
-        TextView dclass;
+//        TextView part;
+//        TextView dclass;
         //TextView Time;
         //TextView workoutid;
         //TextView routinename;
@@ -67,10 +67,10 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            workoutid = (TextView)itemView.findViewById(R.id.workoutid);
-            workoutname = (TextView)itemView.findViewById(R.id.workoutname);
-            part = (TextView)itemView.findViewById(R.id.part);
-            dclass = (TextView)itemView.findViewById(R.id.dclass);
+        //    workoutid = (TextView)itemView.findViewById(R.id.workoutid);
+            workoutname = (TextView)itemView.findViewById(R.id.rv_favorites);
+//            part = (TextView)itemView.findViewById(R.id.part);
+//            dclass = (TextView)itemView.findViewById(R.id.dclass);
             //Time = (TextView)itemView.findViewById(R.id.Time);
             //workoutid = (TextView)itemView.findViewById(R.id.workoutid);
             //routinename = (TextView)itemView.findViewById(R.id.routinename);
