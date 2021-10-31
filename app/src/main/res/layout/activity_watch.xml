@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Watch"
-    android:background="#2b2b2b">
+    android:background="#ffffff">
 
     <!-- 타이머 진행 바 -->
     <ProgressBar
@@ -33,12 +33,14 @@
         android:layout_above="@+id/textViewTime"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:visibility="invisible"
         android:hint="minute"
+        android:text="1"
         android:inputType="number"
         android:maxLength="15"
         android:maxLines="1"
         android:minEms="5"
-        android:text="1"
+
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/textViewTime"
         app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
@@ -53,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="00:00:30"
-        android:textColor="#edbd58"
+        android:textColor="#0e6ca6"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/progressBarCircle"
         app:layout_constraintEnd_toEndOf="@+id/progressBarCircle"
@@ -104,6 +106,10 @@
         app:layout_constraintStart_toStartOf="parent"
 
         />
+
+
+
+    /**아래까지 네비입니다잉**/
     <LinearLayout
         android:id="@+id/nav"
         android:layout_width="match_parent"
@@ -112,36 +118,61 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-
+        android:paddingBottom="0dp"
+        android:background="@drawable/nav_rectangle"
         tools:ignore="MissingConstraints">
 
         <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/btncomu"
+            android:id="@+id/btncal"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:text="COMUNITY" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:text="캘린더"
+            android:drawablePadding="-5dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:drawableTop="@drawable/btn_cal" />
 
         <Button
-            android:id="@+id/btncal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Calender" />
+            android:id="@+id/btnstart"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:text="운동시작"
+            android:drawablePadding="-5dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:drawableTop="@drawable/btn_start" />
+
+        <Button
+            android:id="@+id/btncomu"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:text="커뮤니티"
+            android:drawablePadding="-5dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:drawableTop="@drawable/btn_comu" />
 
         <Button
             android:id="@+id/btnmy"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MYPAGE" />
-        <Button
-            android:id="@+id/btnstart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="START" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignParentLeft="true"
+            android:text="마이페이지"
+            android:drawablePadding="-5dp"
+            android:background="@android:color/transparent"
+            android:layout_alignParentBottom="true"
+            android:drawableTop="@drawable/btn_my" />
 
     </LinearLayout>
 
