@@ -1,7 +1,11 @@
 package com.example.mypt;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,11 +37,16 @@ public class My_TestActivity extends AppCompatActivity {
     //private TextView textView;
     //Data data;
     //RoutineInfoResult routineInfoResult;
+
     Gson gson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        setContentView(R.layout.activity_popup);
+
+
 
         workoutVOList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
@@ -69,6 +78,13 @@ public class My_TestActivity extends AppCompatActivity {
                 Log.d("TestActivity",t.toString());
             }
         });
+
+    }
+    public void Clicked(View view){
+        Toast.makeText(getApplicationContext(),"루틴 등록완료", Toast.LENGTH_SHORT);
+
+    }
+    public void creatroutine(View view){
 
     }
 }

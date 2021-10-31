@@ -62,7 +62,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
+                Intent intent = new Intent(getApplicationContext(),routinename.class);
                 startActivity(intent);
             }
         });
@@ -73,7 +73,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),BodyPicture.class);
+                Intent intent = new Intent(getApplicationContext(),Community_main.class);
                 startActivity(intent);
             }
         });
@@ -89,7 +89,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +98,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
                 startActivity(intent);
             }
         });
