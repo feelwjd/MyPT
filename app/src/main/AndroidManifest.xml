@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".Community_UpLoad">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +33,7 @@
         <activity android:name=".CheckBody"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".Routine"></activity>
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".Community_UpLoad"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
         <activity android:name=".CAL_TestActivity"></activity>
