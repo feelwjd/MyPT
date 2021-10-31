@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
 
     <TextView
@@ -22,14 +21,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/after"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:contentDescription="TODO"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="10dp"
-        tools:srcCompat="@tools:sample/avatars[1]" />
+
+        <ImageView
+            android:id="@+id/after"
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="TODO"
+            android:scaleType="centerCrop" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +38,8 @@
         android:id="@+id/redheart"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
+        android:onClick="likeplus"
         android:background="@drawable/ic_like">
 
     </ImageView>
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content">
     <TextView
         android:id="@+id/heart"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="7dp"
         android:layout_width="82dp"
         android:layout_height="19dp"
         android:text="0" />
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="7dp"
         android:text="한 줄 코멘트 출력" />
     </LinearLayout>
 

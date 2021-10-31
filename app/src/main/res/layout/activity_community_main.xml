@@ -50,7 +50,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerView"
         android:orientation="vertical"
-        android:layout_margin="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -35,7 +35,7 @@ public class CAL_TestActivity extends AppCompatActivity{
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        JsonObject jsonObject = new JsonObject("feelwjd");
+        JsonObject jsonObject = new JsonObject("feel");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         CAL_RetrofitService retrofitService = CAL_APIClient.getClient().create(CAL_RetrofitService.class);
         Call<List<CAL_Data>> call = retrofitService.getData(jsonObject);

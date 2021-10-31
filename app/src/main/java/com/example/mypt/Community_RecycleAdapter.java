@@ -1,9 +1,12 @@
 package com.example.mypt;
 
+import android.app.Person;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +22,6 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
 
     private Context c;
     private List<Community_Data> dataList;
-
     public Community_RecycleAdapter(Context c, List<Community_Data> dataList) {
         this.c = c;
         this.dataList = dataList;
@@ -35,15 +37,13 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
         holder.userid.setText(dataList.get(position).getUserid());
-        holder.heart.setText(dataList.get(position).getHeart());
-        holder.commudescript.setText(dataList.get(position).getCommudescript());
-
+        holder.heart.setText(""+dataList.get(position).getHeart());
+        holder.commudescript.setText(""+dataList.get(position).getCommudescript());
     }
 
     @Override
-    public int getItemCount() { return dataList == null ? 0 : dataList.size(); }
+    public int getItemCount() { return dataList.size(); }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
@@ -61,6 +61,8 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
             redheart = (ImageView) itemView.findViewById(R.id.redheart);
             comment = (ImageView)itemView.findViewById(R.id.comment);
             after = (ImageView)itemView.findViewById(R.id.after);
+
         }
+
     }
 }

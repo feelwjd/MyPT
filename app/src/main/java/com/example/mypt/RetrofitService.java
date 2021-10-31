@@ -21,6 +21,7 @@ import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitService {
 
@@ -33,9 +34,10 @@ public interface RetrofitService {
     Call<SigninVO> getLogin(@Body SigninObject signinObject);
 
     //커뮤니티 게시물 전체 불러오기
+
     @Headers("Content-Type: application/json")
     @GET("commu/share_show_all")
-    Call<List<Community_Data>> getCommunity(@Body CommunityallObject communityallObject);
+    Call<List<Community_Data>> getCommunity();
 
     @Headers("Content-Type: application/json")
     @HTTP(method = "DELETE", path = "http://3.34.96.177:8000/users/signdel", hasBody = true)

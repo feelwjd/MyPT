@@ -1,5 +1,6 @@
 package com.example.mypt;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.content.Intent;
 
@@ -45,7 +46,6 @@ public class Community_main extends AppCompatActivity{
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-
         btn_upload = (Button) findViewById(R.id.btn_upload);
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,13 +75,14 @@ public class Community_main extends AppCompatActivity{
 
     private void f5(){
 
-        CommunityallObject communityallObject = new CommunityallObject("feelwjd");
-
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<Community_Data>> call = retrofitService.getCommunity(communityallObject);
+
+        Call<List<Community_Data>> call = retrofitService.getCommunity();
         call.enqueue(new Callback<List<Community_Data>>() {
             @Override
             public void onResponse(Call<List<Community_Data>> call, Response<List<Community_Data>> response) {
+
+                dataInfo = response.body();
                 Log.d("Test","sex");
 
                 recycleAdapter = new Community_RecycleAdapter(getApplicationContext(),response.body());
