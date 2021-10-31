@@ -15,14 +15,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 public class testpic  extends AppCompatActivity {
-    ImageView ydh2;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.testactivity);
 
-        ydh2 = findViewById(R.id.ydh2);
+        imageView = findViewById(R.id.imageView);
 
         Button button = findViewById(R.id.ydh1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +35,7 @@ public class testpic  extends AppCompatActivity {
 
     public void sendImageRequest(){
         String url = "https://movie-phinf.pstatic.net/20161123_188/1479862185516tYkKO_JPEG/movie_image.jpg";
-        ImageLoadTask task = new ImageLoadTask(url, ydh2);
+        ImageLoadTask task = new ImageLoadTask(url, imageView);
         task.execute();
     }
 
