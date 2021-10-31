@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
         android:text="아이디"
         android:textColor="@android:color/black"
         android:textSize="17dp"
@@ -34,15 +35,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <ImageView
-        android:id="@+id/redheart"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="30dp"
-        android:onClick="likeplus"
-        android:background="@drawable/ic_like">
 
-    </ImageView>
+        <ImageView
+            android:id="@+id/redheart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/ic_like"
+            android:onClick="likeplus">
+
+        </ImageView>
     </LinearLayout>
 
     <LinearLayout
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content">
     <TextView
         android:id="@+id/heart"
-        android:layout_marginLeft="7dp"
+        android:layout_marginLeft="8dp"
         android:layout_width="82dp"
         android:layout_height="19dp"
         android:text="0" />
@@ -75,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:layout_marginLeft="7dp"
+        android:layout_marginLeft="8dp"
         android:text="한 줄 코멘트 출력" />
     </LinearLayout>
 
