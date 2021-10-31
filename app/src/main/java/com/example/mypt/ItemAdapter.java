@@ -1,4 +1,4 @@
-package com.example.mypt;
+/*package com.example.mypt;
 
 import android.content.Context;
 import android.view.View;
@@ -78,3 +78,4 @@ public class ItemAdapter extends BaseAdapter {
         return view;
     }
 }
+*/

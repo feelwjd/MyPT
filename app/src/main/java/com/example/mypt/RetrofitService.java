@@ -1,6 +1,7 @@
 package com.example.mypt;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.commu.shareVO;
 import com.example.mypt.users.SigndelObject;
 import com.example.mypt.users.SigndelVO;
 import com.example.mypt.users.SigninObject;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
@@ -32,4 +34,8 @@ public interface RetrofitService {
     @Headers("Content-Type: application/json")
     @POST("users/signdel")
     Call<SigndelVO> getSigndel(@Body SigndelObject signdelObject);
+
+    @Headers("Content-Type: application/json")
+    @GET("commu/share_show_all")
+    Call<List<shareVO>> getCommu();
 }

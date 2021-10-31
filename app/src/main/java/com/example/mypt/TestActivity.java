@@ -4,12 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.commu.shareVO;
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
@@ -19,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TestActivity extends AppCompatActivity{
+public class TestActivity extends AppCompatActivity {
     //private static final String TAG = "test";
     //public static final int LOAD_SUCCESS = 101;
 
@@ -28,6 +35,7 @@ public class TestActivity extends AppCompatActivity{
     RecyclerView recyclerView;
     RecycleAdapter recycleAdapter;
     List<RoutineInfoVO> filterList;
+    List<shareVO> shareVOList;
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
 
     //private ProgressDialog progressDialog;
@@ -36,12 +44,13 @@ public class TestActivity extends AppCompatActivity{
     //Data data;
     //RoutineInfoResult routineInfoResult;
     Gson gson;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test3);
 
-        filterList=new ArrayList<>();
+        filterList = new ArrayList<>();
         recyclerView = findViewById(R.id.recyclerView);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -53,10 +62,10 @@ public class TestActivity extends AppCompatActivity{
         JsonObject jsonObject = new JsonObject("feelwjd");
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<List<RoutineInfoVO>> call = retrofitService.getData(jsonObject);
-        call.enqueue(new Callback<List<RoutineInfoVO>>() {
+        Call<List<shareVO>> call = retrofitService.getCommu();
+        call.enqueue(new Callback<List<shareVO>>() {
             @Override
-            public void onResponse(Call<List<RoutineInfoVO>> call, Response<List<RoutineInfoVO>> response) {
+            public void onResponse(Call<List<shareVO>> call, Response<List<shareVO>> response) {
 
 
                 //dataList = response.body();
@@ -65,24 +74,25 @@ public class TestActivity extends AppCompatActivity{
                 //dataInfo = dataList.body;
 
                 String date1;
-                routineInfoInfoVO = response.body();
-                date1 = "2020-09-24";
-                Log.d("Test",date1);
-                recycleAdapter = new RecycleAdapter(getApplicationContext(),response.body(),date1);
-                for (int i = 0;i < response.body().size();i++){
-                    if (response.body().get(i).getRoutineDate().contains(date1)){
-                        filterList.add(response.body().get(i));
-                    }
-                }
-                recycleAdapter.filterList(filterList);
+                shareVOList = response.body();
+
+
+                recycleAdapter = new RecycleAdapter(getApplicationContext(), response.body());
+                //for (int i = 0;i < response.body().size();i++){
+                //    if (response.body().get(i).getRoutineDate().contains(date1)){
+                //        filterList.add(response.body().get(i));
+                //    }
+                //}
+                //recycleAdapter.filterList(filterList);
                 recyclerView.setAdapter(recycleAdapter);
             }
 
             @Override
-            public void onFailure(Call<List<RoutineInfoVO>> call, Throwable t) {
-                Log.d("TestActivity",t.toString());
+            public void onFailure(Call<List<shareVO>> call, Throwable t) {
+                Log.d("TestActivity", t.toString());
             }
         });
 
     }
+
 }

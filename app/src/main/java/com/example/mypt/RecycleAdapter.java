@@ -1,30 +1,39 @@
 package com.example.mypt;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.commu.shareVO;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
 
     private Context c;
-    private List<RoutineInfoVO> routineInfoVOList;
-    private String date;
-    private int where;
+    private List<shareVO> shareVOList;
 
-    public RecycleAdapter(Context c, List<RoutineInfoVO> routineInfoVOList, String date) {
+
+    public RecycleAdapter(Context c, List<shareVO> shareVOList) {
         this.c = c;
-        this.routineInfoVOList = routineInfoVOList;
-        this.date = date;
+        this.shareVOList = shareVOList;
+
     }
 
     @NonNull
@@ -39,68 +48,48 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
 
 
-        if (date.equals(routineInfoVOList.get(position).getRoutineDate())) {
-            holder.userid.setText(routineInfoVOList.get(position).getUserid());
-            holder.routineid.setText(String.valueOf(routineInfoVOList.get(position).getRoutineid()));
-            holder.UserRoutineId.setText(String.valueOf(routineInfoVOList.get(position).getUserRoutineId()));
-            holder.RoutineDate.setText(routineInfoVOList.get(position).getRoutineDate());
-            holder.Time.setText(routineInfoVOList.get(position).getTime());
-            holder.workoutid.setText(routineInfoVOList.get(position).getWorkoutid());
-            holder.routinename.setText(routineInfoVOList.get(position).getRoutinename());
-            holder.description.setText(routineInfoVOList.get(position).getDescription());
-            holder.workoutname.setText(routineInfoVOList.get(position).getWorkoutname());
-            this.where = holder.getAdapterPosition();
+        holder.userid.setText(shareVOList.get(position).getUserid());
+        String imgUrl = shareVOList.get(position).getImage();
+        String mypt = "http://3.34.96.177:8000/shareimage/";
+        String result = mypt.concat(imgUrl);
+        Picasso.get().load(result).into(holder.image_s);
+        holder.commudescript.setText(shareVOList.get(position).getCommudescript());
+        holder.heart.setText(String.valueOf(shareVOList.get(position).getHeart()));
 
-        }
-        else{
-            holder.userid.setText("루틴이 없습니다.");
-            holder.routineid.setText("");
-            holder.UserRoutineId.setText("");
-            holder.RoutineDate.setText("");
-            holder.Time.setText("");
-            holder.workoutid.setText("");
-            holder.routinename.setText("");
-            holder.description.setText("");
-            holder.workoutname.setText("");
-        }
     }
+
 
     @Override
     public int getItemCount() {
-        return routineInfoVOList.size();
+        return shareVOList.size();
     }
 
-    public void  filterList(List<RoutineInfoVO> filteredList) {
-        routineInfoVOList = filteredList;
+    public void  filterList(List<shareVO> filteredList) {
+        shareVOList = filteredList;
         notifyDataSetChanged();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView userid;
-        TextView routineid;
-        TextView UserRoutineId;
-        TextView RoutineDate;
-        TextView Time;
-        TextView workoutid;
-        TextView routinename;
-        TextView description;
-        TextView workoutname;
+        //TextView commuid;
+        ImageView image_s;
+        TextView commudescript;
+        TextView heart;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             userid = (TextView)itemView.findViewById(R.id.userid);
-            routineid = (TextView)itemView.findViewById(R.id.routineid);
-            UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
-            RoutineDate = (TextView)itemView.findViewById(R.id.RoutineDate);
-            Time = (TextView)itemView.findViewById(R.id.Time);
-            workoutid = (TextView)itemView.findViewById(R.id.workoutid);
-            routinename = (TextView)itemView.findViewById(R.id.routinename);
-            description = (TextView)itemView.findViewById(R.id.description);
-            workoutname = (TextView)itemView.findViewById(R.id.workoutname);
+            //commuid = (TextView)itemView.findViewById(R.id.commuid);
+
+            image_s = (ImageView)itemView.findViewById(R.id.image_s);
+            commudescript = (TextView)itemView.findViewById(R.id.commudescript);
+            heart = (TextView)itemView.findViewById(R.id.heart);
 
 
         }
     }
+
 }
+
