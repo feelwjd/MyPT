@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.mypt.commu.ShareObject;
-import com.example.mypt.commu.ShareVO;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,7 +29,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,11 +46,10 @@ public class Community_UpLoad extends AppCompatActivity {
     Image img_path3;
     EditText commudescript, userid;
     Button btn_uploadthis;
-    ShareVO shareVO = new ShareVO();
-    String[] array;
-    /** 여기부터 내비바 필요한거**/
-    public Button btncomu,btncal,btnmy,btnstart;
-    /** 여기까지 내비바 필요한거**/
+
+    File file;
+    //Bitmap image_send;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,18 +62,36 @@ public class Community_UpLoad extends AppCompatActivity {
         btn_uploadthis = (Button) findViewById(R.id.btn_uploadthis);
         image = (ImageView) findViewById(R.id.image1);
 
+
+        //Button btn_community=(Button) findViewById(R.id.btn_community);
+        //btn_community.setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        Intent intent1=new Intent(getApplicationContext(), Community_main.class);
+        //        startActivity(intent1);
+        //    }
+        //});
+
         btn_uploadthis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String ID = userid.getText().toString();
                 String COMMUDESCRIPT = commudescript.getText().toString();
                 String IMAGE= img_path;
-                Image IMAGE3= img_path3;
+                File file = new File(img_path);
+                int UserRoutineId = 65;
 
 
                 ID = ID.trim();
                 COMMUDESCRIPT = COMMUDESCRIPT.trim();
                 IMAGE = IMAGE.trim();
+
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                MultipartBody.Part image_file = MultipartBody.Part.createFormData("image", file.getName().concat(".jpg"), requestFile);
+                RequestBody userid = RequestBody.create(MultipartBody.FORM,ID);
+                RequestBody commudescript = RequestBody.create(MultipartBody.FORM,COMMUDESCRIPT);
+
+
 
                 //빈값이 넘어올때의 처리
                 if (ID.getBytes().length <= 0 || COMMUDESCRIPT.getBytes().length <= 0 || IMAGE.getBytes().length <= 0) {
@@ -78,66 +99,23 @@ public class Community_UpLoad extends AppCompatActivity {
                 }
                 // 문제없으면, 회원가입을 진행합니다.
                 else {
-                    upload(new ShareObject(ID, COMMUDESCRIPT, IMAGE3));
+                    upload(image_file, userid ,UserRoutineId ,commudescript);
                 }
 
             }
         });
-        /** 여기부터 내비바 필요한거**/
-        btncomu = findViewById(R.id.btncomu);
-        btncal = findViewById(R.id.btncal);
-        btnmy = findViewById(R.id.btnmy);
-        btnstart = findViewById(R.id.btnstart);
-
-        btncomu.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Community_main.class);
-                startActivity(intent);
-            }
-        });
-
-        btncal.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
-                startActivity(intent);
-            }
-        });
-
-        btnmy.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
-                startActivity(intent);
-            }
-        });
-
-        btnstart.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(),Watch.class);
-                intent.putExtra("array",array);
-                startActivity(intent);
-            }
-        });
-        /** 여기까지 내비바 필요한거**/
-
     }
 
-    private void upload(ShareObject shareObject) {
+    private void upload(MultipartBody.Part image, RequestBody userid, int userroutineid, RequestBody commudescript) {
 
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
+
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<ShareVO> call = retrofitService.getShare(shareObject);
-        call.enqueue(new Callback<ShareVO>() {
+        Call<ResponseBody> call = retrofitService.getShare(image,userid,userroutineid,commudescript);
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ShareVO> call, Response<ShareVO> response) {
-                shareVO = response.body();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                //shareVO = response.body();
 
 //                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
 //                startActivity(intent);
@@ -146,7 +124,7 @@ public class Community_UpLoad extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ShareVO> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "업로드 실패했습니다!", Toast.LENGTH_SHORT).show();
 
                 t.printStackTrace();
@@ -173,6 +151,7 @@ public class Community_UpLoad extends AppCompatActivity {
                 Uri uri = data.getData();
 
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),uri);
+                //image_send = bitmap;
                 //이미지가 너무 크면 불러 오지 못하므로 사이즈를 줄여 준다.
 //                int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
 //                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);

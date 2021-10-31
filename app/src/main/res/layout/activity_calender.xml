@@ -27,9 +27,7 @@
         android:layout_height="400dp"
         app:mcv_selectionColor="#00F"
         app:mcv_showOtherDates="all" />
-    /****/
-
-    <androidx.recyclerview.widget.RecyclerView
+     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

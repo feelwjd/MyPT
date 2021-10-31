@@ -14,7 +14,7 @@ public class SaturdayDecorator {
 
    // @Override
     public boolean shouldDecorate(CalendarDay day){
-        day.copyTo(calendar);
+        //day.copyTo(calendar);
         int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
         return weekDay==Calendar.SATURDAY;
     }

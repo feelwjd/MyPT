@@ -243,7 +243,7 @@ recyclerView.addItemDecoration(new CAL_RecyclerDecoration(1));
             public void SaturdayDecorator(){}
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+                //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.SATURDAY;
             }
@@ -259,7 +259,7 @@ materialCalendarView.addDecorator((new DayViewDecorator() {
     private final Calendar calendar = Calendar.getInstance();
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-        day.copyTo(calendar);
+        //day.copyTo(calendar);
         int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
         return weekDay==Calendar.SUNDAY;
     }
@@ -325,7 +325,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+                //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.MONDAY;
             }
@@ -341,7 +341,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+                //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.TUESDAY;
             }
@@ -357,7 +357,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+                //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.WEDNESDAY;
             }
@@ -373,7 +373,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+                //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.THURSDAY;
             }
@@ -389,7 +389,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                day.copyTo(calendar);
+               //day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.FRIDAY;
             }
