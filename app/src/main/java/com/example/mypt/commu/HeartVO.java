@@ -1,4 +1,5 @@
 package com.example.mypt.commu;
 
-public class shareVO {
+public class HeartVO {
+
 }

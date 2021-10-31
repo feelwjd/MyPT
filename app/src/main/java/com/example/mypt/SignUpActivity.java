@@ -173,9 +173,9 @@ public class SignUpActivity extends AppCompatActivity {
                 ImageView imgview = (ImageView) findViewById(R.id.image);
                 imgview.setImageBitmap(scaled);
 
+
                 if (uri != null) {
                     img_path = createCopyAndReturnRealPath(this, uri);
-                    Toast.makeText(this, img_path, Toast.LENGTH_LONG).show();
                 }
 
             } else {
@@ -187,14 +187,7 @@ public class SignUpActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public String getPath(Uri uri) {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        startManagingCursor(cursor);
-        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(columnIndex);
-    }
+
 
     // 절대경로 파악할 때 사용된 메소드
     @Nullable
