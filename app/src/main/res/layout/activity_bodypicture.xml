@@ -78,13 +78,7 @@
             android:src="@drawable/start"
             />
 
-        <ImageView
-            android:id="@+id/image2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/end"
-            android:visibility="invisible" />
+
 
         <ImageView
             android:id="@+id/album"

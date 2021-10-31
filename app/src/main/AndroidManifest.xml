@@ -32,7 +32,6 @@
         <activity android:name=".CheckBody"></activity>
 
         <activity android:name=".Routine"></activity>
-        <activity android:name=".Community_UpLoad"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
     </application>
 

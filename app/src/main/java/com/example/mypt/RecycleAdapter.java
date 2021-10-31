@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.api.RoutineInfoVO;
+import com.example.mypt.api.workoutVO;
 
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         this.c = c;
         this.routineInfoVOList = routineInfoVOList;
         this.date = date;
+    }
+
+    public RecycleAdapter(Context applicationContext, List<workoutVO> body) {
+
     }
 
     @NonNull
@@ -91,13 +96,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
             super(itemView);
 
             userid = (TextView)itemView.findViewById(R.id.userid);
-            routineid = (TextView)itemView.findViewById(R.id.routineid);
-            UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
+        //    routineid = (TextView)itemView.findViewById(R.id.routineid);
+        //    UserRoutineId = (TextView)itemView.findViewById(R.id.UserRoutineId);
             RoutineDate = (TextView)itemView.findViewById(R.id.RoutineDate);
-            Time = (TextView)itemView.findViewById(R.id.Time);
+        //    Time = (TextView)itemView.findViewById(R.id.Time);
             workoutid = (TextView)itemView.findViewById(R.id.workoutid);
-            routinename = (TextView)itemView.findViewById(R.id.routinename);
-            description = (TextView)itemView.findViewById(R.id.description);
+        //    routinename = (TextView)itemView.findViewById(R.id.routinename);
+        //    description = (TextView)itemView.findViewById(R.id.description);
             workoutname = (TextView)itemView.findViewById(R.id.workoutname);
 
 

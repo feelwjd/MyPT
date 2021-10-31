@@ -82,7 +82,7 @@ public class BodyPicture extends AppCompatActivity {
                 int nh = (int) (bitmap.getHeight() * (1024.0 / bitmap.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, nh, true);
 
-                ImageView imgview = (ImageView) findViewById(R.id.image);
+                ImageView imgview = (ImageView) findViewById(R.id.album);
                 imgview.setImageBitmap(scaled);
 
                 if (uri != null) {
@@ -99,14 +99,14 @@ public class BodyPicture extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public String getPath(Uri uri) {
-        String[] projection = {MediaStore.Images.Media.DATA};
-        Cursor cursor = managedQuery(uri, projection, null, null, null);
-        startManagingCursor(cursor);
-        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(columnIndex);
-    }
+//    public String getPath(Uri uri) {
+//        String[] projection = {MediaStore.Images.Media.DATA};
+//        Cursor cursor = managedQuery(uri, projection, null, null, null);
+//        startManagingCursor(cursor);
+//        int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//        cursor.moveToFirst();
+//        return cursor.getString(columnIndex);
+//    }
 
     // 절대경로 파악할 때 사용된 메소드
     @Nullable
@@ -142,17 +142,16 @@ public class BodyPicture extends AppCompatActivity {
     private void init(){
 
         ImageView imageView1 = (ImageView)findViewById( R.id.image1);
-        ImageView imageView2 = (ImageView)findViewById( R.id.image2);
         ImageView imageView3 = (ImageView)findViewById(R.id.album);
 
-        imageViews = new ImageView[]{ imageView1, imageView2, imageView3};
+        imageViews = new ImageView[]{ imageView1, imageView3};
         imageView1.setVisibility(View.VISIBLE);
         CURRENT_INDEX = 0;
     }
 
     public void onClickNext(View view){
 
-        if( ++CURRENT_INDEX > 2) {
+        if( ++CURRENT_INDEX > 1) {
             Toast toast = Toast.makeText(BodyPicture.this, "마지막 이미지", Toast.LENGTH_SHORT );
             toast.show();
 
