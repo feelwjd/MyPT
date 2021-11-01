@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#eeeeee"
+    android:background="#ff1e1f23"
     android:orientation="vertical"
     android:layout_width="380dp"
     android:layout_height="wrap_content">
@@ -13,58 +13,32 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_todayroutine"
             android:layout_width="match_parent"
             android:layout_height="53dp"
-            android:background="#03a9f4"
+            android:background="#ff1e1f23"
             android:gravity="center"
-            android:text="@string/difficulty"
+            android:text="Today's Routine"
             android:textColor="#fff"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck" />
     </LinearLayout>
     <!-- //end 타이틀바 -->
 
-    <LinearLayout
-        android:padding="24dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#50AF2E"
-            android:onClick="onButton2Clicked"
-            android:text="Youtube"
-            tools:layout_editor_absouluteX="0dp"
-            tools:layout_editor_absouluteY="0dp" />
-        <Button
-            android:id="@+id/btn_url2"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#50AF2E"
-            android:onClick="onButton2Clicked"
-            android:text="Naver"
-            tools:layout_editor_absouluteX="0dp"
-            tools:layout_editor_absouluteY="0dp" />
-        <Button
-            android:id="@+id/btn_url3"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#50AF2E"
-            android:onClick="onButton2Clicked"
-            android:text="Google"
-            tools:layout_editor_absouluteX="0dp"
-            tools:layout_editor_absouluteY="0dp" />
-
-
-    </LinearLayout>
+<TextView
+    android:id="@+id/tv_exercise"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="트레드밀 러닝 버피  로잉 머신  스텝 머신 "
+    android:textColor="@color/white"
+    android:background="#ff1e1f23"
+    android:layout_gravity="center"
+    android:textAlignment="center"
+    android:textSize="20dp" />
 
     <View
-        android:background="#66bdbdbd"
+        android:background="#ff1e1f23"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
 
@@ -76,11 +50,12 @@
         android:layout_height="wrap_content">
         <Button
             android:text="확인"
+            android:id="@+id/clostbtn"
             android:textSize="15sp"
-            android:textColor="#ff7a00"
+            android:textColor="#FFFFFF"
             android:padding="8dp"
             android:gravity="center"
-            android:background="#00000000"
+            android:background="#ff1e1f23"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:onClick="mOnClose"/>

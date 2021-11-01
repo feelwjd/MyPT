@@ -1,27 +1,34 @@
 package com.example.mypt;
 
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 public class CheckBody extends AppCompatActivity {
 
-    public Button btncomu,btncal,btnmy,btnstart,mainbtn1,mainbtn2;
+    public Button btncomu,btncal,btnmy,btnstart;
+    public Button mainbtn1,mainbtn2,mainbtn3,mainbtn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkbody);
 
+
+
         mainbtn1 = findViewById(R.id.mainbtn1);
 
         mainbtn1.setOnClickListener(new View.OnClickListener(){
-
 
             @Override
             public void onClick(View view) {
@@ -29,6 +36,7 @@ public class CheckBody extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         mainbtn2 = findViewById(R.id.mainbtn2);
 
         mainbtn2.setOnClickListener(new View.OnClickListener(){
@@ -36,7 +44,29 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SearchList.class);
+                Intent intent = new Intent(getApplicationContext(),My_TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mainbtn3 = findViewById(R.id.mainbtn3);
+
+        mainbtn3.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),splash.class);
+                startActivity(intent);
+            }
+        });
+
+        mainbtn4 = findViewById(R.id.mainbtn4);
+
+        mainbtn4.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),Community_main.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +81,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
                 startActivity(intent);
             }
         });
@@ -78,13 +108,10 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
                 startActivity(intent);
             }
         });
-
-
-
         /** 여기까지 내비바 필요한거**/
     }
 }

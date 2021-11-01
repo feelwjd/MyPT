@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -17,10 +16,7 @@ import android.text.style.StyleSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -41,12 +37,34 @@ import java.util.List;
 import java.util.Locale;
 
 import kotlin.reflect.TypeOfKt;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.datepicker.MaterialCalendar;
+import com.google.gson.Gson;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.DayViewDecorator;
+import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Calender extends AppCompatActivity {
-
+    //뒤로가기 버튼 눌렀던 시간 저장
+    private long backKeyPressedTime = 0;
     MaterialCalendarView materialCalendarView;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
@@ -436,6 +454,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
 
 
         /** 여기부터 내비바 필요한거**/
+/** 여기부터 내비바 필요한거**/
         btncomu = findViewById(R.id.btncomu);
         btncal = findViewById(R.id.btncal);
         btnmy = findViewById(R.id.btnmy);
@@ -445,7 +464,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
                 startActivity(intent);
             }
         });
@@ -483,7 +502,21 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
         /** 여기까지 내비바 필요한거**/
         
 
+    }
 
-
+    public void onBackPressed() {
+        //2000밀리초 = 2초
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 로그아웃!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        //2초 이내에 뒤로가기 버튼을 한번 더 클릭시 앱 종료
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            Intent i = new Intent(Calender.this/*현재 액티비티 위치*/ , SignInActivity.class/*이동 액티비티 위치*/);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(i);
+            Toast.makeText(getApplicationContext(), "로그아웃 완료!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

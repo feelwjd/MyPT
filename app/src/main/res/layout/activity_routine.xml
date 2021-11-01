@@ -1,19 +1,80 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="ExtraText"
-    android:background="@drawable/start1">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ExtraText">
 
-
-    <Button
-        android:id="@+id/button"
+    <ImageView
+        android:id="@+id/ydhimg"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:layout_marginTop="100dp"
-        android:text="Button" />
+        android:layout_height="match_parent" />
 
+<!--    <LinearLayout-->
+<!--        android:id="@+id/nav"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/ydhimg"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:background="@drawable/nav_rectangle"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:paddingBottom="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        tools:ignore="MissingConstraints">-->
 
+<!--        <Button-->
+<!--            android:id="@+id/btncal"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:drawableTop="@drawable/btn_cal"-->
+<!--            android:drawablePadding="-5dp"-->
+<!--            android:text="캘린더" />-->
 
+<!--        <Button-->
+<!--            android:id="@+id/btnstart"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:drawableTop="@drawable/btn_start"-->
+<!--            android:drawablePadding="-5dp"-->
+<!--            android:text="운동시작" />-->
 
-</LinearLayout>
+<!--        <Button-->
+<!--            android:id="@+id/btncomu"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:drawableTop="@drawable/btn_comu"-->
+<!--            android:drawablePadding="-5dp"-->
+<!--            android:text="커뮤니티" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnmy"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:background="@android:color/transparent"-->
+<!--            android:drawableTop="@drawable/btn_my"-->
+<!--            android:drawablePadding="-5dp"-->
+<!--            android:text="마이페이지" />-->
+
+<!--    </LinearLayout>-->
+
+</RelativeLayout>

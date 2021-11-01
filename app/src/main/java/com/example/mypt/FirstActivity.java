@@ -24,7 +24,7 @@ public class FirstActivity extends AppCompatActivity {
                 Intent intent = new Intent(FirstActivity.this, SignInActivity.class);
                 startActivity(intent);
             }
-        }, 500);
+        }, 1500);
     }
     public void onBackPressed() {
         //2000밀리초 = 2초

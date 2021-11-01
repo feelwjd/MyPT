@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#222121"
+    android:background="#ff1e1f23"
     android:orientation="vertical">
 
 
@@ -27,8 +27,8 @@
             android:layout_marginLeft="30dp"
             android:backgroundTint="#050F4E"
             android:fontFamily="@font/hsfont"
-            android:textColor="@color/white"
             android:text="당신의 달라진 몸 확인해보세요!"
+            android:textColor="@color/white"
             android:textSize="23dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
@@ -49,13 +49,13 @@
             android:id="@+id/mainbtn3"
             android:layout_width="360dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="30dp"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
             android:layout_below="@+id/mainbtn2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
             android:backgroundTint="#B10076"
             android:fontFamily="@font/hsfont"
             android:text="AI가 추천하는 당신의 루틴 !"
+            android:textColor="@color/white"
             android:textSize="23dp" />
 
         <Button
@@ -71,44 +71,71 @@
             android:text="커뮤니티 사이트로 이동 !"
             android:textSize="23dp" />
     </RelativeLayout>
+
+
     <LinearLayout
         android:id="@+id/nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/nav_rectangle"
         android:orientation="horizontal"
+        android:paddingBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-
         tools:ignore="MissingConstraints">
 
         <Button
-            android:layout_width="wrap_content"
-            android:id="@+id/btncomu"
+            android:id="@+id/btncal"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1"
-            android:text="COMUNITY" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_cal"
+            android:drawablePadding="-5dp"
+            android:text="캘린더" />
 
         <Button
-            android:id="@+id/btncal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Calender" />
+            android:id="@+id/btnstart"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_start"
+            android:drawablePadding="-5dp"
+            android:text="운동시작" />
+
+        <Button
+            android:id="@+id/btncomu"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_comu"
+            android:drawablePadding="-5dp"
+            android:text="커뮤니티" />
 
         <Button
             android:id="@+id/btnmy"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="MYPAGE" />
-        <Button
-            android:id="@+id/btnstart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="START" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:drawableTop="@drawable/btn_my"
+            android:drawablePadding="-5dp"
+            android:text="마이페이지" />
 
     </LinearLayout>
 
