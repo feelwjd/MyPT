@@ -85,7 +85,9 @@ public class Community_RecycleAdapter extends RecyclerView.Adapter<Community_Rec
                     i=1-i;
                     String HEART = heart.getText().toString();
                     Integer heart2 = Integer.parseInt(HEART);
-
+                    if(heart2==0 || heart2==-1){
+                        redheart.setImageResource(R.drawable.ic_unlike);
+                    }
                     if(i==0){
                         redheart.setImageResource(R.drawable.ic_unlike);
                         heart2--;

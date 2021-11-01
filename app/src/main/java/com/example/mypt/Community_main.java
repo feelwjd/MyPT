@@ -162,7 +162,9 @@ public class Community_main extends AppCompatActivity {
                 recyclerView.setAdapter(recycleAdapter);
                 Toast.makeText(getApplicationContext(), "로딩 완료!", Toast.LENGTH_SHORT).show();
 
-            }
+
+                }
+
 
             @Override
             public void onFailure(Call<List<ShareVO>> call, Throwable t) {
