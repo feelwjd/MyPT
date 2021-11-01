@@ -15,6 +15,10 @@ import retrofit2.http.POST;
 
 public interface My_RetrofitService {
 
+    @Headers("Content-Tpye: application/json")
+    @POST("api/workout")
+    Call<List<workoutVO>> getWorkoud(@Body workoutVO workoutVO);
+
     @Headers("Content-Type: application/json")
     @POST("api/workout")
     Call<List<workoutVO>> getWorkout();

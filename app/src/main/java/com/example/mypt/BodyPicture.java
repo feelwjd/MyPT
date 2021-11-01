@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.DocumentsContract;
@@ -44,6 +45,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -106,14 +110,12 @@ public class BodyPicture extends AppCompatActivity {
     ImageView image0;
     //
     ImageView album;
+    ImageView image;
+    File file;
+    Image image_path3;
     Button savepic;
     private String img_path;
     //
-
-
-
-
-
 
 //
     beforeafterVO beforeafterVO = new beforeafterVO();
@@ -150,6 +152,30 @@ public class BodyPicture extends AppCompatActivity {
                 startActivityForResult(intent, 1);
 
                 //////////////////////////////////
+//                String ID = userid.getText().toString();
+//                String COMMUDESCRIPT = commudescript.getText().toString();
+//                String IMAGE= img_path;
+//                File file = new File(img_path);
+//                int UserRoutineId = 65;
+//                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+//                MultipartBody.Part image_file = MultipartBody.Part.createFormData("image", file.getName().concat(".jpg"), requestFile);
+//                RequestBody userid = RequestBody.create(MultipartBody.FORM,ID);
+//                RequestBody commudescript = RequestBody.create(MultipartBody.FORM,COMMUDESCRIPT);
+//
+//                ID = ID.trim();
+//                COMMUDESCRIPT = COMMUDESCRIPT.trim();
+//                IMAGE = IMAGE.trim();
+//
+//                //빈값이 넘어올때의 처리
+//                if (ID.getBytes().length <= 0 || COMMUDESCRIPT.getBytes().length <= 0 || IMAGE.getBytes().length <= 0) {
+//                    Toast.makeText(Community_UpLoad.this, "빈 값이 있습니다!", Toast.LENGTH_SHORT).show();
+//                }
+//                // 문제없으면, 회원가입을 진행합니다.
+//                else {
+//                    savepic(image_file, userid ,UserRoutineId ,commudescript);
+//                }
+//
+//            }
 //
 //                String IMAGE= img_path;
 //                //IMAGE = IMAGE.trim();
