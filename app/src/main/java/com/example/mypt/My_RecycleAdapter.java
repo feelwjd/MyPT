@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypt.api.workoutVO;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
     @Override
     public void onBindViewHolder(@NonNull My_RecycleAdapter.MyViewHolder holder, int position) {
 
+//        holder.userid.setText(shareVOList.get(position).getUserid());
+//        String mypt = "http://3.34.96.177:8000/shareimage/";
+//        String result = mypt.concat(imgUrl);
+//        Picasso.get().load(result).into(holder.after);
+
       //  holder.workoutid.setText(String.valueOf(workoutVOList.get(position).getWorkoutid()));
         holder.workoutname.setText(workoutVOList.get(position).getWorkoutname());
 //        holder.part.setText(workoutVOList.get(position).getPart());
@@ -55,6 +61,8 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         int i=0;
+
+//        TextView userid;
         ImageView redheart;
     //    TextView workoutid;
         TextView workoutname;

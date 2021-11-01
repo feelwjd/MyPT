@@ -37,13 +37,6 @@ public class CheckBody extends AppCompatActivity {
             }
         });
 
-
-
-
-
-        //
-
-
         mainbtn2 = findViewById(R.id.mainbtn2);
 
         mainbtn2.setOnClickListener(new View.OnClickListener(){
