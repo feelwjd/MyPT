@@ -99,7 +99,17 @@ public class SignInActivity extends AppCompatActivity {
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login();
+
+                String ID = login_id.getText().toString();
+                String PW = login_pw.getText().toString();
+
+                ID = ID.trim(); PW = PW.trim();
+                if (ID.getBytes().length <= 0 || PW.getBytes().length <= 0) {
+                    Toast.makeText(SignInActivity.this, "빈 값이 있습니다!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    login();
+                }
             }
         });
     }
@@ -120,6 +130,8 @@ public class SignInActivity extends AppCompatActivity {
                         if(signinVO != null){       // 회원입니다.
                             Intent intent = new Intent(getApplicationContext(), Calender.class);
                             startActivity(intent);
+                            login_id.setText("");
+                            login_pw.setText("");
                             Toast.makeText(getApplicationContext(), userid+"님 어서오세요!", Toast.LENGTH_SHORT).show();
                         }else{                      // 회원이 아닙니다.
                             Toast.makeText(getApplicationContext(), "아이디 또는 비밀번호가 틀렸습니다!", Toast.LENGTH_SHORT).show();
@@ -179,6 +191,8 @@ public class SignInActivity extends AppCompatActivity {
 
                 if(signdelVO != null){
                     dialog.dismiss();
+                    delete_id.setText("");
+                    delete_pw.setText("");
                     Toast.makeText(getApplicationContext(), del_userid+"님의 회원탈퇴가 완료돠었습니다!", Toast.LENGTH_SHORT).show();
                 }
             }

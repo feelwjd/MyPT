@@ -110,12 +110,12 @@ public class SignUpActivity extends AppCompatActivity {
                 HEIGHT = HEIGHT.trim();
                 WEIGHT = WEIGHT.trim();
                 SEX = SEX.trim();
-                IMAGE = IMAGE.trim();
+
 
                 //빈값이 넘어올때의 처리
                 if (ID.getBytes().length <= 0 || PW.getBytes().length <= 0 || NAME.getBytes().length <= 0
                         || HEIGHT.getBytes().length <= 0 || WEIGHT.getBytes().length <= 0
-                        || SEX.getBytes().length <= 0|| IMAGE.getBytes().length <= 0) {
+                        || SEX.getBytes().length <= 0) {
                     Toast.makeText(SignUpActivity.this, "빈 값이 있습니다!", Toast.LENGTH_SHORT).show();
                 }
                 // 문제없으면, 회원가입을 진행합니다.

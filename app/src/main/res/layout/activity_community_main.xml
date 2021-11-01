@@ -52,7 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="496dp"
         android:orientation="vertical"
-
+        android:stackFromBottom="true"
+        app:reverseLayout="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     /**아래까지 네비입니다잉**/
 
