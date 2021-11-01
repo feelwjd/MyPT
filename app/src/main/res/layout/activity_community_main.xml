@@ -18,7 +18,7 @@
             android:layout_width="169dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="사진 업로드"
+            android:text="업로드"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -27,7 +27,16 @@
             android:layout_width="169dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="새로고침"
+            android:text="최신순"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_timeline"
+            android:layout_width="169dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="오래된순"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -52,8 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="496dp"
         android:orientation="vertical"
-        android:stackFromBottom="true"
-        app:reverseLayout="true"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     /**아래까지 네비입니다잉**/
 

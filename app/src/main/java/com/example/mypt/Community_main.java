@@ -29,8 +29,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Community_main extends AppCompatActivity{
-    Button btn_upload, btn_mainmenu, btn_f5;
+public class Community_main extends AppCompatActivity {
+    int i = 0;
+    Button btn_upload, btn_mainmenu, btn_f5, btn_timeline;
     List<RoutineInfoVO> routineInfoInfoVO;
     RoutineInfoVO routineInfoVO;
     RecyclerView recyclerView;
@@ -41,44 +42,58 @@ public class Community_main extends AppCompatActivity{
     String[] array;
     Gson gson;
 
-    /** 여기부터 내비바 필요한거**/
-    public Button btncomu,btncal,btnmy,btnstart;
-    /** 여기까지 내비바 필요한거**/
+    /**
+     * 여기부터 내비바 필요한거
+     **/
+    public Button btncomu, btncal, btnmy, btnstart;
+
+    /**
+     * 여기까지 내비바 필요한거
+     **/
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
         getSupportActionBar().setTitle("커뮤니티");
 
+        int i = 0;
         filterList = new ArrayList<>();
         recyclerView = findViewById(R.id.community_recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
+
+
 
         JsonObject jsonObject = new JsonObject("feelwjd");
+
+        btn_timeline = (Button) findViewById(R.id.btn_timeline);
+        btn_timeline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sort();
+            }
+        });
 
         btn_upload = (Button) findViewById(R.id.btn_upload);
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(), Community_UpLoad.class);
+                Intent intent = new Intent(getApplicationContext(), Community_UpLoad.class);
                 startActivity(intent);
             }
         });
 
-        btn_mainmenu=(Button) findViewById(R.id.btn_mainmenu);
+        btn_mainmenu = (Button) findViewById(R.id.btn_mainmenu);
         btn_mainmenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1=new Intent(getApplicationContext(), Calender.class);
+                Intent intent1 = new Intent(getApplicationContext(), Calender.class);
                 startActivity(intent1);
             }
         });
 
-        btn_f5=(Button) findViewById(R.id.btn_f5);
+        btn_f5 = (Button) findViewById(R.id.btn_f5);
         btn_f5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    f5();
+                f5();
             }
         });
 
@@ -88,46 +103,51 @@ public class Community_main extends AppCompatActivity{
         btnmy = findViewById(R.id.btnmy);
         btnstart = findViewById(R.id.btnstart);
 
-        btncomu.setOnClickListener(new View.OnClickListener(){
+        btncomu.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Community_main.class);
                 startActivity(intent);
             }
         });
 
-        btncal.setOnClickListener(new View.OnClickListener(){
+        btncal.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
 
-        btnmy.setOnClickListener(new View.OnClickListener(){
+        btnmy.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), CheckBody.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CheckBody.class);
                 startActivity(intent);
             }
         });
 
-        btnstart.setOnClickListener(new View.OnClickListener(){
+        btnstart.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getApplicationContext(),Watch.class);
-                intent.putExtra("array",array);
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Watch.class);
+                intent.putExtra("array", array);
                 startActivity(intent);
             }
         });
         /** 여기까지 내비바 필요한거**/
     }
 
-    private void f5(){
+    private void f5() {
+        //역순
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(mLayoutManager);
 
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
         Call<List<ShareVO>> call = retrofitService.getCommu();
@@ -140,15 +160,42 @@ public class Community_main extends AppCompatActivity{
 
                 recycleAdapter = new Community_RecycleAdapter(getApplicationContext(), response.body());
                 recyclerView.setAdapter(recycleAdapter);
-                Toast.makeText(getApplicationContext(), "새로고침 완료!", Toast.LENGTH_SHORT).show();
-                btn_f5.setText("Success!");
+                Toast.makeText(getApplicationContext(), "로딩 완료!", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onFailure(Call<List<ShareVO>> call, Throwable t) {
                 Log.d("TestActivity", t.toString());
+
             }
         });
     }
 
+    private void sort() {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
+        Call<List<ShareVO>> call = retrofitService.getCommu();
+        call.enqueue(new Callback<List<ShareVO>>() {
+            @Override
+            public void onResponse(Call<List<ShareVO>> call, Response<List<ShareVO>> response) {
+
+                String date1;
+                shareVOList = response.body();
+
+                recycleAdapter = new Community_RecycleAdapter(getApplicationContext(), response.body());
+                recyclerView.setAdapter(recycleAdapter);
+                Toast.makeText(getApplicationContext(), "로딩 완료!", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ShareVO>> call, Throwable t) {
+                Log.d("TestActivity", t.toString());
+
+            }
+        });
+    }
 }
