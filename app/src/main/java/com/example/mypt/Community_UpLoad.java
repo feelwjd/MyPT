@@ -89,7 +89,7 @@ public class Community_UpLoad extends AppCompatActivity {
                 RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
                 MultipartBody.Part image_file = MultipartBody.Part.createFormData("image", file.getName().concat(".jpg"), requestFile);
                 RequestBody userid = RequestBody.create(MultipartBody.FORM,ID);
-                RequestBody image = RequestBody.create(MultipartBody.FORM,IMAGE);
+                RequestBody commudescript = RequestBody.create(MultipartBody.FORM,COMMUDESCRIPT);
 
 
 
@@ -99,7 +99,7 @@ public class Community_UpLoad extends AppCompatActivity {
                 }
                 // 문제없으면, 회원가입을 진행합니다.
                 else {
-                    upload(image_file, userid ,UserRoutineId ,image);
+                    upload(image_file, userid ,UserRoutineId ,commudescript);
                 }
 
             }

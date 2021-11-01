@@ -50,11 +50,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="496dp"
+        android:layout_height="601dp"
         android:orientation="vertical"
         android:stackFromBottom="true"
-        app:reverseLayout="true"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:reverseLayout="true" />
     /**아래까지 네비입니다잉**/
 
     <LinearLayout

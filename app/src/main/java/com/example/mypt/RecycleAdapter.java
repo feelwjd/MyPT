@@ -1,3 +1,4 @@
+/*
 package com.example.mypt;
 
 import android.content.Context;
@@ -80,3 +81,4 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         }
     }
 }
+*/
