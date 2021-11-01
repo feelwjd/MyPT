@@ -27,7 +27,7 @@
             android:layout_width="169dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="게시판 갱신"
+            android:text="새로고침"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -50,8 +50,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/community_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="496dp"
         android:orientation="vertical"
+
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     /**아래까지 네비입니다잉**/
 

@@ -31,6 +31,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,8 +46,10 @@ public class Community_UpLoad extends AppCompatActivity {
     Image img_path3;
     EditText commudescript, userid;
     Button btn_uploadthis;
-    ShareVO shareVO = new ShareVO();
+//    ShareVO shareVO = new ShareVO();
     String[] array;
+    File file;
+    //Bitmap image_send;
     /** 여기부터 내비바 필요한거**/
     public Button btncomu,btncal,btnmy,btnstart;
     /** 여기까지 내비바 필요한거**/
@@ -65,8 +71,13 @@ public class Community_UpLoad extends AppCompatActivity {
                 String ID = userid.getText().toString();
                 String COMMUDESCRIPT = commudescript.getText().toString();
                 String IMAGE= img_path;
-                Image IMAGE3= img_path3;
+                File file = new File(img_path);
+                int UserRoutineId = 65;
 
+                RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+                MultipartBody.Part image_file = MultipartBody.Part.createFormData("image", file.getName().concat(".jpg"), requestFile);
+                RequestBody userid = RequestBody.create(MultipartBody.FORM,ID);
+                RequestBody commudescript = RequestBody.create(MultipartBody.FORM,COMMUDESCRIPT);
 
                 ID = ID.trim();
                 COMMUDESCRIPT = COMMUDESCRIPT.trim();
@@ -78,11 +89,12 @@ public class Community_UpLoad extends AppCompatActivity {
                 }
                 // 문제없으면, 회원가입을 진행합니다.
                 else {
-                    upload(new ShareObject(ID, COMMUDESCRIPT, IMAGE3));
+                    upload(image_file, userid ,UserRoutineId ,commudescript);
                 }
 
             }
         });
+
         /** 여기부터 내비바 필요한거**/
         btncomu = findViewById(R.id.btncomu);
         btncal = findViewById(R.id.btncal);
@@ -129,15 +141,15 @@ public class Community_UpLoad extends AppCompatActivity {
 
     }
 
-    private void upload(ShareObject shareObject) {
+    private void upload(MultipartBody.Part image, RequestBody userid, int userroutineid, RequestBody commudescript) {
 
         //List<POST> postList = Arrays.asList(gson.fromJson(reader,))
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-        Call<ShareVO> call = retrofitService.getShare(shareObject);
-        call.enqueue(new Callback<ShareVO>() {
+        Call<ResponseBody> call = retrofitService.getShare(image,userid,userroutineid,commudescript);
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ShareVO> call, Response<ShareVO> response) {
-                shareVO = response.body();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                //shareVO = response.body();
 
 //                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
 //                startActivity(intent);
@@ -146,7 +158,7 @@ public class Community_UpLoad extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ShareVO> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "업로드 실패했습니다!", Toast.LENGTH_SHORT).show();
 
                 t.printStackTrace();
@@ -191,58 +203,30 @@ public class Community_UpLoad extends AppCompatActivity {
             }
 
         } catch (Exception e) {
-            Toast.makeText(this, "Oops! 로딩에 오류가 있습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "로딩에 오류가 있습니다.", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
     }
     public static void SaveBitmapToFileCache(Bitmap bitmap, String strFilePath, String filename) {
-
-
-
         File file = new File(strFilePath);
 
-
-
         if (!file.exists())
-
             file.mkdirs();
-
-
-
         File fileCacheItem = new File(strFilePath + filename);
-
         OutputStream out = null;
-
-
-
         try {
-
             fileCacheItem.createNewFile();
-
             out = new FileOutputStream(fileCacheItem);
-
-
-
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
-
         } catch (Exception e) {
-
             e.printStackTrace();
-
         } finally {
-
             try {
-
                 out.close();
-
             } catch (IOException e) {
-
                 e.printStackTrace();
-
             }
-
         }
-
     }
 
     // 절대경로 파악할 때 사용된 메소드

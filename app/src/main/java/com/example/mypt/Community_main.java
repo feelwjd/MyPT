@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,8 +15,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mypt.api.RoutineInfoVO;
 import com.example.mypt.commu.Community_Data;
 import com.example.mypt.commu.CommunityallObject;
+import com.example.mypt.commu.ShareVO;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -28,9 +31,13 @@ import retrofit2.Response;
 
 public class Community_main extends AppCompatActivity{
     Button btn_upload, btn_mainmenu, btn_f5;
-    List<Community_Data> dataInfo;
+    List<RoutineInfoVO> routineInfoInfoVO;
+    RoutineInfoVO routineInfoVO;
     RecyclerView recyclerView;
     Community_RecycleAdapter recycleAdapter;
+    List<RoutineInfoVO> filterList;
+    List<ShareVO> shareVOList;
+
     String[] array;
     Gson gson;
 
@@ -40,16 +47,14 @@ public class Community_main extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_community_main);
-        //타이틀바 없애는 코드
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
-        ConstraintLayout constraintLayout = findViewById(R.id.container2);
+        getSupportActionBar().setTitle("커뮤니티");
 
-        dataInfo = new ArrayList<>();
+        filterList = new ArrayList<>();
         recyclerView = findViewById(R.id.community_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
+
+        JsonObject jsonObject = new JsonObject("feelwjd");
 
         btn_upload = (Button) findViewById(R.id.btn_upload);
         btn_upload.setOnClickListener(new View.OnClickListener() {
@@ -125,22 +130,23 @@ public class Community_main extends AppCompatActivity{
     private void f5(){
 
         RetrofitService retrofitService = APIClient.getClient().create(RetrofitService.class);
-
-        Call<List<Community_Data>> call = retrofitService.getCommunity();
-        call.enqueue(new Callback<List<Community_Data>>() {
+        Call<List<ShareVO>> call = retrofitService.getCommu();
+        call.enqueue(new Callback<List<ShareVO>>() {
             @Override
-            public void onResponse(Call<List<Community_Data>> call, Response<List<Community_Data>> response) {
+            public void onResponse(Call<List<ShareVO>> call, Response<List<ShareVO>> response) {
 
-                dataInfo = response.body();
-                Log.d("Test","sex");
+                String date1;
+                shareVOList = response.body();
 
-                recycleAdapter = new Community_RecycleAdapter(getApplicationContext(),response.body());
+                recycleAdapter = new Community_RecycleAdapter(getApplicationContext(), response.body());
                 recyclerView.setAdapter(recycleAdapter);
+                Toast.makeText(getApplicationContext(), "새로고침 완료!", Toast.LENGTH_SHORT).show();
+                btn_f5.setText("Success!");
             }
 
             @Override
-            public void onFailure(Call<List<Community_Data>> call, Throwable t) {
-                Log.d("Community_mainActivity",t.toString());
+            public void onFailure(Call<List<ShareVO>> call, Throwable t) {
+                Log.d("TestActivity", t.toString());
             }
         });
     }

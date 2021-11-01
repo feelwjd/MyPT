@@ -51,12 +51,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-
     <Button
         android:id="@+id/btn_imageselect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="144dp"
         android:onClick="loadImagefromGallery2"
         android:text="사진선택"
         android:textSize="20dp"
@@ -66,20 +65,20 @@
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
 
+    /**아래까지 네비입니다잉**/
+
     <Button
         android:id="@+id/btn_uploadthis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="144dp"
         android:text="업로드"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/image1"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintHorizontal_bias="0.751"
         app:layout_constraintStart_toStartOf="@+id/image1"
         app:layout_constraintTop_toBottomOf="@+id/image1" />
-
-    /**아래까지 네비입니다잉**/
 
     <LinearLayout
         android:id="@+id/nav"
