@@ -89,7 +89,7 @@ public class Community_UpLoad extends AppCompatActivity {
                 RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
                 MultipartBody.Part image_file = MultipartBody.Part.createFormData("image", file.getName().concat(".jpg"), requestFile);
                 RequestBody userid = RequestBody.create(MultipartBody.FORM,ID);
-                RequestBody commudescript = RequestBody.create(MultipartBody.FORM,COMMUDESCRIPT);
+                RequestBody image = RequestBody.create(MultipartBody.FORM,IMAGE);
 
 
 
@@ -99,7 +99,7 @@ public class Community_UpLoad extends AppCompatActivity {
                 }
                 // 문제없으면, 회원가입을 진행합니다.
                 else {
-                    upload(image_file, userid ,UserRoutineId ,commudescript);
+                    upload(image_file, userid ,UserRoutineId ,image);
                 }
 
             }
@@ -116,9 +116,8 @@ public class Community_UpLoad extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 //shareVO = response.body();
-
-//                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), Community_main.class);
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(), "업로드 성공했습니다!", Toast.LENGTH_SHORT).show();
 
             }
