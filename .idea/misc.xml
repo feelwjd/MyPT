@@ -3,16 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/background_search.xml" value="0.26481481481481484" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/ic_baseline_arrow_forward_ios_24.xml" value="0.16145833333333334" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/ic_baseline_favorite_border_24.xml" value="0.16145833333333334" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_community_recycler.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_list.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_popup.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_routine.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_test.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/cal_item_list.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/layout_rv_item.xml" value="0.2427536231884058" />
+        <entry key="..\:/IT/MobilePrograming/MyPT1/app/src/main/res/layout/activity_main.xml" value="0.2708333333333333" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable-v24/background_search.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/btn_cal.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/btn_comu.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/btn_my.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/lock_24.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/nav_rectangle.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/drawable/round.xml" value="0.3723076923076923" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_calender.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_checkbody.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_community_main.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_community_recycler.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_community_upload.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_first.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_list.xml" value="0.365036231884058" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_popup.xml" value="0.20260416666666667" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_routine.xml" value="0.365036231884058" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_signdelete.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_signin.xml" value="0.1762917933130699" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_signup.xml" value="0.26721014492753625" />
+        <entry key="..\:/IT/MobilePrograming/MyPT2/app/src/main/res/layout/activity_splash.xml" value="0.33" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/CalenderActivity.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_calender.xml" value="0.22" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_first.xml" value="0.3125" />

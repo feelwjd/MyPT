@@ -107,6 +107,7 @@ public class My_TestActivity extends AppCompatActivity {
             public void onClick(View view) {
                 dialog.dismiss(); // 다이얼로그 닫기
             }
+
         });
     }
 

@@ -79,63 +79,63 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingBottom="0dp"
         android:background="@drawable/nav_rectangle"
+        android:orientation="horizontal"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/btncal"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_alignParentLeft="true"
-            android:text="캘린더"
-            android:drawablePadding="-5dp"
             android:background="@android:color/transparent"
-            android:layout_alignParentBottom="true"
-            android:drawableTop="@drawable/btn_cal" />
+            android:drawableTop="@drawable/btn_cal"
+            android:drawablePadding="-5dp"
+            android:text="캘린더" />
 
         <Button
             android:id="@+id/btnstart"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_alignParentLeft="true"
-            android:text="운동시작"
-            android:drawablePadding="-5dp"
             android:background="@android:color/transparent"
-            android:layout_alignParentBottom="true"
-            android:drawableTop="@drawable/btn_start" />
+            android:drawableTop="@drawable/btn_start"
+            android:drawablePadding="-5dp"
+            android:text="운동시작" />
 
         <Button
             android:id="@+id/btncomu"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_alignParentLeft="true"
-            android:text="커뮤니티"
-            android:drawablePadding="-5dp"
             android:background="@android:color/transparent"
-            android:layout_alignParentBottom="true"
-            android:drawableTop="@drawable/btn_comu" />
+            android:drawableTop="@drawable/btn_comu"
+            android:drawablePadding="-5dp"
+            android:text="커뮤니티" />
 
         <Button
             android:id="@+id/btnmy"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_alignParentLeft="true"
-            android:text="마이페이지"
-            android:drawablePadding="-5dp"
             android:background="@android:color/transparent"
-            android:layout_alignParentBottom="true"
-            android:drawableTop="@drawable/btn_my" />
+            android:drawableTop="@drawable/btn_my"
+            android:drawablePadding="-5dp"
+            android:text="마이페이지" />
 
     </LinearLayout>
 

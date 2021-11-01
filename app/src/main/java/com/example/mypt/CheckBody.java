@@ -62,7 +62,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),routinename.class);
+                Intent intent = new Intent(getApplicationContext(),splash.class);
                 startActivity(intent);
             }
         });
@@ -86,10 +86,9 @@ public class CheckBody extends AppCompatActivity {
 
         btncomu.setOnClickListener(new View.OnClickListener(){
 
-
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Calender.class);
+                Intent intent = new Intent (getApplicationContext(), Community_main.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +97,7 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
@@ -116,13 +115,10 @@ public class CheckBody extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Watch.class);
+                Intent intent = new Intent(getApplicationContext(),Watch.class);
                 startActivity(intent);
             }
         });
-
-
-
         /** 여기까지 내비바 필요한거**/
     }
 }

@@ -30,7 +30,7 @@
     android:id="@+id/tv_exercise"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:text="러닝, 유산소, 벤치프레스 "
+    android:text="트레드밀 러닝 버피  로잉 머신  스텝 머신 "
     android:textColor="@color/white"
     android:background="#ff1e1f23"
     android:layout_gravity="center"

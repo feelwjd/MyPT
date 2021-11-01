@@ -16,7 +16,7 @@
         android:theme="@style/Theme.MyPT"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".Community_main">
+        <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -26,6 +26,8 @@
         <activity android:name=".TestActivity"></activity>
         <activity android:name=".SignInActivity"></activity>
         <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".Community_main"></activity>
+        <activity android:name=".splash"/>
         <activity android:name=".BodyPicture"></activity>
         <activity android:name=".Calender"></activity>
         <activity android:name=".CAL_TestActivity"></activity>
