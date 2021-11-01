@@ -34,9 +34,10 @@
         <activity android:name=".Routine"></activity>
         <activity android:name=".SignDeleteActivity"></activity>
         <activity android:name=".DbTest"></activity>
-        <activity android:name=".My_TestActivity"
+        <activity android:name=".My_TestActivity"></activity>
         <activity android:name=".Watch"></activity>
-
+        <activity android:name=".PopUp"></activity>
+        <activity android:name=".routinename"></activity>
     </application>
 
 </manifest>

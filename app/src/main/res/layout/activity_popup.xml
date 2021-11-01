@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_todayroutine"
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:background="#ff1e1f23"
@@ -26,6 +27,7 @@
 
 
 <TextView
+    android:id="@+id/tv_exercise"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:text="러닝, 유산소, 벤치프레스 "
@@ -33,8 +35,7 @@
     android:background="#ff1e1f23"
     android:layout_gravity="center"
     android:textAlignment="center"
-    android:textSize="20dp"
-    android:textcolor="color:white"/>
+    android:textSize="20dp" />
 
     <View
         android:background="#ff1e1f23"

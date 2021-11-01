@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -53,7 +54,8 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-
+        int i=0;
+        ImageView redheart;
     //    TextView workoutid;
         TextView workoutname;
 //        TextView part;
@@ -66,7 +68,7 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            redheart = (ImageView) itemView.findViewById(R.id.redheart);
         //    workoutid = (TextView)itemView.findViewById(R.id.workoutid);
             workoutname = (TextView)itemView.findViewById(R.id.rv_favorites);
 //            part = (TextView)itemView.findViewById(R.id.part);
@@ -77,7 +79,19 @@ public class My_RecycleAdapter extends RecyclerView.Adapter<My_RecycleAdapter.My
             //description = (TextView)itemView.findViewById(R.id.description);
             //workoutname = (TextView)itemView.findViewById(R.id.workoutname);
 
+            redheart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    i=1-i;
+                    if(i==0){
+                        redheart.setImageResource(R.drawable.ic_baseline_favorite_border_24);
+                    } else{
+                        redheart.setImageResource(R.drawable.ic_like);
 
+                    }
+                }
+
+            });
         }
     }
 }

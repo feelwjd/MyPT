@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageButton
-        android:id="@+id/btn_favorites"
+    <ImageView
+        android:id="@+id/redheart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
@@ -30,8 +30,8 @@
         android:layout_marginBottom="15dp"
         android:text="workoutname"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_favorites"
-        app:layout_constraintStart_toEndOf="@+id/btn_favorites" />
+        app:layout_constraintBottom_toBottomOf="@+id/redheart"
+        app:layout_constraintStart_toEndOf="@+id/redheart" />
 
     <ImageButton
         android:id="@+id/btn_more"
