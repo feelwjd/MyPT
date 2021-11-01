@@ -1,6 +1,7 @@
 package com.example.mypt;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mypt.api.RoutineInfoVO;
+
+import java.util.Date;
 import java.util.List;
 
 public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.MyViewHolder>{
@@ -27,14 +31,14 @@ public class CAL_RecycleAdapter extends RecyclerView.Adapter<CAL_RecycleAdapter.
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CAL_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(c).inflate(R.layout.cal_item_list, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CAL_RecycleAdapter.MyViewHolder holder, int position) {
 
 
 

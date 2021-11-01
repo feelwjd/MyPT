@@ -1,5 +1,8 @@
 package com.example.mypt;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.*;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;

@@ -1,23 +1,30 @@
 package com.example.mypt;
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.mypt.api.RoutineInfoVO;
 import com.google.android.material.datepicker.MaterialCalendar;
 import com.google.gson.Gson;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -26,12 +33,14 @@ import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import kotlin.reflect.TypeOfKt;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -243,7 +252,7 @@ recyclerView.addItemDecoration(new CAL_RecyclerDecoration(1));
             public void SaturdayDecorator(){}
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.SATURDAY;
             }
@@ -259,7 +268,7 @@ materialCalendarView.addDecorator((new DayViewDecorator() {
     private final Calendar calendar = Calendar.getInstance();
     @Override
     public boolean shouldDecorate(CalendarDay day) {
-        //day.copyTo(calendar);
+        day.copyTo(calendar);
         int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
         return weekDay==Calendar.SUNDAY;
     }
@@ -325,7 +334,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.MONDAY;
             }
@@ -341,7 +350,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.TUESDAY;
             }
@@ -357,7 +366,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.WEDNESDAY;
             }
@@ -373,7 +382,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-                //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.THURSDAY;
             }
@@ -389,7 +398,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
             private final Calendar calendar = Calendar.getInstance();
             @Override
             public boolean shouldDecorate(CalendarDay day) {
-               //day.copyTo(calendar);
+                day.copyTo(calendar);
                 int weekDay=calendar.get(Calendar.DAY_OF_WEEK);
                 return weekDay==Calendar.FRIDAY;
             }
@@ -421,7 +430,12 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
                 view.addSpan(new ForegroundColorSpan(Color.rgb(153,204,255)));
             }
         });
-/** 여기부터 내비바 필요한거**/
+
+
+
+
+
+        /** 여기부터 내비바 필요한거**/
         btncomu = findViewById(R.id.btncomu);
         btncal = findViewById(R.id.btncal);
         btnmy = findViewById(R.id.btnmy);
@@ -431,7 +445,7 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
 
             @Override
             public void onClick(View view){
-                Intent intent = new Intent (getApplicationContext(), Community_main.class);
+                Intent intent = new Intent (getApplicationContext(), Calender.class);
                 startActivity(intent);
             }
         });
@@ -463,6 +477,9 @@ materialCalendarView.addDecorator(new MySelecotrDecorator(this) {});
                 startActivity(intent);
             }
         });
+
+
+
         /** 여기까지 내비바 필요한거**/
         
 
