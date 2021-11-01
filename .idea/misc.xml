@@ -3,16 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/background_search.xml" value="0.26481481481481484" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/ic_baseline_arrow_forward_ios_24.xml" value="0.16145833333333334" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/drawable-v24/ic_baseline_favorite_border_24.xml" value="0.16145833333333334" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_community_recycler.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_list.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_popup.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_routine.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/activity_test.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/cal_item_list.xml" value="0.2427536231884058" />
-        <entry key="..\:/Android_Project/MyPT11/app/src/main/res/layout/layout_rv_item.xml" value="0.2427536231884058" />
+        <entry key="..\:/IT/MobilePrograming/MyPT1/app/src/main/res/layout/activity_main.xml" value="0.2708333333333333" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/CalenderActivity.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_calender.xml" value="0.22" />
         <entry key="..\:/Users/alexp/AndroidStudioProjects/MyPT/app/src/main/res/layout/activity_first.xml" value="0.3125" />
