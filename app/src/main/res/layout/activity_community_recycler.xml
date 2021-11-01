@@ -23,9 +23,9 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/after"
+            android:id="@+id/image_s"
             android:layout_width="match_parent"
-            android:layout_height="270dp"
+            android:layout_height="380dp"
             android:layout_marginTop="10dp"
             android:contentDescription="TODO"
             android:scaleType="centerCrop" />

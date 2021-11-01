@@ -4,22 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.example.mypt.api.RoutineInfoVO;
 import com.example.mypt.commu.ShareVO;
-import com.example.mypt.commu.ShareVO;
 import com.google.gson.Gson;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.sql.Date;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +25,7 @@ public class TestActivity extends AppCompatActivity {
     List<RoutineInfoVO> routineInfoInfoVO;
     RoutineInfoVO routineInfoVO;
     RecyclerView recyclerView;
-    RecycleAdapter recycleAdapter;
+    Commu_RecycleAdapter commuRecycleAdapter;
     List<RoutineInfoVO> filterList;
     List<ShareVO> shareVOList;
     //private String REQUEST_URL = Config.APIROUTINEINFO; // 여기가 젤 중요한 부분인데 Config 파일의 모델을 사용함. 내용은 Config 파일 참고할것.
@@ -78,14 +69,14 @@ public class TestActivity extends AppCompatActivity {
                 shareVOList = response.body();
 
 
-                recycleAdapter = new RecycleAdapter(getApplicationContext(), response.body());
+                commuRecycleAdapter = new Commu_RecycleAdapter(getApplicationContext(), response.body());
                 //for (int i = 0;i < response.body().size();i++){
                 //    if (response.body().get(i).getRoutineDate().contains(date1)){
                 //        filterList.add(response.body().get(i));
                 //    }
                 //}
                 //recycleAdapter.filterList(filterList);
-                recyclerView.setAdapter(recycleAdapter);
+                recyclerView.setAdapter(commuRecycleAdapter);
             }
 
             @Override

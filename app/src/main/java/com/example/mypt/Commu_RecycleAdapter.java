@@ -1,9 +1,6 @@
 package com.example.mypt;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +10,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mypt.api.RoutineInfoVO;
-import com.example.mypt.commu.ShareVO;
 import com.example.mypt.commu.ShareVO;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHolder>{
+public class Commu_RecycleAdapter extends RecyclerView.Adapter<Commu_RecycleAdapter.MyViewHolder>{
 
     private Context c;
     private List<ShareVO> shareVOList;
 
 
-    public RecycleAdapter(Context c, List<ShareVO> shareVOList) {
+    public Commu_RecycleAdapter(Context c, List<ShareVO> shareVOList) {
         this.c = c;
         this.shareVOList = shareVOList;
 
@@ -39,14 +29,14 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
 
     @NonNull
     @Override
-    public RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Commu_RecycleAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(c).inflate(R.layout.item_list, parent, false);
+        View view = LayoutInflater.from(c).inflate(R.layout.activity_community_recycler, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Commu_RecycleAdapter.MyViewHolder holder, int position) {
 
 
         holder.userid.setText(shareVOList.get(position).getUserid());

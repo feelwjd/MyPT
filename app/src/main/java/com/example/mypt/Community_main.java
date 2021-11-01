@@ -1,6 +1,5 @@
 package com.example.mypt;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.content.Intent;
 
@@ -14,13 +13,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mypt.commu.Community_Data;
-import com.example.mypt.commu.CommunityallObject;
 import com.example.mypt.commu.ShareVO;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,7 +27,7 @@ public class Community_main extends AppCompatActivity{
     Button btn_upload, btn_mainmenu, btn_f5;
     List<ShareVO> shareVOList;
     RecyclerView recyclerView;
-    RecycleAdapter recycleAdapter;
+    Commu_RecycleAdapter commuRecycleAdapter;
     String[] array;
     Gson gson;
 
@@ -136,8 +132,8 @@ public class Community_main extends AppCompatActivity{
                 shareVOList = response.body();
 
 
-                recycleAdapter = new RecycleAdapter(getApplicationContext(), response.body());
-                recyclerView.setAdapter(recycleAdapter);
+                commuRecycleAdapter = new Commu_RecycleAdapter(getApplicationContext(), response.body());
+                recyclerView.setAdapter(commuRecycleAdapter);
             }
 
             @Override
